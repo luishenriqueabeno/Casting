@@ -1,0 +1,104 @@
+
+/***MAIN CONTENT: FORM STYLING (forms.html)***/
+.pppf { width: 50px; }
+.ppf { width: 65px; }
+.pf { width: 100px; }
+.ssf { width: 170px; }
+.sf { width: 250px; }
+.mf { width: 350px; }
+.lf { width: 450px; }
+.por_cent_pq { width: 500px;}
+.por_cent { width: 663px;}
+textarea.mf { height: 100px; }
+input[type=radio], input[type=checkbox] { margin: -4px 5px 0 0; padding: 0; padding-left:20px;  vertical-align: middle; }
+
+.form_default { margin-top:30px\9;}
+.form_default fieldset { border: 1px solid #ccc; padding: 10px 10px 10px 20px; background : #f7f7f7;   }
+.form_default legend { text-transform: uppercase; font-weight: bold; font-size: 14px;  margin-top:-22px\9; margin-left:15px; }
+.form_default p { margin: 10px 0 !important;  }
+.form_default em {font-style:normal; color:#dc0c0c; font-weight:bold;  }
+.form_default .obs {font-style:normal; color:#898989; padding:0 5px;   }
+.form_default .first { padding-top:10px\9;}
+.form_default label {  text-align: left; padding-top: 5px; margin-right: 20px; padding-left: 30px; display:block; }
+.form_default .completed {  border:none !important; box:shadow:none !important; background: #E5E5E5 !important;}
+.form_default .completed {  -moz-box-shadow: 0px !important; -webkit-box-shadow: 0px !important; box-shadow:none !important;}
+.form_default .completed  { -moz-border-radius: 0px !important; -webkit-border-radius: 0px !important; border-radius: 0px !important; }
+
+.form_default .candidato_completed {  border:none !important; box:shadow:none !important;}
+.form_default .candidato_completed  {  padding-left:35px !important; background: #E5E5E5 url(../../../images/icons/promotor.png) no-repeat 10px 7px !important;}
+.form_default .candidato_completed {  -moz-box-shadow: 0px !important; -webkit-box-shadow: 0px !important; box-shadow:none !important;}
+.form_default .candidato_completed  { -moz-border-radius: 0px !important; -webkit-border-radius: 0px !important; border-radius: 0px !important; }
+
+.form_default input[type=text] { margin:10px 0 0 30px;  }
+.form_default input[type=text] { font-size: 12px; padding: 8px 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.form_default input[type=text] { padding-left: 15px; -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.form_default input[type=text] { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-right: 10px; }
+
+.form_default input[type=password] { margin:10px 0 0 30px;  }
+.form_default input[type=password] { font-size: 12px; padding: 8px 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.form_default input[type=password] { padding-left: 15px; -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.form_default input[type=password] { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-right: 10px; }
+
+.form_default .cont_pdvs input[type=text] { font-size: 12px; padding: 5px 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.form_default .cont_pdvs input[type=text] { -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.form_default .cont_pdvs input[type=text] { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-right: 30px; margin-top:-5px; margin-left:15px; }
+
+.form_default textarea {  margin:10px 0 0 30px;  }
+.form_default textarea { font-size: 12px; padding: 8px 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.form_default textarea { padding-left: 15px; -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.form_default textarea { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-right: 10px; }
+
+.box_comentario textarea { height: 40px; width: 91.2%;}
+.box_comentario textarea { font-size: 12px; padding: 8px 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.box_comentario textarea { -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.box_comentario textarea { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+
+.box_responder textarea { height: 40px; width: 91.2%;}
+.box_responder textarea { font-size: 12px; padding: 8px 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.box_responder textarea { -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.box_responder textarea { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+
+
+.form_default select { margin:10px 0 0 30px;   }
+.form_default select { font-size: 12px; padding: 8px 5px; border: 1px solid #ccc; background: #fcfcfc; outline: none; }
+.form_default select { -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.form_default select { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-right: 10px; }
+.form_default select.sf { width: 262px; }
+.form_default select.mf { width: 362px; }
+.form_default select.lf { width: 462px; }
+
+.form_default input[type="file"] { margin:10px 0 0 30px;  }
+.form_default file { font-size: 12px; padding: 5px; border: 1px solid #ccc; background: #FFF; outline: none; }
+.form_default file { -moz-box-shadow: inset 1px 1px 3px #ccc; -webkit-box-shadow: inset 1px 1px 3px #ccc; box-shadow: inset 1px 1px 3px #ccc; }
+.form_default file { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin-right: 10px; } **/
+
+.file-wrapper {  cursor: pointer !important; display: inline-block; overflow: hidden; position: relative; }
+.file-wrapper .button {   cursor: pointer !important;  display: inline-block; }
+.file-wrapper input {  cursor: pointer !important; height: 100%;  position: absolute; right: 0;  top: 0; }
+.file-wrapper input {  filter: alpha(opacity=1);  -moz-opacity: 0.01;  opacity: 0.01; }
+
+.form_default input[type=text]:focus, .form_default textarea:focus { background: #fff; }
+
+
+.form_default button { background: #4b6592 url(../../../images/buttonbg3.png) repeat-x top left; color: #fff; padding: 7px 20px; cursor: pointer; }
+.form_default button { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #395380; font-size: 12px; }
+.form_default button { text-transform: uppercase; text-shadow: 1px 1px #395380; margin-left: 170px; }
+.form_default button { -moz-box-shadow: 1px 1px 2px #999; -webkit-box-shadow: 1px 1px 2px #999; box-shadow: 1px 1px 2px #999; }
+.form_default button:hover { background: #005681 url(../../../images/buttonbg3.png) repeat-x 0 -36px; }
+.form_default button:active { -moz-box-shadow: inset 2px 2px 2px #12274c; -webkit-box-shadow: inset 2px 2px 2px #12274c; box-shadow: inset 2px 2px 2px #12274c; }
+
+.mg_foto_bts { margin-left:194px; margin-left:186px\9; }
+@-moz-document url-prefix() {  .mg_foto_bts {  margin-left:87px;  } }
+
+.form_default input.error, .form_default textarea.error, .form_default select.error { border: 1px solid #ff0000; }
+.form_default label.error { float: none; width: auto; color: #ff0000; font-size: 11px; display: inline-block; }
+
+.form_default .cliente_registrado { width: 215px; margin-right:15px;  font-size: 12px; padding: 5px 5px 5px 40px;  color:#333; outline: none; }
+.form_default .cliente_registrado { background: #e5e5e5 url(../../../images/icons/cliente.png) no-repeat 7px 6px }
+
+.form_default .formulario_registrado { width: 225px; margin-right:15px;  font-size: 12px; padding: 5px 5px 5px 30px;  color:#333; outline: none; }
+.form_default .formulario_registrado { background: #e5e5e5 url(../../../images/icons/small/black/formulario.png) no-repeat 7px 7px }
+
+.form_default .pdv_registrado { width: 415px; margin-right:15px;  font-size: 12px; padding: 5px 5px 5px 30px;  color:#333; outline: none; }
+.form_default .pdv_registrado { background: #e5e5e5 url(../../../images/icons/small/black/pdv.png) no-repeat 7px 7px }
+

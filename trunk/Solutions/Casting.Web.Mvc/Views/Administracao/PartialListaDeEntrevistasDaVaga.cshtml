@@ -1,0 +1,71 @@
+﻿@model Casting.Web.Mvc.Controllers.ViewModels.PesquisaVagaViewModel
+
+<div class="lista_entrevistas" style="display:none;" > <!--Pessoas-->
+    <div class="iconlink4 mostrar_vagas" style="float:left;">
+        <img src="@Url.Content("~/Content/images/cafe/icons/small/white/document.png")" class="mgright5" alt="">
+        <input type="submit"  value="Mostrar Vagas" /> 
+    </div>
+    <div class="clear"></div>
+    <h2 class="titulo_admin">Entrevistas marcadas para a vaga: "@Model.TituloDaVagaParaDetalhes". Cliente @Model.NomeDoClienteParaDetalhes</h2>
+    <div class="clear"></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="dyntable" id="example">
+        <thead>
+            <tr>
+                <th class="head0">Foto</th>
+                <th class="head0">Nome</th>
+                <th class="center head1">Idade</th>
+                <th class="center head0">Escolaridade</th>
+                <th class="center head1">Data da Entrevista</th>
+                <th class="center head0">Horário</th>
+                <th class="center head0">Situação</th>
+            </tr>
+        </thead>
+        <colgroup>
+            <col class="con0" />
+            <col class="con0" />
+            <col class="center con1" />
+            <col class="center con0" />
+            <col class="center con1" />
+            <col class="center con0" />
+            <col class="center con1" />
+            <col class="center con0" />
+        </colgroup>
+        <tbody>
+            @foreach (var entrevista in Model.Entrevistas)
+            {
+                var imagemCandidato = string.IsNullOrEmpty(entrevista.Foto) ? "" : Url.Content("/Content/uploads/fotosCandidatos/" + entrevista.Foto);
+                
+                <tr>
+                    <td class="con0"><span class="fotopequena"><img src="@imagemCandidato" class="foto_pequena_pesquisa img_border fl"/><div class="fotoblocohover"><img src="@imagemCandidato" class="foto_grande_pesquisa"/></div></span></td>
+                    <td class="con0"><a href="@Url.Action("DetalhesCandidato","Administracao", new {id = @entrevista.IdCandidato})">@entrevista.Nome</a></td>
+                    <td class="center con1">@entrevista.Idade</td>
+                    <td class="center con0">@entrevista.Escolaridade</td>
+                    <td class="center con1">@entrevista.DataEntrevista</td>
+                    <td class="center con0">@entrevista.HoraEntrevista</td>
+                    <td class="center con0">@entrevista.Situacao</td>
+                </tr>	
+            }			
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="head0">Foto</th>
+                <th class="head0">Nome</th>
+                <th class="center head1">Idade</th>
+                <th class="center head0">Escolaridade</th>
+                <th class="center head1">Data da Entrevista</th>
+                <th class="center head0">Horário</th>
+                <th class="center head0">Situação</th>
+            </tr>
+        </tfoot>
+    </table>			
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery(".mostrar_vagas").click(function () {
+            jQuery(".lista_pessoas").hide();
+            jQuery(".lista_entrevistas").hide();
+            jQuery(".lista_vagas").show();
+        });
+    });
+</script>

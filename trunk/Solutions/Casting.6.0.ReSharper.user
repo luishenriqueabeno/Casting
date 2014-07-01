@@ -1,0 +1,299 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:BuscarVaga.cshtml" caret="664" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Bancos.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Clientes.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:ExperienciaProfissionals.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Funcaos.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:IClientes.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:IEntrevistas.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:IFuncaos.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:IRecrutamentos.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:ISegmentos.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:ISituacaoCandidatos.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:IVagas.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Recrutamentos.cs" caret="0" fromTop="0" />
+      <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:ProjetosParticipados.cs" caret="482" fromTop="17" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Avaliacoes.cs" caret="3231" fromTop="19" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:IAvaliacoes.cs" caret="1214" fromTop="15" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:BuscarCandidato.cshtml" caret="10025" fromTop="18" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Home/f:Index.cshtml" caret="321" fromTop="13" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Home/f:PartialCandidatoIndex.cshtml" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Home/f:PartialAdminIndex.cshtml" caret="3086" fromTop="7" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:HomeController.cs" caret="11843" fromTop="12" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:ICandidatos.cs" caret="1258" fromTop="16" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:BuscaAvancada.cshtml" caret="724" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:AuxiliarDePesquisaViewModel.cs" caret="23291" fromTop="11" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Candidatos.cs" caret="10161" fromTop="12" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:CadastrarCliente.cshtml" caret="1384" fromTop="5" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:AvaliacaoViewModel.cs" caret="381" fromTop="6" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:AdministracaoController.cs" caret="32123" fromTop="12" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:CadastroController.cs" caret="0" fromTop="0" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:AvaliacaoAparencia.cshtml" caret="602" fromTop="12" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:BuscarVaga.cshtml" caret="5216" fromTop="25" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:BuscaAvancada.cshtml" caret="35005" fromTop="11" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:VagaViewModel.cs" caret="0" fromTop="0" />
+      <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:PerfilComportalmental.cs" caret="164" fromTop="5" />
+      <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:ProjetosParticipados.cs" caret="549" fromTop="13" />
+      <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:ProjetosParticipados.cs" caret="360" fromTop="12" />
+      <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:ProjetosParticipados.cs" caret="528" fromTop="18" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:PesquisaAvancadaAdminViewModel.cs" caret="1070" fromTop="26" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:IAvaliacoes.cs" caret="1237" fromTop="25" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:AdministracaoController.cs" caret="15825" fromTop="20" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Avaliacoes.cs" caret="3287" fromTop="21" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:BuscaAvancada.cshtml" caret="18175" fromTop="17" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:BuscaAvancada.cshtml" caret="17329" fromTop="10" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:BuscaAvancada.cshtml" caret="17287" fromTop="22" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Avaliacoes.cs" caret="3163" fromTop="18" />
+      <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:ProjetosParticipados.cs" caret="242" fromTop="10" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:AuxiliarDePesquisaViewModel.cs" caret="564" fromTop="15" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:AuxiliarDePesquisaViewModel.cs" caret="5511" fromTop="22" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:AuxiliarDePesquisaViewModel.cs" caret="5511" fromTop="10" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:AuxiliarDePesquisaViewModel.cs" caret="12887" fromTop="19" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:AuxiliarDePesquisaViewModel.cs" caret="13289" fromTop="15" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:AdministracaoController.cs" caret="13796" fromTop="16" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Candidatos.cs" caret="9747" fromTop="15" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Candidatos.cs" caret="6211" fromTop="9" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:BuscarCandidato.cshtml" caret="10025" fromTop="18" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:CadastrarCliente.cshtml" caret="1960" fromTop="19" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:CadastrarCliente.cshtml" caret="1383" fromTop="5" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:AvaliacaoViewModel.cs" caret="379" fromTop="6" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:AdministracaoController.cs" caret="32054" fromTop="11" />
+      <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:AvaliacaoAparencia.cshtml" caret="498" fromTop="7" />
+    </RecentEdits>
+  </RecentFiles>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Count" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="return" priority="191" />
+      <Item value="JsonResult" priority="28" />
+      <Item value="JsonRequestBehavior`0" priority="90" />
+      <Item value="else" priority="95" />
+      <Item value="new" priority="95" />
+      <Item value="EmptyResult" priority="28" />
+      <Item value="string" priority="286" />
+      <Item value="using" priority="61" />
+      <Item value="System" priority="61" />
+      <Item value="Collections" priority="26" />
+      <Item value="Data" priority="22" />
+      <Item value="Web" priority="26" />
+      <Item value="Display" priority="87" />
+      <Item value="Name" priority="61" />
+      <Item value="StatusCandidato`0" priority="249" />
+      <Item value="object" priority="26" />
+      <Item value="recrutamento" priority="61" />
+      <Item value="var" priority="383" />
+      <Item value="typeof" priority="95" />
+      <Item value="Status" priority="127" />
+      <Item value="name" priority="31" />
+      <Item value="GetType`0" priority="31" />
+      <Item value="Enum`0" priority="29" />
+      <Item value="Dispose`0" priority="32" />
+      <Item value="status" priority="97" />
+      <Item value="false" priority="31" />
+      <Item value="DisplayAttribute`0" priority="64" />
+      <Item value="String`0" priority="31" />
+      <Item value="candidato" priority="58" />
+      <Item value="EstadoCivil`0" priority="86" />
+      <Item value="cv" priority="154" />
+      <Item value="estadoCivil" priority="94" />
+      <Item value="exp" priority="61" />
+      <Item value="if" priority="63" />
+      <Item value="per" priority="31" />
+      <Item value="HttpPostedFileBase`0" priority="187" />
+      <Item value="file" priority="161" />
+      <Item value="CandidatoViewModel`0" priority="95" />
+      <Item value="Action`0" priority="31" />
+      <Item value="Request" priority="31" />
+      <Item value="foreach" priority="26" />
+      <Item value="postedFileBase" priority="223" />
+      <Item value="File`0" priority="91" />
+      <Item value="FileStream" priority="26" />
+      <Item value="HttpPostedFileWrapper" priority="28" />
+      <Item value="fileBase" priority="32" />
+      <Item value="FileStream`0" priority="31" />
+      <Item value="Json`0" priority="63" />
+      <Item value="data" priority="31" />
+      <Item value="fileData" priority="31" />
+      <Item value="id" priority="63" />
+      <Item value="int" priority="31" />
+      <Item value="caminhoImagem" priority="31" />
+      <Item value="public" priority="158" />
+      <Item value="IList" priority="95" />
+      <Item value="Projetos" priority="194" />
+      <Item value="virtual" priority="31" />
+      <Item value="ProjetosParticipados`0" priority="288" />
+      <Item value="ProjetosParticipadosModel`0" priority="53" />
+      <Item value="ProjetosParticipadoses" priority="32" />
+      <Item value="Casting" priority="63" />
+      <Item value="Domain" priority="53" />
+      <Item value="ProjetosParticipados" priority="32" />
+      <Item value="_avaliacoes" priority="32" />
+      <Item value="Session" priority="127" />
+      <Item value="query" priority="95" />
+      <Item value="Vagas`0" priority="31" />
+      <Item value="projeto" priority="182" />
+      <Item value="text" priority="29" />
+      <Item value="null" priority="31" />
+      <Item value="proj" priority="64" />
+      <Item value="Model" priority="29" />
+      <Item value="IFilterProvider`0" priority="31" />
+      <Item value="Candidato`0" priority="22" />
+      <Item value="Cliente" priority="32" />
+      <Item value="_candidatos" priority="32" />
+      <Item value="idCandidato" priority="31" />
+      <Item value="NomeCandidato" priority="32" />
+    </ItemStatistics>
+    <ItemStatistics item="JavaScriptSpecificContextQualified">
+      <Item value="length" priority="36" />
+      <Item value="location" priority="9" />
+      <Item value="parse" priority="8" />
+    </ItemStatistics>
+    <ItemStatistics item="JavaScriptSpecificContext">
+      <Item value="null" priority="10" />
+      <Item value="if" priority="32" />
+      <Item value="aData" priority="65" />
+      <Item value="jQuery" priority="43" />
+      <Item value="false" priority="10" />
+      <Item value="Content`0" priority="5" />
+      <Item value="alert" priority="43" />
+      <Item value="resp" priority="10" />
+      <Item value="FotoRosto" priority="5" />
+      <Item value="data" priority="32" />
+      <Item value="$" priority="9" />
+      <Item value="response" priority="10" />
+      <Item value="JSON" priority="21" />
+      <Item value="return" priority="10" />
+      <Item value="nRow" priority="10" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Mvc.JsonRequestBehavior">
+      <Item value="AllowGet" priority="49" />
+      <Item value="DenyGet" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="RazorTransitionCompletionContext">
+      <Item value="StatusCandidato`0" priority="9" />
+      <Item value="object" priority="5" />
+      <Item value="recrutamento" priority="9" />
+      <Item value="Enum`0" priority="9" />
+      <Item value="estadoCivil" priority="7" />
+      <Item value="exp" priority="9" />
+      <Item value="projeto" priority="5" />
+      <Item value="text" priority="9" />
+      <Item value="Model" priority="9" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Web.Mvc.Controllers.ViewModels.HistoricoDeRecrutamento">
+      <Item value="Status" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Casting.Domain.enums.StatusCandidato">
+      <Item value="Aprovado" priority="26" />
+      <Item value="Nenhum" priority="26" />
+      <Item value="DesligadoDaVaga" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Enum">
+      <Item value="GetName`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Domain.Recrutamento">
+      <Item value="StatusCandidato" priority="49" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.ComponentModel.DataAnnotations.DisplayAttribute">
+      <Item value="GetCustomAttribute`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.ComponentModel.DataAnnotations.DisplayAttribute">
+      <Item value="Name" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Domain.Candidato">
+      <Item value="EstadoCivil" priority="72" />
+      <Item value="FotoRosto" priority="26" />
+      <Item value="Nome" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Web.Mvc.Controllers.ViewModels.CandidatoViewModel">
+      <Item value="EstadoCivil" priority="76" />
+      <Item value="FotoRosto" priority="58" />
+      <Item value="Id" priority="26" />
+      <Item value="FileFotoCorpoFrente" priority="45" />
+      <Item value="FotoCorpoFrente" priority="73" />
+      <Item value="FotoCorpoLado" priority="68" />
+      <Item value="FotoCabelo" priority="68" />
+      <Item value="FotoOlhos" priority="45" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Domain.ExperienciaProfissional">
+      <Item value="Periodo2" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="HtmlCodeCompletionContext">
+      <Item value="altura" priority="12" />
+      <Item value="id" priority="24" />
+      <Item value="AccessNivelConhecimento" priority="5" />
+      <Item value="onclick" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="CssCodeCompletionContext">
+      <Item value="altura" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpRequestBase">
+      <Item value="Files" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpPostedFileBase">
+      <Item value="ContentType" priority="81" />
+      <Item value="InputStream" priority="26" />
+      <Item value="FileName" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.UrlHelper">
+      <Item value="Content`0" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="Parse`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Web.Mvc.Controllers.Queries.IAvaliacoes">
+      <Item value="ListaProjetosParticipados`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISession">
+      <Item value="CreateSQLQuery`0" priority="26" />
+      <Item value="QueryOver`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.ISQLQuery">
+      <Item value="ExecuteUpdate`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.IQueryOver`2">
+      <Item value="Inner" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NHibernate.Criterion.Lambda.IQueryOverJoinBuilder`2">
+      <Item value="JoinQueryOver`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Web.Mvc.Controllers.ViewModels.PesquisaAvancadaAdminViewModel">
+      <Item value="ProjetosParticipados" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Domain.ProjetosParticipados">
+      <Item value="Nome" priority="26" />
+      <Item value="Titulo" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Web.Mvc.Controllers.ViewModels.AvaliacaoViewModel">
+      <Item value="IdCandidato" priority="26" />
+      <Item value="NomeCandidato" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Casting.Web.Mvc.Controllers.Queries.ICandidatos">
+      <Item value="GetCandidato`0" priority="27" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>

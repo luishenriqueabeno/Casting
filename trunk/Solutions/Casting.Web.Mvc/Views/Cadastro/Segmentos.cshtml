@@ -1,0 +1,96 @@
+﻿@model Casting.Web.Mvc.Controllers.ViewModels.CandidatoViewModel
+
+@{
+    ViewBag.Title = "Segmentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+
+    <div class="left">
+		
+        <div class="etapas">
+            <ul class="exp_prof">
+                <li class="etapa1 ok"></li>
+                <li class="etapa2 on"></li>
+                <li class="etapa3"></li>
+            </ul>
+            <div class="clear"></div>
+        </div>   
+            
+        <div class="clear"></div>
+		
+        @using (Html.BeginForm("GravaSegmentos", "Cadastro", null, FormMethod.Post, new { @class = "formPost" }))
+        {
+            <div class="form_default">
+                <fieldset>
+                    @Html.HiddenFor(x => x.Id)
+                    <legend>Segmentos</legend>    
+					
+                    <div class="clear"></div>
+                    <p class="first">
+                        <label class="flfuncoes">
+                            <span class="fl">Marque todos que já atuou:
+                            </span>
+                        </label>
+                    </p>
+                    <div class="clear"></div>
+						
+                    <div class="containeropcoes">
+						
+                        @foreach (var seg in @Model.SegmentoList)
+                        {
+                            <label class="flfuncoes">
+                                @if (seg.UsuarioPossuiSegmento)
+                                {
+                                    <input type="checkbox" name="segmentos" value="@seg.Descricao"  checked="checked" />
+                                }
+                                else
+                                {
+                                    <input type="checkbox" name="segmentos" value="@seg.Descricao" />
+                                }
+                                @seg.Descricao
+                            </label>
+                        }
+							
+                        <div class="clear"></div>
+							
+                        <label for="outro">Outros</label>
+                        
+				        @Html.TextAreaFor(x => x.OutrosSegmentos, new { @class = "fl sf", rows = "", cols = "" })
+                        <div class="clear"></div>
+							
+                    </div>
+						
+                    <!-- BOTÕES -->
+                    <p style="padding-left: 646px; margin-top: 10px;">
+                        <a href="@Url.Action("Funcoes", "Cadastro")" class="iconlink3 mg_rt fl"><img src="@Url.Content("~/Content/images/cafe/icons/small/black/left.png")" class="mgright5" alt=""> <span>Voltar</span></a> 
+                        <a href="#" id="submitForm" class="iconlink4 fl"><img src="@Url.Content("~/Content/images/cafe/icons/small/white/right.png")" class="mgright5" alt=""> <span>Próxima Etapa</span></a>
+                    </p>
+                   
+                    <!-- BOTÕES - END -->
+                    
+                    <div class="clear"></div>
+
+                </fieldset>
+            </div>
+            <!--form-->
+        }   		       	
+		
+        <div class="clear"></div>			
+        <br />
+					
+    </div><!-- left -->            
+  
+	
+    <br clear="all" />
+    
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#submitForm').click(function () {
+            jQuery('.formPost').submit();
+        });
+    });
+</script>

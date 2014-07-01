@@ -1,0 +1,259 @@
+﻿@using Casting.Domain.enums
+
+<div id="conteudoImpressao" >
+    <div class="content">
+				
+        <h3>Candidato:</h3>
+        <p><strong>Código:</strong> @Model.Id</p>
+        <p><strong>CPF:</strong> @Model.Cpf</p>
+        <p><strong>Nome:</strong> @Model.Nome <p>
+        <p><strong>Status:</strong> @Model.SituacaoCandidato.Nome</p>
+        <p><strong>Data Cadastro:</strong> @Model.DataCadastro</p>
+        <p><strong>Data Última Alteração:</strong> @Model.DataAlteracao</p>
+
+    </div>
+    <div class="clear"></div>
+			
+    <div class="content">
+			@{
+                string imagemCandidato = string.IsNullOrEmpty(Model.FotoRosto) ?
+                    string.IsNullOrEmpty(Model.FotoCorpoFrente) ?
+                    "" : Url.Content("/Content/uploads/fotosCandidatos/" + Model.FotoCorpoFrente)
+                            : Url.Content("/Content/uploads/fotosCandidatos/" + Model.FotoRosto);
+        }
+        <h3>Informações do Candidato:</h3>
+        <p style="margin-left:300px;">
+            @if (imagemCandidato != "")
+            {
+                <img class="img_border" style="height: 400px; width: 300px;" src="@imagemCandidato" />
+            }else{
+                <img class="img_border" src="@Url.Content("/Content/images/avatar.png")" />
+            }
+        </p>
+
+        <p><strong>Código interno:</strong> @Model.Id</p>
+        <p><strong>CPF:</strong> @Model.Cpf</p>
+        <p><strong>Nome do candidato:</strong> @((Model.Nome != null) ? Model.Nome.ToUpper() : "")</p>
+        <p><strong>Data de Nascimento:</strong> @Model.DataNascimento</p>
+        <p><strong>Idade:</strong> @Model.Idade</p>
+        <p><strong>Naturalidade:</strong> @Model.NaturalidadeCidade - @Model.NaturalidadeUf</p>
+        <p><strong>Sexo:</strong> @Model.Sexo.ToString()</p>
+        <p><strong>Nacionalidade:</strong> @Model.Nacionalidade</p>
+        <p><strong>Nome do Pai:</strong> @Model.NomeDoPai</p>
+        <p><strong>Nome da Mãe:</strong> @Model.NomeDaMae</p>
+        <p><strong>Estado Civil:</strong> @Model.EstadoCivil</p>
+        
+        <div class="clear"></div>
+				
+        <h3>Conhecimentos:</h3>
+        <p><strong>Escolaridade:</strong> 
+            @if (@Model.Escolaridade == 0)
+            {
+                var escolaridade = "Nada Cadastrado";
+                @escolaridade
+            }
+            else
+            {
+                Escolaridade esc = Model.Escolaridade;
+                var escolaridade = "";
+                switch (esc)
+                {
+                    case Escolaridade.EnsinoFundamentalIncompleto:
+                        escolaridade = "Ensino Fundamental Incompleto";
+                        break;
+                    case Escolaridade.EnsinoFundamentalCompleto:
+                        escolaridade = "Ensino Fundamental Completo";
+                        break;
+                    case Escolaridade.EnsinoMedioIncompleto:
+                        escolaridade = "Ensino Fundamental Incompleto";
+                        break;
+                    case Escolaridade.EnsinoMedioCompleto:
+                        escolaridade = "Ensino Médio Completo";
+                        break;
+                    case Escolaridade.EnsinoSuperiorIncompleto:
+                        escolaridade = "Ensino Superior Incompleto";
+                        break;
+                    case Escolaridade.EnsinoSuperiorCompleto:
+                        escolaridade = "Ensino Superior Completo";
+                        break;
+                    case Escolaridade.PosGraduaçãoIncompleta:
+                        escolaridade = "Pós Graduação Incompleta";
+                        break;
+                    case Escolaridade.PosGraduaçãoCompleta:
+                        escolaridade = "Pós Graduação Completa";
+                        break;
+                    case Escolaridade.CursoTecnico:
+                        escolaridade = "Curso Técnico";
+                        break;
+                }
+                @escolaridade
+            }
+        </p>
+        <p>
+            <strong>Informática:</strong> 
+                    
+            @if (Model.ConhecimentoWord)
+            {
+                var cWord = " Word: " + Model.WordNivelConhecimento;
+                @cWord
+            }                   	
+
+            @if (Model.ConhecimentoExcel)
+            {
+                var cExcel = " Excel: " + Model.ExcelNivelConhecimento;
+                @cExcel
+            }   
+						
+            @if (Model.ConhecimentoPowerPoint)
+            {
+                var cPoint = " Power Point: " + Model.PowerPointNivelConhecimento;
+                @cPoint
+            }   
+                        
+            @if (Model.ConhecimentoAccess)
+            {
+                var cAccess = " Access: " + Model.AccessNivelConhecimento;
+                @cAccess
+            }   
+
+            @if (Model.ConhecimentoInternet)
+            {
+                var cInternet = " Internet: " + Model.InternetNivelConhecimento;
+                @cInternet
+
+            }   
+
+            @if (Model.ConhecimentoOutlook)
+            {
+                var cOutlook = " Outlook: " + Model.OutlookNivelConhecimento;
+                @cOutlook
+            }   
+                    
+            @if (!string.IsNullOrEmpty(Model.OutrosConhecimentos))
+            {
+                var cOutros = " Outros: " + Model.OutrosConhecimentos;
+                @cOutros
+            }  
+        </p>
+
+        <p>
+            <strong>Idiomas:</strong> 
+            @if (Model.PossuiIngles)
+            {
+                var idioma1 = " Inglês: " + Model.InglesNivelConhecimento;
+                @idioma1
+            }
+                        
+            @if (!string.IsNullOrEmpty(Model.Idioma2Nome))
+            {
+                var idioma2 = " " + Model.Idioma2Nome + ": " + Model.Idioma2NivelConhecimento;
+                @idioma2
+            }
+                        
+            @if (!string.IsNullOrEmpty(Model.Idioma3Nome))
+            {
+                var idioma3 = " " + Model.Idioma3Nome + ": " + Model.Idioma3NivelConhecimento;
+                @idioma3
+            }
+        </p>
+
+        <p>
+            <strong>Cursos técnicos:</strong>
+            @Model.NomeDoCursoTecnico
+        </p>
+				    
+        <div class="clear"></div>
+				
+        <h3>Telefones:</h3>
+        <p><strong>Residencial:</strong> @Model.TelefoneResidencial</p>
+        <p><strong>Celular: </strong>@Model.TelefoneCelular</p>
+        <p><strong>Comercial: </strong>@Model.TelefoneComercial</p>
+        <p><strong>Recados: </strong>@Model.TelefoneRecado</p>
+        <p><strong>E-mail:</strong> @Model.Email</p>
+				
+        <div class="clear"></div>
+				
+        <h3>Endereço:</h3>
+        <p><strong>Endereço:</strong> @Model.Endereco @((Model.Numero != "") ? ", " + Model.Numero : "") @((Model.Complemento != "") ? " - " + Model.Complemento : "")</p>
+        <p><strong>Bairro:</strong> @Model.Bairro</p>
+        <p><strong>CEP:</strong> @Model.CEP</p>
+        <p><strong>Cidade:</strong> @Model.Cidade @((Model.Estado != "") ? " - " + Model.Estado : "")</p>
+        <p><strong>Região/Zoneamento:</strong> @Model.Regiao</p>
+                    
+        <div class="clear"></div>
+				
+        <h3>Documentos:</h3>
+        <p><strong>CNH:</strong> @Model.HabilitacaoNumero</p>
+        <p><strong>Categoria:</strong> @Model.HabilitacaoCategoria</p>
+        <p>
+            <strong>Possui veículo?:</strong>
+                @{
+                    var possuiVeiculo = "Não";
+                    if (Model.PossuiVeiculo)
+                    {
+                        possuiVeiculo = "Sim " + ((@Model.TipoVeiculo == TipoVeiculo.Nenhum) ? "" : " - " + @Model.TipoVeiculo);
+                    }
+            }
+            @possuiVeiculo
+        </p>
+        <p><strong>RG:</strong> @Model.Rg @((Model.UfExpedicaoRg != "") ? " - UF: " + Model.UfExpedicaoRg : "")</p>
+        <p><strong>CTPS:</strong> Nro. @Model.CarteiraTrabNumero - Série: @Model.CarteiraTrabSerie @((Model.CarteiraTrabUf != "") ? " - UF: " + Model.CarteiraTrabUf : "")</p>
+        <p><strong>PIS:</strong> @Model.PisNumero</p>
+				
+        <div class="clear"></div>
+				
+        <h3>Dados Bancários:</h3>
+        <p><strong>Banco:</strong> @((Model.Banco != null) ? Model.Banco.Nome : "")</p>
+        <p><strong>Tipo conta:</strong> @Model.TipoConta</p>
+        <p><strong>Agência:</strong> @Model.Agencia</p>
+        <p><strong>Número da conta:</strong> @Model.ContaCorrente</p>
+				
+        <div class="clear"></div>
+				
+        <h3>Experiências anteriores:</h3>
+        <p>
+            <strong>Funções:</strong>
+            @{
+                var funcoes = "";
+                foreach (var f in Model.Funcoes)
+                {
+                    funcoes = funcoes != "" ? string.Concat(funcoes, ", ", f.Nome) : f.Nome;
+                }
+                @funcoes
+            }	
+        </p>
+        <p>
+            <strong>Segmentos:</strong>
+            @{
+                var segmentos = "";
+                foreach (var s in Model.Segmentos)
+                {
+                    segmentos = segmentos != "" ? string.Concat(segmentos, ", ", s.Nome) : s.Nome;
+                }
+                @segmentos
+            }	
+        </p>
+                    
+                    
+            @foreach (var exp in Model.ExperienciasProfissionais)
+            {
+                <p><strong>Empresa:</strong> @exp.Empresa</p>
+                <p><strong>Produto:</strong> @exp.Produto</p>
+                <p><strong>Período:</strong> @exp.Periodo1  @exp.Periodo2</p> 
+				<p><strong>Tipo de Ação:</strong> @exp.TipoAcao</p>
+            }
+				
+        <div class="clear"></div>
+				
+        <h3>Características físicas:</h3>
+        <p><strong>Manequim:</strong> @Model.Manequim</p>
+        <p><strong>Altura:</strong> @Model.Altura</p>
+        <p><strong>Peso:</strong> @Model.Peso</p>
+        <p><strong>Calçado:</strong> @Model.Calcado</p>
+        <p><strong>Cor dos Olhos:</strong> @Model.CorDosOlhos</p>
+        <p><strong>Cor dos Cabelos:</strong> @Model.CorDoCabelo</p>
+        <p><strong>Cor da Pele:</strong> @Model.CorDaPele</p>
+
+        <div class="clear"></div>
+    </div>
+</div>

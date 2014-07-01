@@ -1,0 +1,225 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.AvaliacaoViewModel
+
+<div id="avaliacaoCandidato" style='background:#F4F4F4;'>
+    <div class="modal_clearbox">
+	
+        <!-- CONTEUDO -->
+        <div class="cont" style="height:600px;">
+							
+            <!-- TEXTOS -->
+            <span>
+                <legend style="text-transform: uppercase; font-weight: bold; font-size: 14px; width:299px; margin:7px auto;">
+                    <h2 class="titulo_admin">Avaliação de candidato - @Model.DataEntrevista</h2>
+                </legend>
+            </span> <br />
+						
+            <div class="clear"></div>
+						
+            <div class="veravaliacao">
+						
+						
+                <legend>CABELO</legend>
+
+                <p><span style="font-weight:bold;">Comprimento: </span> @if(Model.CabeloComprimento != null)
+                                                                        {
+                                                                            @Model.CabeloComprimento.Nome
+                                                                        }</p>
+
+                <p><span style="font-weight:bold;">Tipo: </span> @if (Model.CabeloTipo != null)
+                                                                    {
+                                                                        @Model.CabeloTipo.Nome
+                                                                    }</p>
+
+                <p><span style="font-weight:bold;">Cor: </span>@if (Model.CabeloCor != null)
+                                                                {
+                                                                    @Model.CabeloCor.Nome
+                                                                }</p>
+						
+                <div class="clear"></div>
+						
+                <legend>CORPO</legend>
+
+                <p><span style="font-weight:bold;">Tipo físico:</span> @if (Model.TipoFisico != null)
+                                                                        {
+                                                                            @Model.TipoFisico.Nome
+                                                                        }</p>
+
+                <div class="clear"></div>
+						
+                <legend>DENTES</legend>
+
+                <p><span style="font-weight:bold;">	Sorriso: </span> @if (Model.AvaliacaoDentesSorriso != null)
+                                                                        {
+                                                                            @Model.AvaliacaoDentesSorriso.Nome
+                                                                        }</p>
+                <p><span style="font-weight:bold;">	Cor: </span>@if (Model.AvaliacaoDentesCor != null)
+                                                                {
+                                                                    @Model.AvaliacaoDentesCor.Nome
+                                                                }</p> 
+                @if (Model.PossuiAparelho)
+                {
+                    <p><span style="font-weight:bold;">	Aparelho nos dentes: </span> Sim</p>
+                    <p><span style="font-weight:bold;">	Previsão de retirada: </span> @Model.RetiradaAparelho</p>
+                }
+                else
+                {
+                    <p><span style="font-weight:bold;">	Aparelho nos dentes:</span> Não </p>
+                }
+
+						
+                <div class="clear"></div>
+						
+                <legend>PERFIL- PADRÃO:</legend>
+                <p>
+                    
+                    @{
+                        var perfil = "";
+                        switch (Model.PerfilPadrao)
+                        {
+                            case PerfilPadrao.A:
+                                perfil = "A - Excelente";
+                                break;
+                            case PerfilPadrao.B:
+                                perfil = "B - Bom";
+                                break;
+                            case PerfilPadrao.BMais:
+                                perfil = "B +";
+                                break;
+                            case PerfilPadrao.BMenos:
+                                perfil = "B -";
+                                break;
+                            case PerfilPadrao.C:
+                                perfil = "C - Regular";
+                                break;
+                            case PerfilPadrao.D:
+                                perfil = "D - Ruim";
+                                break;
+                            case PerfilPadrao.E:
+                                perfil = "E - Muito Simples";
+                                break;
+                        }
+                        @perfil
+                    }
+                </p>
+						
+            </div>
+            <div class="veravaliacao">
+                <legend>PELE:</legend>
+
+                <p><span style="font-weight:bold;">	Tipo:</span>  @if (@Model.TipoDePele != null)
+                                                                    {
+                                                                        @Model.TipoDePele.Nome   
+                                                                    }</p>
+				    
+                @if (Model.PossuiCicatriz)
+                {
+                    <p><span style="font-weight:bold;">	Cicatriz:</span> @Model.LocalCicatriz</p>
+                }
+                else
+                {
+                    <p><span style="font-weight:bold;">	Cicatriz:</span> Não</p>
+                }
+
+                @if (Model.PossuiPiercing)
+                {
+                    <p><span style="font-weight:bold;">	Piercing:</span> @Model.LocalPiercing</p>    
+                }
+                else
+                {
+                    <p><span style="font-weight:bold;">	Piercing:</span> Não</p> 
+                }
+
+                @if (Model.PossuiTatuagem)
+                {
+                    <p><span style="font-weight: bold;"> Tatuagem:</span> @Model.LocalTatuagem</p>
+                }
+                else
+                {
+                    <p><span style="font-weight: bold;"> Tatuagem:</span> Não</p>
+                }
+
+                <div class="clear"></div>
+
+                <legend>PERFIL COMPORTAMENTAL</legend>
+
+                <p>
+                    @{
+                        var perfis = "";
+                        foreach (var pc in Model.PerfilComportalmentals)
+                        {
+                            perfis = perfis != "" ? string.Concat(perfis, ", ", pc.Nome) : pc.Nome;
+                        }
+                        @perfis
+                    }
+
+                </p>
+                <p>@Model.OutroPerfilComportalmental</p>
+
+                <div class="clear"></div>
+						
+                <legend>CONHECIMENTOS DE MERCHANDISING</legend>
+						
+						
+                <p>
+                    @{
+                        var avaliacaoConhecimento = "";
+                        switch (Model.AvaliacaoConhecimentoMerchandising)
+                        {
+                            case AvaliacaoConhecimentoMerchandising.BomConhecimento:
+                                avaliacaoConhecimento = "Bom Conhecimento";
+                                break;
+                            case AvaliacaoConhecimentoMerchandising.ConhecimentoMediano:
+                                avaliacaoConhecimento = "Conhecimento Mediano";
+                                break;
+                            case AvaliacaoConhecimentoMerchandising.PoucoConhecimento:
+                                avaliacaoConhecimento = "Pouco Conhecimento";
+                                break;
+                            case AvaliacaoConhecimentoMerchandising.SemConhecimento:
+                                avaliacaoConhecimento = "Sem Conhecimento";
+                                break;
+                        }
+                        @avaliacaoConhecimento
+                    }	 
+                </p>
+                <p>
+                    @{
+                        var merchConh = "";
+                        foreach (var cm in Model.ConhecimentoMerchandisings)
+                        {
+                            merchConh = merchConh != "" ? string.Concat(merchConh, ", ", cm.Nome) : cm.Nome;
+                        }
+                        @merchConh
+                    }	
+                </p>
+						
+                <div class="clear"></div>
+						
+                <legend>PERFIL PROFISSIONAL:</legend>
+                <p>
+                    @{
+                        var perfilProf = "";
+                        foreach (var pp in Model.PerfilProfissionals)
+                        {
+                            perfilProf = perfilProf != "" ? string.Concat(perfilProf, ", ", pp.Nome) : pp.Nome;
+                        }
+                        @perfilProf
+                    }	
+                </p>
+						
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            <div class="content">
+                <p style="margin-left:10px;"><span style="font-weight:bold;">	Análise Final:</span> @Model.AnaliseFinal</p>
+            </div>
+					
+            <!-- TEXTOS - END -->
+				
+            <div class="clear"></div>
+        </div>
+        <!-- CONTEUDO - END -->
+		
+    </div>
+		
+</div>

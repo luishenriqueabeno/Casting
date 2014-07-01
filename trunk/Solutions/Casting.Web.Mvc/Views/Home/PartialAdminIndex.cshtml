@@ -1,0 +1,246 @@
+﻿<div class="maincontent">
+
+    <div class="left">
+		            
+        <fieldset>
+
+            <h1 class="pageTitle">Dashboard</h1>    
+					
+            <div class="colunadois">
+				
+                <!-- TAG CLOUDS -->
+                <div class="widgetbox2">
+                    <h3><span>Vagas</span></h3>
+                    <div class="content" >          
+                        <div class="alturafixa"><!--Define altura fixa-->							
+                            <!-- IDIOMAS -->
+                            <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                                <colgroup>
+                                    <col width="25%">
+                                    <col width="75%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <td colspan="2">Total de Vagas</td>
+                                    </tr>
+                                </thead>
+                                <tbody>                    	
+                                    <tr>
+                                        <td>Preenchidas:</td> 
+                                        <td>@Model.estatisticas.VagasPreenchidas</td>
+                                    </tr>
+											
+                                    <tr>
+                                        <td>Em aberto:</td> 
+                                        <td>@Model.estatisticas.VagasEmAberto</td>
+                                    </tr>
+																	
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- IDIOMAS - END-->
+                    </div><!--content-->
+                </div><!--colunadois-->
+					
+            </div>
+            <!-- TAG CLOUDS - END -->
+
+
+            <div class="colunadois" style="margin-left:30px;">
+                <!-- TAG CLOUDS -->
+                <div class="widgetbox2">
+                    <h3><span>Currículos</span></h3>
+                    <div class="content">                
+                        <div class="alturafixa"><!--Define altura fixa-->							
+                            <!-- IDIOMAS -->
+                            <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                                <colgroup>
+                                    <col width="25%">
+                                    <col width="75%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <td colspan="2">Currículos cadastrados</td>
+                                    </tr>
+                                </thead>
+                                <tbody>                    	
+                                    <tr>
+                                        <td>No sistema:</td> 
+                                        <td>@Model.estatisticas.CurriculosCadastradosTotal</td>
+                                    </tr>
+											
+                                    <tr>
+                                        <td>Este ano:</td> 
+                                        <td>@Model.estatisticas.CurriculosCadastradosAnoAtual</td>
+                                    </tr>
+											
+                                    <tr>
+                                        <td>Este mês:</td> 
+                                        <td>@Model.estatisticas.CurriculosCadastradosMesAtual</td>
+                                    </tr>			
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- IDIOMAS - END-->
+                    </div><!--content-->
+                </div><!--colunadois-->
+            </div>
+            <!-- TAG CLOUDS - END -->
+									
+            <div class="clear"></div>					
+					
+            <div class="colunaquatro">
+                <!-- TAG CLOUDS -->
+                <div class="widgetbox2">
+						
+                    <h3><span>Entrevistas</span></h3>
+							
+                    <div class="content">   
+                        <div class="alturafixa"><!--Define altura fixa-->					
+                            <!-- IDIOMAS -->
+                            <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                                <colgroup>
+                                    <col width="25%">
+                                    <col width="75%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <td colspan="2">Total de entrevistas</td>
+                                    </tr>
+                                </thead>
+                                <tbody>                    	
+                                    <tr>
+                                        <td>Em aberto:</td> 
+                                        <td>@Model.estatisticas.Entrevistas</td>
+                                    </tr>
+															
+                                </tbody>
+                            </table>
+                        </div><!--Define altura fixa-->
+                        <!-- IDIOMAS - END-->
+                    </div><!--content-->
+					
+                </div><!--colunadois-->
+            </div>
+            <!-- TAG CLOUDS - END -->
+
+
+            <div class="colunaquatro" style="margin-left:30px;">
+                <!-- TAG CLOUDS -->
+                <div class="widgetbox2">
+                    <h3><span>Contratações</span></h3>
+                    <div class="content">             
+                        <div class="alturafixa"><!--Define altura fixa-->	
+                            <!-- IDIOMAS -->
+                            <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                                <colgroup>
+                                    <col width="25%">
+                                    <col width="75%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <td colspan="2">Contratações realizadas</td>
+                                    </tr>
+                                </thead>
+                                <tbody>                    	
+                                    <tr>
+                                        <td>Esse Mês:</td> 
+                                        <td>@Model.estatisticas.ContratacoesEsseMes</td>
+                                    </tr>
+										
+                                    <tr>
+                                        <td>Último mês:</td> 
+                                        <td>@Model.estatisticas.ContratacoesUltimoMes</td>
+                                    </tr>
+																
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- IDIOMAS - END-->
+                    </div><!--content-->
+                </div><!--colunadois-->
+            </div>
+            <!-- TAG CLOUDS - END -->			
+                 
+            <div class="colunaquatro" style="margin-left:30px;">
+                <!-- TAG CLOUDS -->
+                <div class="widgetbox2">
+                    <h3><span>Fontes</span></h3>
+                    <div class="content">             
+                        <div class="alturafixa"><!--Define altura fixa-->	
+                           <div id="chartOrigemCandidato">teste</div>
+                        </div>
+                        <!-- IDIOMAS - END-->
+                    </div><!--content-->
+                </div><!--colunadois-->
+            </div>
+            <!-- TAG CLOUDS - END -->	
+            <div class="clear"></div>
+
+        </fieldset>
+        <div class="clear"></div>			
+        <br />
+		
+        <h1 class="pageTitle">Agendamento de entrevistas</h1> 
+		
+        <!--- CALENDÁRIO -->	
+        <div style="margin-top:20px">									
+            <div id="calendar">
+                <br clear="all">
+            </div>								
+            <br clear="all">	
+        </div>
+        <!-- CALENDÁRIO - END -->
+        <div class="clear"></div>	
+    </div><!-- left -->            
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        FusionCharts.setCurrentRenderer('javascript');
+
+        var myChart = new FusionCharts("/Content/swf/Pie2D.swf",
+                "chartOrigem", "310", "160", "0", "0");
+
+        var urlC = '@Url.Content("~/Home/ChartOrigemCandidato")';
+
+        myChart.setJSONUrl(urlC);
+
+        myChart.render("chartOrigemCandidato");
+
+        jQuery('#calendar').
+            fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                events: '@Url.Content("~/Home/CarregaEntrevistasMarcadas")',
+                dayClick: function (date, allDay, jsEvent, view) {
+                    // change the day's background color just for fun
+                    var dia = date.getDate();
+                    var mes = date.getMonth();
+                    var ano = date.getFullYear();
+                    jQuery('#calendar').fullCalendar('changeView', 'agendaDay');
+                    jQuery('#calendar').fullCalendar('gotoDate', ano, mes, dia);
+                },
+                eventBackgroundColor: "#7a7e7f",
+                eventBorderColor: "#656565",
+                eventTextColor: "#FFFFFF",
+                axisFormat: 'HH:mm',
+                timeFormat: {
+                    '': 'H:mm{ - H:mm}'
+                },
+                slotMinutes: 30,
+                allDaySlot: false,
+                defaultEventMinutes: 90
+            });
+
+    })
+</script> 

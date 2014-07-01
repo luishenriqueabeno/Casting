@@ -1,0 +1,63 @@
+/*** 
+	COLORS
+***/
+a { color: #c34543; }
+h1.prize { color: #CA1210; }
+h2.prize { color: #CA1210; }
+
+.notifyError { color: #ff0000; }
+
+.loginoption a { color: black; }
+.loginbox button { color: #fff; }
+.loginoption { color: black; padding-left:15px; }
+
+#search input { color: #999; }
+
+.topheader > ul > li > a { color: #fff; }
+.topheader > ul > li > a .wrap { color: #fff; }
+.topheader > ul > li > a .wrap span.count { color: #fff; }
+
+.accountinfo h3 { color: #b90404; }
+.accountinfo small { color: #999; }
+.accountinfo p a { color: #585858; color: #585858; }
+
+.maincontent { color: #333; }
+
+.breadcrumbs a { color: #CF1C1F; }
+.breadcrumbs span { color: #666; }
+.widgetlist li a { color: #333; }
+.widgetlist li a { color: #069; }
+
+.widgetbox h3 { color: #fff; text-shadow: 1px 1px #4b6592; }
+.widgetbox .content { color: #666; }
+
+.widgetbox2 h3 { color: #333; text-shadow: 1px 1px #fff; }
+.widgetbox2 .content { color: #666; }
+
+.widgetbox3 h3 { color: #333; }
+.widgetbox3 .content { color: #666; }
+
+.progress .bar2 .value { color: #fff; }
+.progress .bluebar { background-color: #069; }
+.progress .orangebar { background-color: #F90; }
+.progress .redbar { background-color: #cc0000; }
+
+.pagination a { color: #333; }
+.pagination a.disabled { color: #999; }
+.pagination a.current { color: #fff; }
+
+.messagelist h4 { color: #333; }
+.messagelist ul li.current { color: #333; }
+.messagelist ul li.current a { color: #6385ae; }
+.messagelist ul li a { color: #333; }
+.messagelist ul li span { color: #666; }
+.messagelist ul li small { color: #666; }
+
+.footerinner { color: #ccc; }
+
+.color069 { color: #069; }
+.tooltipflot { color: #fff;}
+.external-event { color: #333; }
+
+.color_link1 a { color: #333 !important;}
+.color_link1 a:hover { color: #c34543 !important;}

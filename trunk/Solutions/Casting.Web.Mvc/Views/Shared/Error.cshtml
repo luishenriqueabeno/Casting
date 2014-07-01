@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Trade Force</title>
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/general.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/style.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/botoes_icones.css")" />
+        <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-1.7.min.js")"></script>
+        <!--[if IE 9]>
+            <link rel="stylesheet" media="screen" href="css/ie9.css"/>
+        <![endif]-->
+
+        <!--[if IE 8]>
+            <link rel="stylesheet" media="screen" href="css/ie8.css"/>
+        <![endif]-->
+
+        <!--[if IE 7]>
+            <link rel="stylesheet" media="screen" href="css/ie7.css"/>
+        <![endif]-->
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+
+                jQuery('#errButton').click(function () {
+                    var url = '/';
+                    $(location).attr('href', url);
+
+                });
+
+            });
+        </script>
+    </head>
+
+    <body>
+
+        <div class="loginlogo">
+            <img src="@Url.Content("~/Content/images/logo.png")" alt="Logo" />
+        </div>
+        <div class="loginbox" style="background:none;">
+            <h1>Ocorreu um erro</h1>
+            <div class="clear"></div>
+            @RenderBody()
+            <div class="clear"></div>
+            <input type="submit" id="errButton" value="Tela inicial" style="position:relative; left:50%; margin-left:-100px; width:200px;"/> 
+        </div>
+
+    </body>
+
+</html>
+

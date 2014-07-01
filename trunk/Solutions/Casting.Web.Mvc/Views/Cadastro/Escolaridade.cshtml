@@ -1,0 +1,92 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.CandidatoViewModel
+
+@{
+    ViewBag.Title = "Escolaridade";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+
+    <div class="left">
+		
+        <div class="etapas">
+            <ul class="formacao">
+                <li class="etapa1 on"></li>
+                <li class="etapa2"></li>
+                <li class="etapa3"></li>
+                <li class="etapa4"></li>
+                <li class="etapa5"></li>
+            </ul>
+            <div class="clear"></div>
+        </div>   
+            
+        <div class="clear"></div>
+		
+        @using (Html.BeginForm("GravaEscolaridade", "Cadastro", null, FormMethod.Post, new { @class = "formPost" }))
+        {
+            const string checado = "checked = ''";
+            const string noDisplay = "style=display:none;";
+            <div class="form_default">
+                <fieldset>
+                @Html.HiddenFor(x => x.Id)
+                    <legend>Escolaridade</legend>    
+					
+                    <div class="clear"></div>
+                    <p><label><input type="radio" class="botaoradio nehsuperior" name="Escolaridade" id="Escolaridade" @if(@Model.Escolaridade == @Escolaridade.EnsinoFundamentalIncompleto){@checado}  value="@Escolaridade.EnsinoFundamentalIncompleto"/> Ensino Fundamental Incompleto 1ª a 8ª série </label></p>
+                    <p><label><input type="radio" class="botaoradio nehsuperior" name="Escolaridade" id="Escolaridade" @if(@Model.Escolaridade == @Escolaridade.EnsinoFundamentalCompleto){@checado} value="@Escolaridade.EnsinoFundamentalCompleto"/> Ensino Fundamental Completo 1ª a 8ª série</label></p>
+                    <p><label><input type="radio" class="botaoradio nehsuperior" name="Escolaridade" id="Escolaridade" @if(@Model.Escolaridade == @Escolaridade.EnsinoMedioIncompleto){@checado} value="@Escolaridade.EnsinoMedioIncompleto"/> Ensino Médio Incompleto</label></p>
+                    <p><label><input type="radio" class="botaoradio nehsuperior" name="Escolaridade" id="Escolaridade" @if(@Model.Escolaridade == @Escolaridade.EnsinoMedioCompleto){@checado} value="@Escolaridade.EnsinoMedioCompleto"/> Ensino Médio (2º Grau Completo)</label></p>
+                    <p><label><input type="radio" class="botaoradio cursosuperior2" name="Escolaridade" id="Escolaridade" @if(@Model.Escolaridade == @Escolaridade.EnsinoSuperiorCompleto){@checado} value="@Escolaridade.EnsinoSuperiorCompleto"/> Superior Completo</label></p>
+                    <p id="cursosuperiorid2" @if(@Model.Escolaridade != @Escolaridade.EnsinoSuperiorCompleto){@noDisplay}>
+                        <label for="descricao">Nome do curso superior:</label>
+                        @Html.TextBoxFor(x => x.NomeDoCursoSup, new { @class = "mf", style = "margin-bottom: 15px; " })
+                        <label for="descricao">Ano de conclusão</label>
+                        @Html.TextBoxFor(x => x.AnoConclusao, new { @class = "ppf", maxlength = "4", style = "margin-bottom: 15px; ", onkeypress = "return SomenteNumero(event)" })
+                    </p>
+                    <p><label><input type="radio" class="botaoradio cursosuperior" name="Escolaridade" id="Escolaridade" @if(@Model.Escolaridade == @Escolaridade.EnsinoSuperiorIncompleto){@checado}  value="@Escolaridade.EnsinoSuperiorIncompleto"/> Superior Incompleto</label></p>
+                    <p id="cursosuperiorid" @if(@Model.Escolaridade != @Escolaridade.EnsinoSuperiorIncompleto){@noDisplay}>
+                        <label for="descricao">Nome do curso superior:</label>
+                        @Html.TextBoxFor(x => x.NomeDoCursoSupIncompleto, new { @class = "mf", style = "margin-bottom: 15px; " })
+                    </p>
+                    <p><label><input type="radio" class="botaoradio nehsuperior"  name="Escolaridade" id="Escolaridade"  @if(@Model.Escolaridade == @Escolaridade.PosGraduaçãoIncompleta){@checado} value="@Escolaridade.PosGraduaçãoIncompleta"/> Pós Graduação Incompleta</label></p>
+                    <p><label><input type="radio" class="botaoradio nehsuperior"  name="Escolaridade" id="Escolaridade"  @if(@Model.Escolaridade == @Escolaridade.PosGraduaçãoCompleta){@checado} value="@Escolaridade.PosGraduaçãoCompleta"/> Pós Graduação Completa</label></p>
+                    <p><label><input type="radio" class="botaoradio cursotecnico" name="Escolaridade" id="Escolaridade" @if(@Model.Escolaridade == @Escolaridade.CursoTecnico){@checado}  value="@Escolaridade.CursoTecnico" /> Curso Técnico</label></p>
+                    <p id="cursotecnicoid" @if(@Model.Escolaridade != @Escolaridade.CursoTecnico){@noDisplay}>
+                        <label for="descricao">Nome do curso técnico:</label>
+                        @Html.TextBoxFor(x => x.NomeDoCursoTecnico, new { @class = "mf", style = "margin-bottom: 15px; " })
+                    </p>
+					
+					
+                    <!-- BOTÕES -->
+                    <p style="padding-left: 203px; margin-top: 10px;">
+                        <a href="@Url.Action("DadosBancarios", "Cadastro")" class="iconlink3 mg_rt fl"><img src="@Url.Content("~/Content/images/cafe/icons/small/black/left.png")" class="mgright5" alt=""> <span>Voltar</span></a> 
+                        <a href="#" id="submitForm" class="iconlink4 fl"><img src="@Url.Content("~/Content/images/cafe/icons/small/white/right.png")" class="mgright5" alt=""> <span>Próxima Etapa</span></a>
+                        <div class="clear"></div>
+                    </p>
+                    <!-- BOTÕES - END -->
+                    
+                    <div class="clear"></div>
+
+                </fieldset>
+            </div>
+            <!--form-->
+        }  		       	
+		
+        <div class="clear"></div>			
+        <br />
+					
+    </div><!-- left -->            
+  
+	
+    <br clear="all" />
+    
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#submitForm').click(function () {
+            jQuery('.formPost').submit();
+        });
+    });
+</script>

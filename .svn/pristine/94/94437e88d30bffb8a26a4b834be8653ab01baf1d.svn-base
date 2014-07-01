@@ -1,0 +1,619 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.PesquisaAvancadaAdminViewModel
+@{
+    ViewBag.Title = "BuscaAvancada";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="maincontent">
+    <div class="breadcrumbs">
+        <a href="@Url.Action("Index", "Home")">Home</a> <span>Busca Avançada de Currículo</span>
+    </div>
+    <!-- breadcrumbs -->
+    <div class="left" style="overflow: visible;">
+        <form action="" method="post">
+        <div class="form_default">
+            <fieldset>
+                <legend>Busca Avançada de Currículo</legend>
+                <div class="aviso">
+                    <h2 class="fl">
+                        <img src="@Url.Content("~/Content/images/icons/small/warning.png")" alt="" style="vertical-align:middle;">Dica:</h2>
+                    <span>Alguns campos permitem que você selecione mais de uma opção. Para isso, mantenha a tecla <strong>CTRL</strong> de seu teclado pressionada.</span>
+                </div>
+                <div class="colunaum">
+                    <input type="hidden" name="pesquisar" id="pesquisar" value="" />
+                    <p class="first">
+                        <label for="nome">
+                            Nome:</label>
+                        <span style="font-size: 10px; color: grey; margin-left: 30px;">(Digite o nome completo do candidato ou uma parte dele)</span>
+                        <input type="text" name="nome" id="nome" class="mf" />
+                    </p>
+                    <p>
+                        <span class="fl">
+                            <label for="idade">
+                                Idade (Em anos [exemplo: 20])</label>
+                            <input type="text" name="IdadeMinima" id="IdadeMinima" class="ppf" placeholder="De" onkeypress="return SomenteNumero(event)" maxlength="3" />
+                            <input type="text" name="IdadeMaxima" id="IdadeMaxima" class="ppf" placeholder="Até" onkeypress="return SomenteNumero(event)" maxlength="3" />
+                        </span>
+                    </p>
+                    <div class="clear">
+                    </div>
+                    <p>
+                        <label for="sexo">
+                            Sexo</label>
+                        <select name="sexo" id="sexo" class="mf">
+                            <option value="0">Selecione</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="estadocivil">
+                            Estado Civil</label>
+                        <select name="estadoCivil" id="estadoCivil" class="mf" size="3" multiple="multiple">
+                            <option value="1">Solteiro</option>
+                            <option value="2">Casado</option>
+                            <option value="3">União Estável</option>
+                            <option value="4">Separado Judicialmente</option>
+                            <option value="5">Viúvo</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="escolaridade">
+                            Escolaridade</label>
+                        <span style="font-size: 10px; color: grey; margin-left: 30px; text-align: left; float: left;">(para selecionar candidatos com 2º Grau completo ou acima, marcar todos os graus de escolaridade desejados)</span>
+                        <select name="escolaridade" id="escolaridade" class="mf" size="9" multiple="multiple">
+                            <option value="1">Ensino fundamental incompleto</option>
+                            <option value="2">Ensino fundamental completo</option>
+                            <option value="3">Ensino médio incompleto</option>
+                            <option value="4">Ensino médio completo</option>
+                            <option value="5">Superior incompleto</option>
+                            <option value="6">Superior completo</option>
+                            <option value="7">Pós-graduação incompleta</option>
+                            <option value="8">Pós-graduação completa</option>
+                            <option value="9">Curso técnico</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="formacaoAcademica">
+                            Formação Acadêmica</label>
+                        <select name="formacaoAcademica" id="formacaoAcademica" class="mf" size="9" multiple="multiple">
+                            <option>Análise e desenvolvimento de sistemas (tecnologia)</option>
+                            <option>Análise de sistemas e tecnologia da informação</option>
+                            <option>Astronomia</option>
+                            <option>Automação industrial (tecnologia)</option>
+                            <option>Bioengenharia</option>
+                            <option>Ciência da computação</option>
+                            <option>Ciência da computação e informática</option>
+                            <option>Ciências exatas (licenciatura)</option>
+                            <option>Ciências físicas e biomoleculares</option>
+                            <option>Ciências moleculares</option>
+                            <option>Ciências naturais</option>
+                            <option>Ciências químicas e farmacêuticas</option>
+                            <option>Ciência e tecnologia</option>
+                            <option>Ciências da Terra (ou geociências)</option>
+                            <option>Comércio exterior</option>
+                            <option>Computação (licenciatura)</option>
+                            <option>Computação científica</option>
+                            <option>Construção civil (tecnologia)</option>
+                            <option>Construção civil - edifícios (tecnologia)</option>
+                            <option>Construção civil - movimento de terra e pavimentação (tecnologia)</option>
+                            <option>Construção e manutenção de sistemas de navegação fluvial (tecnologia)</option>
+                            <option>Desenvolvimento de jogos digitais (tecnologia)</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="informatica">
+                            Informática</label>
+                        <select name="informatica" id="informatica" class="mf" size="9" multiple="multiple">
+                            <option value="AccessBasico">Access Básico</option>
+                            <option value="AccessIntermediario">Access Intermediário</option>
+                            <option value="AccessAvancado">Access Avançado</option>
+                            <option value="ExcelBasico">Excel Básico</option>
+                            <option value="ExcelIntermediario">Excel Intermediário</option>
+                            <option value="ExcelAvancado">Excel Avançado</option>
+                            <option value="InternetBasico">Internet Básico</option>
+                            <option value="InternetIntermediario">Internet Intermediário</option>
+                            <option value="InternetAvancado">Internet Avançado</option>
+                            <option value="OutlookBasico">Outlook Básico</option>
+                            <option value="OutlookIntermediario">Outlook Intermediário</option>
+                            <option value="OutlookAvancado">Outlook Avançado</option>
+                            <option value="PowerPointBasico">Power Point Básico</option>
+                            <option value="PowerPointIntermediario">Power Point Intermediário</option>
+                            <option value="PowerPointAvancado">Power Point Avançado</option>
+                            <option value="WordBasico">Word Básico</option>
+                            <option value="WordIntermediario">Word Intermediário</option>
+                            <option value="WordAvancado">Word Avançado</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="idiomas">
+                            Idiomas</label>
+                        <select name="Idiomas" id="Idiomas" class="mf" size="9" multiple="multiple">
+                            <option value="Alemao">Alemão</option>
+                            <option value="EspanholBasico">Espanhol Básico</option>
+                            <option value="EspanholIntermediario">Espanhol Intermediário</option>
+                            <option value="EspanholAvancado">Espanhol Avançado</option>
+                            <option value="Frances">Francês</option>
+                            <option value="InglesBasico">Inglês básico</option>
+                            <option value="InglesIntermediario">Inglês intermediário</option>
+                            <option value="InglesAvancado">Inglês avançado</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="bairro">
+                            Bairro</label>
+                        <input type="text" name="bairro" id="bairro" class="mf" />
+                    </p>
+                    <p>
+                        <label for="cidade">
+                            Cidade</label>
+                        <input type="text" name="cidade" id="cidade" class="mf" />
+                    </p>
+                    <p>
+                        <label for="uf">
+                            UF</label>
+                        <select name="uf" id="uf" class="pf" size="9" multiple="multiple">
+                            <option>AC</option>
+                            <option>AL</option>
+                            <option>AP</option>
+                            <option>AM</option>
+                            <option>BA</option>
+                            <option>CE</option>
+                            <option>DF</option>
+                            <option>ES</option>
+                            <option>GO</option>
+                            <option>MA</option>
+                            <option>MT</option>
+                            <option>MS</option>
+                            <option>MG</option>
+                            <option>PA</option>
+                            <option>PB</option>
+                            <option>PR</option>
+                            <option>PE</option>
+                            <option>PI</option>
+                            <option>RJ</option>
+                            <option>RN</option>
+                            <option>RS</option>
+                            <option>RO</option>
+                            <option>RR</option>
+                            <option>SC</option>
+                            <option>SP</option>
+                            <option>SE</option>
+                            <option>TO</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="cep">
+                            CEP</label>
+                        <input type="text" name="cep" class="pf campo_cep" id="cep" />
+                    </p>
+                    <p>
+                        <label for="regiao">
+                            Região / Zoneamento</label>
+                        <select name="Regioes" id="Regioes" class="mf" size="10" multiple="multiple">
+                            <option value="1">@Regiao.Norte.ToString()</option>
+                            <option value="2">@Regiao.Sul.ToString()</option>
+                            <option value="3">@Regiao.Leste.ToString()</option>
+                            <option value="4">@Regiao.Oeste.ToString()</option>
+                            <option value="5">@Regiao.Centro.ToString()</option>
+                            <option value="6">@Regiao.ABCD.ToString()</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="categoriaCNH">
+                            Categoria CNH</label>
+                        <select name="CategoriaCNH" id="CategoriaCNH" class="mf" size="3" multiple="multiple">
+                            <option value="A">A- Moto</option>
+                            <option value="AB">A/B - Carro de Moto</option>
+                            <option value="B">B - Carro Passeio</option>
+                            <option value="C">C - Vans e utilitários</option>
+                            <option value="D">D - Caminhão</option>
+                            <option value="E">E - Veículos acima de 8T e ônibus</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="veiculo">
+                            Possui veículo?</label>
+                        <select name="veiculo" id="veiculo" class="mf" size="4" multiple="multiple">
+                            <option value="carro">Carro</option>
+                            <option value="moto">Moto</option>
+                            <option value="van">Van</option>
+                            <option value="naoinformou">Não Informado</option>
+                            <option value="nenhum">Não Possui Veículo</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="banco">
+                            Banco</label>
+                        <select name="Bancos" id="Bancos" class="mf" size="4" multiple="multiple">
+                            @foreach (var banco in Model.Bancos)
+                            {
+                                <option value="@banco.Id">@banco.Nome</option>           
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="tipoConta">
+                            Tipo de conta</label>
+                        <select name="tipoConta" id="tipoConta" class="mf" size="3" multiple="multiple">
+                            <option value="1">Conta corrente</option>
+                            <option value="2">Conta poupança</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="colunaum">
+                    <p>
+                        <label for="funcoes">
+                            Funções</label>
+                        <select name="funcoes" id="funcoes" class="mf" size="6" multiple="multiple">
+                            @foreach (var funcoes in Model.Funcaos)
+                            {
+                                <option value="@funcoes.Id">@funcoes.Nome</option>           
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="segmentos">
+                            Segmentos</label>
+                        <select name="segmentos" id="segmentos" class="mf" size="3" multiple="multiple">
+                            @foreach (var segmento in Model.Segmentos)
+                            {
+                                <option value="@segmento.Id">@Html.Raw(@segmento.Nome)</option>           
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="clientes">
+                            Empresas</label>
+                        <select name="clientes" id="clientes" class="mf" size="3" multiple="multiple">
+                            @foreach (var cliente in Model.Clientes)
+                            {
+                                <option value="@cliente.Id">@cliente.Nome</option>           
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="experiencias">
+                            Experiências</label>
+                        <span style="font-size: 10px; color: grey; margin-left: 30px;">(Digite as palavras-chave separadas por ponto e vírgula ( ; ))</span>
+                        <input type="text" name="experiencias" id="experiencias" class="mf" />
+                    </p>
+                    <p>
+                        <label for="projetos">
+                            Projetos dos quais o candidato participou anteriormente</label>
+                        <select name="projetos" id="projetos" class="mf" size="3" multiple="multiple">
+                         @foreach (var projeto in Model.ProjetosParticipados)
+                         {
+                             var text = projeto.Nome + " - " + projeto.Titulo;
+                                <option value="@projeto.Id">@text</option>
+                            }
+
+                           @* <option>AEGER/CLT [2903590235092AEGER/DEMONSTRADORES]</option>
+                            <option>AEGER/CLT [2903590235092AEGER/DEMONSTRADORES]</option>
+                            <option>AEGER/TEMPO [2903590235092AEGER/DEMONSTRADORES]</option>
+                            <option>AEGER/TEMPO [2903590235092AEGER/DEMONSTRADORES]</option>
+                            <option>AEGER/TEMPO [2903590235092AEGER/DEMONSTRADORES]</option>
+                            <option>AEGER/TEMPO [2903590235092AEGER/DEMONSTRADORES]</option>
+                            <option>AEGER/TEMPO [2903590235092AEGER/DEMONSTRADORES]</option>
+                            <option>AEGER/TEMPO [2903590235092AEGER/DEMONSTRADORES]</option>
+                            <option>AEGER/TEMPO [2903590235092AEGER/DEMONSTRADORES]</option>*@
+                        </select>
+                    </p>
+                    <p>
+                        <span class="fl">
+                            <label for="manequim">
+                                Manequim</label>
+                            <input type="text" name="manequimMinimo" id="manequimMinimo" class="ppf" placeholder="De" onkeypress="return SomenteNumero(event)" maxlength="2" />
+                            <input type="text" name="manequimMaximo" id="manequimMaximo" class="ppf" placeholder="Até" onkeypress="return SomenteNumero(event)" maxlength="2" />
+                        </span>
+                    </p>
+                    <div class="clear">
+                    </div>
+                    <p>
+                        <span class="fl">
+                            <label for="altura">
+                                Altura</label>
+                            <input type="text" name="alturaMinima" id="alturaMinima" class="ppf altura" placeholder="De"  maxlength="4" />
+                            <input type="text" name="alturaMaxima" id="alturaMaxima" class="ppf altura" placeholder="Até"  maxlength="4" />
+                        </span>
+                    </p>
+                    <div class="clear">
+                    </div>
+                    <p>
+                        <span class="fl">
+                            <label for="peso">
+                                Peso</label>
+                            <input type="text" name="pesoMinimo" id="pesoMinimo" class="ppf" placeholder="De" onkeypress="return SomenteNumero(event)" maxlength="3" />
+                            <input type="text" name="pesoMaximo" id="pesoMaximo" class="ppf" placeholder="Até" onkeypress="return SomenteNumero(event)" maxlength="3" />
+                        </span>
+                    </p>
+                    <div class="clear">
+                    </div>
+                    <p>
+                        <span class="fl">
+                            <label for="calcado">
+                                Calçado</label>
+                            <input type="text" name="calcadoMinimo" id="calcadoMinimo" class="ppf" placeholder="De" onkeypress="return SomenteNumero(event)" maxlength="2" />
+                            <input type="text" name="calcadoMaximo" id="calcadoMaximo" class="ppf" placeholder="Até" onkeypress="return SomenteNumero(event)" maxlength="2" />
+                        </span>
+                    </p>
+                    <div class="clear">
+                    </div>
+                    <p>
+                        <label for="corDosOlhos">
+                            Cor dos olhos</label>
+                        <select name="CorDosOlhos" id="CorDosOlhos" class="mf" size="3" multiple="multiple">
+                            <option value="2">Azul</option>
+                            <option value="3">Verde</option>
+                            <option value="1">Castanho</option>
+                            <option value="4">Mel</option>
+                            <option value="5">Preto</option>
+                        </select>
+                    </p>
+                    <div class="clear">
+                    </div>
+                    <p>
+                        <label for="corDoCabelo">
+                            Cor dos cabelos</label>
+                        <select name="CorDoCabelo" id="CorDoCabelo" class="mf" size="3" multiple="multiple">
+                            <option value="5">Castanho</option>
+                            <option value="3">Grisalho</option>
+                            <option value="1">Loiro</option>
+                            <option value="4">Preto</option>
+                            <option value="2">Ruivo</option>
+                            <option value="6">Luzes</option>
+                        </select>
+                    </p>
+                    <div class="clear">
+                    </div>
+                    <p>
+                        <label for="corDaPele">
+                            Cor de pele</label>
+                        <select name="CorDaPele" id="CorDaPele" class="mf" size="3" multiple="multiple">
+                            <option value="1">Amarela</option>
+                            <option value="2">Branca</option>
+                            <option value="3">Morena</option>
+                            <option value="4">Mulata</option>
+                            <option value="5">Negra</option>
+                            <option value="6">Pardo</option>
+                        </select>
+                    </p>
+                    <div class="clear">
+                    </div>
+                    <p>
+                        <label for="avaliacaoCabelo">
+                            Avaliação do cabelo</label>
+                        <select name="avaliacaoCabelo" id="avaliacaoCabelo" class="mf" size="3" multiple="multiple">
+                            @foreach (var cabeloTipo in Model.CabeloTipos)
+                            {
+                                <option value="@cabeloTipo.Id">@cabeloTipo.Nome</option>
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="avaliacaoCorpo">
+                            Avaliação do corpo</label>
+                        <select name="avaliacaoCorpo" id="avaliacaoCorpo" class="mf" size="3" multiple="multiple">
+                            @foreach (var avaliacaoCorpo in Model.TipoFisicos)
+                            {
+                                <option value="@avaliacaoCorpo.Id">@avaliacaoCorpo.Nome</option>                       
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="avaliacaoDentes">
+                            Avaliação dos dentes</label>
+                        <select name="avaliacaoDentes" id="avaliacaoDentes" class="mf" size="3" multiple="multiple">
+                            @foreach (var avaliacaoDentes in Model.AvaliacaoDentes)
+                            {
+                                <option value="@avaliacaoDentes.Id">@avaliacaoDentes.Nome</option>                       
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="avaliacaoPele">
+                            Avaliação da pele</label>
+                        <select name="avaliacaoPele" id="avaliacaoPele" class="mf" size="3" multiple="multiple">
+                            @foreach (var avaliacaoPele in Model.TipoDePeles)
+                            {
+                                <option value="@avaliacaoPele.Id">@avaliacaoPele.Nome</option>                       
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="perfilComportamental">
+                            Perfil Comportamental</label>
+                        <select name="perfilComportamental" id="perfilComportamental" class="mf" size="3" multiple="multiple">
+                            @foreach (var perfilComportamental in Model.PerfilComportalmentals)
+                            {
+                                <option value="@perfilComportamental.Id">@perfilComportamental.Nome</option>
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="merchandising">
+                            Conhecimentos de Merchandising</label>
+                        <select name="merchandising" id="merchandising" class="mf" size="3" multiple="multiple">
+                            @foreach (var merchan in Model.ConhecimentoMerchandisings)
+                            {
+                                <option value="@merchan.Id">@merchan.Nome</option>
+                            }
+                        </select>
+                    </p>
+                    <p>
+                        <label for="peculiaridades">
+                            Características peculiares</label>
+                        <select name="peculiaridades" id="peculiaridades" class="mf" size="3" multiple="multiple">
+                            <option value="aparelho">Aparelho nos Dentes</option>
+                            <option value="piercing">Piercing</option>
+                            <option value="cicatriz">Cicatriz</option>
+                            <option value="tatuagem">Tatuagem</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="padrao">
+                            Padrão</label>
+                        <select name="padrao" id="padrao" class="mf" size="3" multiple="multiple">
+                            <option value="1">A - Excelente</option>
+                            <option value="2">B +</option>
+                            <option value="3">B - Bom</option>
+                            <option value="4">B -</option>
+                            <option value="5">C - Regular</option>
+                            <option value="6">D - Ruim</option>
+                            <option value="7">E - Muito Simples</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="perfilProfissional">
+                            Perfil</label>
+                        <select name="perfilProfissional" id="perfilProfissional" class="mf" size="3" multiple="multiple">
+                            @foreach (var perfilProfissional in Model.PerfilProfissionals)
+                            {
+                                <option value="@perfilProfissional.Id">@perfilProfissional.Nome</option>
+                            }
+                        </select>
+                    </p>
+                    <div>
+                        <label>
+                        </label>
+                        <p>
+                            <a href="#" id="submitForm" class="iconlink4 fl" style="float: right;" onclick="return RefreshGrid()">
+                                <img src="@Url.Content("~/Content/images/cafe/icons/small/white/search.png")" class="mgright5" alt="">
+                                <span>Pesquisar</span> </a>
+                        </p>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        </form>
+        <div class="clear" style="margin-bottom: 10px;">
+        </div>
+        <!-- LEGENDA - END -->
+        <div id="containerListaCandidatos" style="display: none;">
+            @Html.Partial("PartialListaDeCandidatosAdmin")
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <!-- left -->
+    <div class="clear">
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        jQuery('.altura').mask('0,00');
+
+        jQuery('#example').dataTable({
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": true,
+            "bFilter": false,
+            "sAjaxSource": "/Administracao/PesquisaCandidatosAvancado",
+            "aoColumns": [
+                { "mDataProp": "Foto", "bSortable": false, "sClass": "con0" },
+                { "mDataProp": "Nome", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "Idade", "bSortable": false, "sClass": "center con0" },
+                { "mDataProp": "Escolaridade", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "Altura", "bSortable": false, "sClass": "center con0" },
+                { "mDataProp": "Peso", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "CorDosOlhos", "bSortable": false, "sClass": "center con0" },
+                { "mDataProp": "Situacao", "bSortable": false, "sClass": "center"}],
+            "fnServerData": function (sSource, aoData, fnCallback) {
+                aoData.push({ "name": "pesquisar", "value": jQuery('#pesquisar').val() });
+                aoData.push({ "name": "nome", "value": jQuery('#nome').val() });
+                aoData.push({ "name": "IdadeMinima", "value": jQuery('#IdadeMinima').val() });
+                aoData.push({ "name": "IdadeMaxima", "value": jQuery('#IdadeMaxima').val() });
+                aoData.push({ "name": "sexo", "value": jQuery('#sexo option:selected').val() });
+                aoData.push({ "name": "estadoCivil", "value": jQuery('#estadoCivil').val() });
+                aoData.push({ "name": "escolaridade", "value": jQuery('#escolaridade').val() });
+                aoData.push({ "name": "formacaoAcademica", "value": jQuery('#formacaoAcademica').val() });
+                aoData.push({ "name": "informatica", "value": jQuery('#informatica').val() });
+                aoData.push({ "name": "Idiomas", "value": jQuery('#Idiomas').val() });
+                aoData.push({ "name": "bairro", "value": jQuery('#bairro').val() });
+
+                aoData.push({ "name": "cidade", "value": jQuery('#cidade').val() });
+                aoData.push({ "name": "uf", "value": jQuery('#uf').val() });
+                aoData.push({ "name": "cep", "value": jQuery('#cep').val() });
+                aoData.push({ "name": "Regioes", "value": jQuery('#Regioes').val() });
+                aoData.push({ "name": "CategoriaCNH", "value": jQuery('#CategoriaCNH').val() });
+                aoData.push({ "name": "veiculo", "value": jQuery('#veiculo').val() });
+                aoData.push({ "name": "Bancos", "value": jQuery('#Bancos').val() });
+                aoData.push({ "name": "tipoConta", "value": jQuery('#tipoConta').val() });
+                aoData.push({ "name": "funcoes", "value": jQuery('#funcoes').val() });
+                aoData.push({ "name": "segmentos", "value": jQuery('#segmentos').val() });
+
+                aoData.push({ "name": "clientes", "value": jQuery('#clientes').val() });
+                aoData.push({ "name": "experiencias", "value": jQuery('#experiencias').val() });
+                aoData.push({ "name": "projetos", "value": jQuery('#projetos').val() });
+                aoData.push({ "name": "manequimMinimo", "value": jQuery('#manequimMinimo').val() });
+                aoData.push({ "name": "manequimMaximo", "value": jQuery('#manequimMaximo').val() });
+                aoData.push({ "name": "alturaMinima", "value": jQuery('#alturaMinima').val() });
+                aoData.push({ "name": "alturaMaxima", "value": jQuery('#alturaMaxima').val() });
+                aoData.push({ "name": "pesoMinimo", "value": jQuery('#pesoMinimo').val() });
+                aoData.push({ "name": "pesoMaximo", "value": jQuery('#pesoMaximo').val() });
+                aoData.push({ "name": "calcadoMinimo", "value": jQuery('#calcadoMinimo').val() });
+
+                aoData.push({ "name": "calcadoMaximo", "value": jQuery('#calcadoMaximo').val() });
+                aoData.push({ "name": "CorDosOlhos", "value": jQuery('#CorDosOlhos').val() });
+                aoData.push({ "name": "CorDoCabelo", "value": jQuery('#CorDoCabelo').val() });
+                aoData.push({ "name": "CorDaPele", "value": jQuery('#CorDaPele').val() });
+                aoData.push({ "name": "avaliacaoCabelo", "value": jQuery('#avaliacaoCabelo').val() });
+                aoData.push({ "name": "avaliacaoCorpo", "value": jQuery('#avaliacaoCorpo').val() });
+                aoData.push({ "name": "avaliacaoDentes", "value": jQuery('#avaliacaoDentes').val() });
+                aoData.push({ "name": "avaliacaoPele", "value": jQuery('#avaliacaoPele').val() });
+                aoData.push({ "name": "perfilComportamental", "value": jQuery('#perfilComportamental').val() });
+                aoData.push({ "name": "merchandising", "value": jQuery('#merchandising').val() });
+
+                aoData.push({ "name": "peculiaridades", "value": jQuery('#peculiaridades').val() });
+                aoData.push({ "name": "padrao", "value": jQuery('#padrao').val() });
+                aoData.push({ "name": "perfilProfissional", "value": jQuery('#perfilProfissional').val() });
+
+                jQuery.getJSON(sSource, aoData, function (data) {
+                    fnCallback(data);
+                });
+            },
+            "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+
+
+                if (aData.Nome != null) {
+                    var imagem = jQuery(nRow).find('td').eq(0);
+
+                    var imagemCandidato = aData.Foto == "" ? "/Content/images/avatar.png" : "/Content/uploads/fotosCandidatos/" + aData.Foto;
+
+                    imagem.html('<span class="fotopequena"><img src="' + imagemCandidato + '" class="foto_pequena_pesquisa img_border fl"/><div class="fotoblocohover"><img src="' + imagemCandidato + '" class="foto_grande_pesquisa"/></div></span>');
+                    imagem.addClass('center con1');
+
+
+                    var editar = jQuery(nRow).find('td').eq(1);
+                    editar.html('<a href="/Administracao/DetalhesCandidato?id=' + aData.IdCandidato + '">' + aData.Nome + '</a>');
+                }
+                loadingScreen("off");
+                return nRow;
+            },
+            "oLanguage": {
+                "sLengthMenu": "Mostrar _MENU_ registros por página",
+                "sSearch": "Procurar",
+                "sZeroRecords": "Nenhuma informação encontrada",
+                "sInfo": "Mostrando do _START_ ao _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando 0 ao 0 de 0 registros",
+                "sInfoFiltered": "(filtrado de _MAX_ registros)",
+                "sProcessing": "Carregando",
+                "oPaginate": {
+                    "sFirst": "primeiro",
+                    "sPrevious": "anterior",
+                    "sNext": "próximo",
+                    "sLast": "último"
+                }
+            }
+        });
+
+    });
+
+    function RefreshGrid() {
+        loadingScreen("on");
+        jQuery("#pesquisar").val("1");
+        jQuery("#containerListaCandidatos").show();
+        jQuery('#example').dataTable().fnDraw();
+    }
+</script>

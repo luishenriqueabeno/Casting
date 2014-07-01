@@ -1,0 +1,53 @@
+﻿<!-- TABELA -->
+<table cellpadding="0" cellspacing="0" border="0" class="dyntable" id="example">
+    <thead>
+        <tr>
+			<th class="center head0">Foto</th>
+            <th class="center head0" style="width: 140px;">Nome</th>
+            <th class="center head1">Idade</th>
+            <th class="center head0">Escolaridade</th>
+            <th class="center head1">Altura</th>
+            <th class="center head0">Peso</th>
+			<th class="center head1">Cor dos Olhos</th>
+			<th class="center head0">Situação</th>
+        </tr>
+    </thead>
+    <colgroup>
+		<col class="center con0" />
+        <col class="center con0" />
+        <col class="center con1" />
+        <col class="center con0" />
+        <col class="center con1" />
+        <col class="center con0" />
+		<col class="center con1" />
+        <col class="center con0" />
+    </colgroup>
+			
+			
+    <tbody>
+            <tr>
+			    <td class="center con0"></td>
+                <td class="center con0"></td>
+                <td class="center con1"></td>
+                <td class="center con0"></td>
+                <td class="center con1"></td>
+			    <td class="center con0"></td>
+                <td class="center con1"></td>
+                <td class="center con0"></td>
+            </tr>
+    <tfoot>
+        <tr>
+			<th class="center head0">Foto</th>
+			<th class="center head0">Nome</th>
+            <th class="center head1">Idade</th>
+            <th class="center head0">Escolaridade</th>
+            <th class="center head1">Altura</th>
+            <th class="center head0">Peso</th>
+			<th class="center head1">Cor dos Olhos</th>
+			<th class="center head0">Situação</th> 
+        </tr>
+    </tfoot>
+</table>				
+<!-- TABELA  - END -->
+		
+<div class="clear"></div>

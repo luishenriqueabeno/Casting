@@ -1,0 +1,49 @@
+﻿<!-- TABELA -->
+<table cellpadding="0" cellspacing="0" border="0" class="dyntable" id="dataTableCasting">
+    <thead>
+        <tr>
+            <th class="head0">Nome</th>
+            <th class="center head1">Idade</th>
+            <th class="center head0">Escolaridade</th>
+            <th class="center head1">Altura</th>
+            <th class="center head0">Peso</th>
+			<th class="center head1">Cor dos Olhos</th>
+			<th class="center head0">Situação</th>
+        </tr>
+    </thead>
+    <colgroup>
+        <col class="con0" />
+        <col class="center con1" />
+        <col class="center con0" />
+        <col class="center con1" />
+        <col class="center con0" />
+		<col class="center con1" />
+        <col class="center con0" />
+    </colgroup>
+    <tbody>
+        @foreach (var candidato in Model.candidatos)
+        {
+            <tr>
+                <td class="con0"><a href="@Url.Action("Detalhes","Home", new {id = @candidato.IdCandidato})">@candidato.Nome</a></td>
+                <td class="center con1"> @candidato.Idade</td>
+                <td class="center con0">@candidato.Escolaridade</td>
+                <td class="center con1">@candidato.Altura</td>
+                <td class="center con0">@candidato.Peso</td>
+                <td class="center con1">@candidato.CorDosOlhos</td>
+                <td class="center con0">@candidato.Situacao</td>
+            </tr>
+        }
+    <tfoot>
+        <tr>
+        <th class="head0">Nome</th>
+            <th class="center head1">Idade</th>
+            <th class="center head0">Escolaridade</th>
+            <th class="center head1">Altura</th>
+            <th class="center head0">Peso</th>
+			<th class="center head1">Cor dos Olhos</th>
+			<th class="center head0">Situação</th>
+        </tr>
+    </tfoot>
+</table>				
+<!-- TABELA  - END -->
+		

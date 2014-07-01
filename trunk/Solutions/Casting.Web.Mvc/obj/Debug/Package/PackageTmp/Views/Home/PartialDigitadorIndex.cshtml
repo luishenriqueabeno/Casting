@@ -1,0 +1,87 @@
+﻿<div class="maincontent">
+    <div class="left">
+				
+        <form action="" method="post" id="formPesquisa">        
+            <div class="form_default">
+                <fieldset>
+                    <legend>Buscar Currículo</legend> 
+				
+                    <!-- COLUNA 1 -->
+                    <div class="colunaum">
+                    
+                        <p class="first">
+                            <label for="idade">Nome</label>
+                            <input type="text" id="nomeCandidato" name="nomeCandidato" class="mf"/>
+                        </p>
+					
+                        <p>
+                            <label for="idade">E-mail</label>
+                            <input type="text" name="emailCandidato" id="emailCandidato" class="mf"/>
+                        </p>  
+					
+                    </div>
+                    <!-- COLUNA 1 - END -->
+				
+                    <!-- COLUNA 2 -->
+                    <div class="colunaum">
+                        <p>
+                            <label for="idade">CPF</label>
+                            <input type="text" name="cpfCandidato" id="cpfCandidato" class="mf campo_cpf"/>
+                        </p>
+                        <p>
+                            <label for="Peso">Telefone Celular</label>
+                            <input type="text" name="telCandidato" id="telCandidato" class="mf campo_telefone"/>
+                        </p>
+                        <div  class="clear"></div>
+					
+                        <div style="float:right;" style="margin-top:15px;">
+                            <a href="#" id="btnPesquisar" class="iconlink4 fl">
+                                <img src="@Url.Content("~/Content/images/cafe/icons/small/white/search.png")" class="mgright5" alt="">
+                                <span>Pesquisar</span>
+                            </a>
+                        </div>
+
+                        <div class="clear"></div>
+                    
+                    </div>  
+                    <!-- COLUNA 2 - END -->
+				 
+                </fieldset>
+            </div><!--form-->      
+        </form>   
+		
+	
+        <div class="clear" style="margin-bottom:10px;"></div>
+		
+        <div id="tabelaDeCandidatos" style="overflow: auto">
+            @if(Model.candidatos.Count > 0)
+            {
+                @Html.Partial("PartialListaDeCandidatos");
+            }
+        </div>
+		
+        <div class="clear"></div>
+		
+    </div>     
+ 
+    <div class="clear"></div>	 
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery("#btnPesquisar").click(function () {
+            if (jQuery("#nomeCandidato").val() == "" && jQuery("#cpfCandidato").val() == "" && jQuery("#emailCandidato").val() == "" && jQuery("#telCandidato").val() == "") {
+                alert("Por favor, preencha algum dos filtros para realizar a pesquisa!");
+            } else {
+                jQuery.ajax({
+                    url: '@Url.Action("PesquisaCandidato")',
+                    data: { "nome": jQuery("#nomeCandidato").val(), "cpf": jQuery("#cpfCandidato").val(), "email": jQuery("#emailCandidato").val(), "tel": jQuery("#telCandidato").val() },
+                    success: function (data) {
+                        jQuery("#tabelaDeCandidatos").html(data);
+                        jQuery('#dataTableCasting').dataTable().fnDraw();
+                    }
+                });
+            }
+        });
+    });
+</script>

@@ -1,0 +1,258 @@
+﻿@using Casting.Domain.enums
+
+<div style="display:none">
+    <div id="selecao" style='background:#F4F4F4;'>
+		
+        <div class="modal_clearbox">
+	
+            <!-- CONTEUDO -->
+            <div class="cont">
+			
+                <!-- IMAGENS -->
+                <div class="capa">
+                    <img src="@Url.Content("/Content/images/icons/capas/contratado.png")"alt="" id="img2cadastro">
+					
+                </div>
+                <!-- IMAGENS -->
+				
+                <!-- TEXTOS -->
+                <div class="texto" style="margin: 14px 15px 0 0;">
+                    <div class="selecaoprimeiro">
+                        <h2 class="titulo_admin">Selecionar candidato</h2> <br />
+
+                        <p>	
+                            <label for="emailcadastro" style="padding-right:5px;">Situação do candidato:</label>
+                            <select class="fl ssf2" style="width:322px;" name="StatusCandidato" id="StatusCandidato" >
+                                <option value="@StatusCandidato.Nenhum">Selecione</option>
+                                <option value="@StatusCandidato.Aprovado">Aprovado</option>
+                                <option value="@StatusCandidato.Reprovado">Reprovado</option>
+                                <option value="@StatusCandidato.StandyBy">Standy-By</option>
+                                <option value="@StatusCandidato.ProcessoDeSelecao">Processo de Seleção</option>
+                            </select> 
+								
+                        </p>
+						
+                        <p>	
+                            <label for="cpf" style="padding-right:5px;">Cliente:</label>
+                            <select class="fl ssf2" style="width:322px;" id="ClienteSelecao" name="ClienteSelecao">
+                                <option value="0">Selecione</option>
+                                @foreach (var cliente in Model.ClienteList)
+                                {
+                                    <option value="@cliente.Id">@cliente.Nome</option>
+                                }
+                            </select> 
+									
+                        </p>
+                        <p>	
+                            <label for="emailcadastro" style="padding-right:5px;">Vaga:</label>
+                            <select class="fl ssf2" style="width:322px;" disabled="disabled" id="VagaSelecao" name="VagaSelecao">
+                            </select> 
+                        </p>
+						
+                            <div class="fl" style="margin-right:51px;">
+                                <p>	
+                                    <label for="nome" style="padding-right:5px;">Data:</label>
+                                    <div class="clear" style="height:1px;"></div>
+                                    <input type="text" name="DataSelecaoInicio" id="DataSelecaoInicio"  class="pf campo_data date" />
+                                </p>
+                            </div>
+                            <div class="fl">
+                                <p>	
+                                    <label for="nome" style="padding-right:5px;">Horário:</label>
+                                    <div class="clear" style="height:1px;"></div>
+                                    <input type="text" class="ssf2 campo_hora" name="HorarioSelecaoInicio" id="HorarioSelecaoInicio" style="width:70px;" />
+                                </p>
+                            </div>
+						
+						
+                        <div class="clear" style="height:5px;"></div>
+                        <p>	
+                            <label for="cpf" style="padding-right:5px;">Endereço:</label>
+                            <div class="clear" style="height:1px;"></div>
+                            <input type="text" name="EnderecoSelecao"  class="ssf2" id="EnderecoSelecao" style="width:312px;" />		
+                        </p>
+                        <div class="clear" style="height:5px;"></div>
+                        <p style="margin-bottom:10px;">	
+                            <label for="usuario" style="padding-right:5px;">Forma de aviso:</label>
+                            <label style="margin-right:15px;"><input type="checkbox" name="selecaoAvisoEmail" id="selecaoAvisoEmail"/>E-Mail</label>
+                            <label><input type="checkbox" name="selecaoAvisoSMS" id="selecaoAvisoSMS" />SMS</label>	
+                        </p>
+					
+                        <a id="envia_selecao" class="iconlink4 fr" style="margin-right:13px; margin-bottom:10px;" ><img src="@Url.Content("/Content/images/cafe/icons/small/white/check.png")" class="mgright5" alt="" /> <span>Selecionar</span></a>
+                        <div id="ok_selecao" style="display:none; margin-right:16px;"><p class="fr" style="margin-top:6px;">Seleção feita com <strong>sucesso</strong>!</p><img src="@Url.Content("/Content/images/icons/capas/checksmall.png")" alt=""  class="fr" style="margin-right:15px;"></div>
+					 
+                    </div>
+					
+                </div>
+                <!-- TEXTOS - END -->
+				
+                <div class="clear"></div>
+            </div>
+            <!-- CONTEUDO - END -->
+		
+        </div>
+		
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+    
+        jQuery(".datepicker2").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1900:2100',
+            showOn: "both",
+            buttonImageOnly: true,
+            buttonImage: "/Content/images/icons/cal.png"
+        });
+        
+        jQuery("#ClienteSelecao").change(function () {
+            var idCliente = jQuery(this).val();
+
+            jQuery.ajax({
+                url: '@Url.Action("SelecionaVagasporCliente")',
+                data: { "idCliente": idCliente },
+                success: function (data) {
+                    jQuery("#VagaSelecao")
+                    .find('option')
+                    .remove()
+                    .end();
+
+                    if (data == "") {
+                        jQuery("#VagaSelecao").attr('disabled', 'disabled');
+                    } else {
+                        jQuery("#VagaSelecao").removeAttr("disabled");
+                        jQuery("#VagaSelecao").append("<option value='0'> -- Selecione -- </option>");
+                    }
+
+                    jQuery.each(data, function (i, item) {
+                        jQuery("#VagaSelecao").append("<option value='" + item.Id + "'>" + item.Titulo + " </option>");
+                    });
+                }
+            });
+        });
+
+        jQuery('#envia_selecao').click(function () {
+
+            if (jQuery('#VagaSelecao').val() == "0" || jQuery('#DataSelecaoInicio').val() == "" || jQuery('#HorarioSelecaoInicio').val() == "" || jQuery("#StatusCandidato").val() == "0") {
+                alert("Por Favor, preencha todos os campos obrigatórios!");
+                return false;
+            }
+
+            if (!verificaData(jQuery('#DataSelecaoInicio').val())) {
+                alert("Por Favor, insira uma data válida para a entrevista!");
+                return false;
+            }
+
+            if (!verificaHora(jQuery('#HorarioSelecaoInicio').val())) {
+                alert("Por Favor, insira um horário válido para a entrevista!");
+                return false;
+            }
+
+            jQuery.ajax({
+                url: '@Url.Action("RealizaSelecao")',
+                data: { "IdCandidato": jQuery('#Id').val(), "ClienteAgendamento": jQuery('#ClienteSelecao').val(), "VagaAgendamento": jQuery('#VagaSelecao').val(), "DataEntrevista": jQuery('#DataSelecaoInicio').val(), "HorarioEntrevista": jQuery('#HorarioSelecaoInicio').val(), "Endereco": jQuery('#EnderecoSelecao').val(), "StatusCandidato": jQuery("#StatusCandidato").val() },
+                success: function (data) {
+                    if (data == "VagasPreenchidas") {
+                        alert("Desculpe, Mas todas as vagas para este cargo foram preenchidas!");
+                        return false;
+                    }
+//                    jQuery('#envia_selecao').hide();
+//                    jQuery('#ok_selecao').show();
+//                    jQuery('#selecaoconfirmatexto').show();
+                        
+                    if (jQuery("#StatusCandidato").val() == "Aprovado" || jQuery("#StatusCandidato").val() == "StandyBy") {
+                    
+                        jQuery('#botaoselecionar').hide();
+                        jQuery('#botaodesligarvaga').show();
+                    }
+
+                    jQuery('#situacao').colorbox.close();
+                }
+            });
+        });
+
+        function verificaHora(cHora) {
+            var hora = cHora.substr(0, 2);
+            var minutos = cHora.substr(3, 2);
+
+            if (hora > 23 || minutos > 59) {
+                return false;
+            }
+            return true;
+        }
+
+        function verificaData(cData) {
+            var data = cData;
+            var tam = data.length;
+            if (tam != 10) {
+                return false;
+            }
+            var dia = data.substr(0, 2);
+            var mes = data.substr(3, 2);
+            var ano = data.substr(6, 4);
+            if (ano < 1900) {
+                return false;
+            }
+            if (ano > 2100) {
+                return false;
+            }
+
+            switch (mes) {
+                case '01':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '02':
+                    if (dia <= 29)
+                        return (true);
+                    break;
+                case '03':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '04':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '05':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '06':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '07':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '08':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '09':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '10':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '11':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '12':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+            }
+            {
+                return false;
+            }
+            return true;
+        }
+    })
+</script> 

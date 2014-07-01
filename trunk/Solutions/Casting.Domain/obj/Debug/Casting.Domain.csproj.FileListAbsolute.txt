@@ -1,0 +1,65 @@
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\Casting.Domain.dll
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\Casting.Domain.pdb
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.dll
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.pdb
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\obj\Debug\Casting.Domain.dll
+C:\Users\Paulo\Desktop\AppMVC TESTE\Mvc Teste 2\Solutions\Casting.Domain\obj\Debug\Casting.Domain.pdb
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Casting.Domain.dll
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Casting.Domain.pdb
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.dll
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.pdb
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.pdb
+C:\Projetos\Casting\Solutions\Casting.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Projetos\Casting\Solutions\Casting.Domain\obj\Debug\Casting.Domain.dll
+C:\Projetos\Casting\Solutions\Casting.Domain\obj\Debug\Casting.Domain.pdb
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\Casting.Domain.dll
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\Casting.Domain.pdb
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.dll
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.pdb
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\obj\Debug\Casting.Domain.dll
+C:\Users\Jefferson\Desktop\Casting\Casting\Solutions\Casting.Domain\obj\Debug\Casting.Domain.pdb
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Casting.Domain.dll
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Casting.Domain.pdb
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.dll
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.dll
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.pdb
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.xml
+D:\Projetos\Casting\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.pdb
+D:\Projetos\Casting\Solutions\Casting.Domain\obj\Debug\ResolveAssemblyReference.cache
+D:\Projetos\Casting\Solutions\Casting.Domain\obj\Debug\Casting.Domain.dll
+D:\Projetos\Casting\Solutions\Casting.Domain\obj\Debug\Casting.Domain.pdb
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\Casting.Domain.dll
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\Casting.Domain.pdb
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.dll
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\bin\Debug\SharpArch.Domain.pdb
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\obj\Debug\Casting.Domain.dll
+C:\Users\SAMPAIO\Projetos\TradeForce\Casting\Solutions\Casting.Domain\obj\Debug\Casting.Domain.pdb

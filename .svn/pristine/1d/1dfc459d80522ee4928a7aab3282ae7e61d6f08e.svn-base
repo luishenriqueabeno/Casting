@@ -1,0 +1,282 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.CandidatoViewModel
+
+@{
+    ViewBag.Title = "Informática";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+
+    	<div class="left">
+		
+		<div class="etapas">
+			<ul class="formacao">
+				<li class="etapa1 ok"></li>
+				<li class="etapa2 on"></li>
+				<li class="etapa3"></li>
+			</ul>
+			<div class="clear"></div>
+		</div>   
+            
+         <div class="clear"></div>
+		
+        @using (Html.BeginForm("GravaInformatica", "Cadastro", null, FormMethod.Post, new { @class = "formPost" }))
+        {
+        	<div class="form_default">
+                <fieldset>
+                    @Html.HiddenFor(x => x.Id)
+                    <legend>Informática</legend>    
+					
+						<div class="clear"></div>
+                    
+                    <p><label class="fl">
+                           @Html.CheckBoxFor(x => x.ConhecimentoWord, new { @checked = Model.ConhecimentoWord }) Word
+                       </label> 
+                        <select name="WordNivelConhecimento" id="WordNivelConhecimento" class = "fl optinformatica" style="margin-top:0; margin-left:66px;">
+                            <option selected="selected" value="0">Selecione</option> 
+                            @if (@Model.WordNivelConhecimento == NivelConhecimento.Básico)
+                            {
+                                <option selected="selected" value="@NivelConhecimento.Básico">Básico</option>    
+                            }
+                            else
+                            {
+                                <option value="@NivelConhecimento.Básico">Básico</option>    
+                            }
+                            @if (@Model.WordNivelConhecimento == NivelConhecimento.Intermediário)
+                            {
+                                <option selected="selected" value="@NivelConhecimento.Intermediário">Intermediário</option> 
+                            }
+                            else
+                            {
+                                <option value="@NivelConhecimento.Intermediário" >Intermediário</option>
+                            }
+                            @if (@Model.WordNivelConhecimento == NivelConhecimento.Avançado)
+                            {
+                                <option selected="selected" value="@NivelConhecimento.Avançado">Avançado</option>
+                            }
+                            else
+                            {
+                                <option value="@NivelConhecimento.Avançado">Avançado</option>
+                            }
+                        </select>
+                        <div class="clear"></div>
+						</p>
+						<p><label class="fl">@Html.CheckBoxFor(x => x.ConhecimentoExcel, new { @checked = Model.ConhecimentoExcel }) Excel</label>
+						    <select name="ExcelNivelConhecimento" id="ExcelNivelConhecimento" class = "fl optinformatica" style="margin-top:0; margin-left:69px;">
+                                <option selected="selected" value="0">Selecione</option> 
+                                @if (@Model.ExcelNivelConhecimento == NivelConhecimento.Básico)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                @if (@Model.ExcelNivelConhecimento == NivelConhecimento.Intermediário)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Intermediário">Intermediário</option> 
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Intermediário" >Intermediário</option>
+                                }
+                                @if (@Model.ExcelNivelConhecimento == NivelConhecimento.Avançado)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                            </select>	
+                            <div class="clear"></div>
+						</p>
+						<p><label class="fl">@Html.CheckBoxFor(x => x.ConhecimentoPowerPoint, new { @checked = Model.ConhecimentoPowerPoint }) Power Point</label>
+						    <select name="PowerPointNivelConhecimento" id="PowerPointNivelConhecimento" class = "fl optinformatica" style = "margin-top:0; margin-left:31px;" >
+                                <option selected="selected" value="0">Selecione</option> 
+                                @if (@Model.PowerPointNivelConhecimento == NivelConhecimento.Básico)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                @if (@Model.PowerPointNivelConhecimento == NivelConhecimento.Intermediário)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Intermediário">Intermediário</option> 
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Intermediário" >Intermediário</option>
+                                }
+                                @if (@Model.PowerPointNivelConhecimento == NivelConhecimento.Avançado)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                            </select>	
+							<div class="clear"></div>	
+						</p>
+						<p><label class="fl">@Html.CheckBoxFor(x => x.ConhecimentoAccess, new { @checked = Model.ConhecimentoAccess }) Access</label>
+						    <select name="AccessNivelConhecimento" id="AccessNivelConhecimento" class = "fl optinformatica" style = "margin-top:0; margin-left:61px;" >
+                                <option selected="selected" value="0">Selecione</option> 
+                                @if (@Model.AccessNivelConhecimento == NivelConhecimento.Básico)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                @if (@Model.AccessNivelConhecimento == NivelConhecimento.Intermediário)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Intermediário">Intermediário</option> 
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Intermediário" >Intermediário</option>
+                                }
+                                @if (@Model.AccessNivelConhecimento == NivelConhecimento.Avançado)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                            </select>
+							<div class="clear"></div>	
+						</p>
+						<p><label class="fl">@Html.CheckBoxFor(x => x.ConhecimentoInternet, new { @checked = Model.ConhecimentoInternet }) Internet</label>
+                            <select name="InternetNivelConhecimento" id="InternetNivelConhecimento" class = "fl optinformatica" style = "margin-top:0; margin-left:53px;" >
+                                <option selected="selected" value="0">Selecione</option> 
+                                @if (@Model.InternetNivelConhecimento == NivelConhecimento.Básico)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                @if (@Model.InternetNivelConhecimento == NivelConhecimento.Intermediário)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Intermediário">Intermediário</option> 
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Intermediário" >Intermediário</option>
+                                }
+                                @if (@Model.InternetNivelConhecimento == NivelConhecimento.Avançado)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                            </select>
+							<div class="clear"></div>	
+						</p>
+						<p><label class="fl">@Html.CheckBoxFor(x => x.ConhecimentoOutlook, new { @checked = Model.ConhecimentoOutlook }) Outlook</label>	 
+                            <select name="OutlookNivelConhecimento" id="OutlookNivelConhecimento" class = "fl optinformatica" style = "margin-top:0; margin-left:53px;" >
+                                <option selected="selected" value="0">Selecione</option> 
+                                @if (@Model.OutlookNivelConhecimento == NivelConhecimento.Básico)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Básico">Básico</option>    
+                                }
+                                @if (@Model.OutlookNivelConhecimento == NivelConhecimento.Intermediário)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Intermediário">Intermediário</option> 
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Intermediário" >Intermediário</option>
+                                }
+                                @if (@Model.OutlookNivelConhecimento == NivelConhecimento.Avançado)
+                                {
+                                    <option selected="selected" value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                                else
+                                {
+                                    <option value="@NivelConhecimento.Avançado">Avançado</option>
+                                }
+                            </select>	
+							<div class="clear"></div>
+						</p>
+							<p><label class="fl">Outros</label>	 
+                                <div class="clear"></div>
+                                @Html.TextAreaFor(x => x.OutrosConhecimentos, new { @class = "sf", style = "margin-top:0; width:229px;", rows = "", cols = "" })
+							 </p>
+							<div class="clear"></div>
+					
+					<!-- BOTÕES -->
+					<p style="padding-left:82px; margin-top:10px;">
+					  <a href="@Url.Action("Escolaridade", "Cadastro")" class="iconlink3 mg_rt fl"><img src="@Url.Content("~/Content/images/cafe/icons/small/black/left.png")" class="mgright5" alt=""> <span>Voltar</span></a> 
+					  <a href="#" id="submitForm" class="iconlink4 fl"><img src="@Url.Content("~/Content/images/cafe/icons/small/white/right.png")" class="mgright5" alt=""> <span>Próxima Etapa</span></a>
+					</p>
+                   
+					<!-- BOTÕES - END -->
+                    
+                <div class="clear"></div>
+
+                </fieldset>
+            </div><!--form-->      
+        }         		       	
+		
+		<div class="clear"></div>			
+		<br />
+					
+	</div><!-- left -->            
+  
+	
+    <br clear="all" />
+    
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#submitForm').click(function () {
+
+            if (jQuery('#ConhecimentoWord').attr('checked') == "checked" && jQuery('#WordNivelConhecimento').val() == "0") {
+                alert("Selecione o seu nível de conhecimento em Word!");
+                return true;
+            }
+
+            if (jQuery('#ConhecimentoExcel').attr('checked') == "checked" && jQuery('#ExcelNivelConhecimento').val() == "0") {
+                alert("Selecione o seu nível de conhecimento em Excel!");
+                return true;
+            }
+
+            if (jQuery('#ConhecimentoPowerPoint').attr('checked') == "checked" && jQuery('#PowerPointNivelConhecimento').val() == "0") {
+                alert("Selecione o seu nível de conhecimento em Power Point!");
+                return true;
+            }
+
+            if (jQuery('#ConhecimentoAccess').attr('checked') == "checked" && jQuery('#AccessNivelConhecimento').val() == "0") {
+                alert("Selecione o seu nível de conhecimento em Access!");
+                return true;
+            }
+
+            if (jQuery('#ConhecimentoInternet').attr('checked') == "checked" && jQuery('#InternetNivelConhecimento').val() == "0") {
+                alert("Selecione o seu nível de conhecimento em Internet!");
+                return true;
+            }
+
+            if (jQuery('#ConhecimentoOutlook').attr('checked') == "checked" && jQuery('#OutlookNivelConhecimento').val() == "0") {
+                alert("Selecione o seu nível de conhecimento em Outlook!");
+                return true;
+            }
+            
+            jQuery('.formPost').submit();
+        });
+    });
+</script>

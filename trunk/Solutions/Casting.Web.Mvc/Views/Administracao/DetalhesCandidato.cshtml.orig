@@ -1,0 +1,1059 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.CandidatoViewModel
+@{
+    ViewBag.Title = "CURRÍCULO DO CANDIDATO";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="maincontent">
+
+    <div class="left">
+
+        <!-- Cont Paper -->
+        <div class="cont_curriculo">
+		
+            <div class="topo">
+                <div class="fl">
+                    <h1> CURRÍCULO DO CANDIDATO </h1>
+                </div>
+				
+                <div class="fr mg_rt">
+                    <ul>
+                        <li><p><span style="color:#929292; margin-right:5px;">Última atualização em:</span> @Model.DataAlteracao</p></li>
+						<li>
+							<div class="btn_acao" id="btn_responder_tp">
+									<img src="@Url.Content("/Content/images/icons/small/black/print.png")" class="mgright5" alt="">							
+									<a href="@Url.Action("Relatorio", "Administracao", new { idCandidato = @Model.Id })"><input type="submit"  value="Imprimir" /> </a>				
+							</div>
+						</li>
+						
+                        <li style="margin-left:-11px;">
+                            <div class="btn_acao" id="cmdAgendarEntrevista">
+                                <img src="@Url.Content("/Content/images/icons/small/black/calendar.png")" class="mgright5" alt="">							
+                                <a href="#agendamento" class="inline"><input type="submit"  value="Agendar Entrevista" /> </a>				
+                            </div>
+                        </li>
+						
+						<li style="margin-left:-11px;">											
+							<div class="btn_acao">
+                                     <a href="@Url.Action("AvaliacaoAparencia", "Administracao", new { idCandidato = @Model.Id })">
+									<img src="@Url.Content("/Content/images/icons/small/black/star.png")" class="mgright5" alt="">							
+									<input type="submit"  value="Avaliar" /> 	
+                                    </a>			
+							</div>
+						</li>
+                    </ul>
+                </div>		
+                <div class="clear"></div>
+            </div>
+			
+            <div class="content">
+				
+                @{
+                    string imagemCandidato = string.IsNullOrEmpty(Model.FotoRosto) ?
+                        string.IsNullOrEmpty(Model.FotoCorpoFrente) ?
+                        "" : Url.Content("/Content/uploads/fotosCandidatos/" + Model.FotoCorpoFrente)
+                                : Url.Content("/Content/uploads/fotosCandidatos/" + Model.FotoRosto);
+                }
+                
+                <img src="@imagemCandidato" alt="" class="img_border fl" width="200" height="200" />
+                <div class="dados fl">
+				    @Html.HiddenFor(x => x.Id)
+                    <h2>@Model.Nome</h2>
+					
+                    <p>
+                        <label>Idade:</label>	
+                        <label> @Model.Idade</label>	
+                        <div class="clear"></div>
+                    </p>
+					
+                    <p>
+                        <label>Telefone:</label>	
+                        <label>
+                            @if (Model.TelefoneCelular != "")
+                            {
+                                @Model.TelefoneCelular
+                            }
+                            else if (Model.TelefoneResidencial != "")
+                            {
+                                @Model.TelefoneResidencial
+                            }
+                            else if (Model.TelefoneComercial != "")
+                            {
+                                @Model.TelefoneComercial
+                            }
+                            else
+                            {
+                                @Model.TelefoneRecado
+                            }
+                        </label>
+                        <div class="clear"></div>						
+                    </p>
+					
+                    <p>
+                        <label>E-mail:</label>	
+                        <label>@Model.Email</label>	
+                        <div class="clear"></div>
+                    </p>
+					
+                    <p>
+                        <label>Mora em:</label>	
+                        <label>@Model.Endereco</label>	
+                        <div class="clear"></div>
+                    </p>
+                    
+                    <p>
+                        <label>Situação:</label>
+                        <label>
+                            <span id="SituacaoAtual">@Model.SituacaoCandidato.Nome</span> - <a class="inline cboxElement" href="#situacao">Editar</a>
+                        </label>	
+                        <div class="clear"></div>
+                    </p>
+
+					@if (Model.EntrevistaAgendada != null)
+                    {
+                    <p >
+                        <label>Data da Entrevista:</label>
+                        <label>
+                            <span id="entrevistaData">@Model.EntrevistaAgendada.DataEntrevista.ToShortDateString()  @Model.EntrevistaAgendada.HorarioEntrevista</span>
+                        </label>	
+                        <div class="clear"></div>
+                    </p>
+                    }else
+                    {
+                        <div id="entrevistaData"></div>
+                    }
+
+                </div>
+				
+                <div class="clear" style="height:0px; margin-bottom:-5px; padding:0px;"></div>
+				
+            </div>
+			
+            <!-- MEUS DADOS -->
+            <div class="content content_close">
+				
+                <div class="seta"></div>
+				
+                <h3>Meus dados</h3>				
+				
+                <!-- DADOS PESSOAIS -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2"><h4 class="fl">DADOS PESSOAIS </h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("DadosPessoais", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+									
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>                    	
+                        <tr>
+                            <td>Nome:</td> 
+                            <td>@Model.Nome</td>
+                        </tr>
+								
+                        <tr>
+                            <td>CPF:</td> 
+                            <td>@Model.Cpf</td>
+                        </tr>
+																
+                        <tr>
+                            <td>RG:</td> 
+                            <td>@Model.Rg</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Data de Nascimento:</td> 
+                            <td>@Model.DataNascimento</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Nome do Pai:</td> 
+                            <td>@Model.NomeDoPai</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Nome da Mãe:</td> 
+                            <td>@Model.NomeDaMae</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Endereço:</td> 
+                            <td>@Model.Endereco</td>
+                        </tr>
+								
+								
+                        <tr>
+                            <td>Número:</td> 
+                            <td>@Model.Numero</td>
+                        </tr>
+								
+								
+                        <tr>
+                            <td>Complemento:</td> 
+                            <td>@Model.Complemento</td>
+                        </tr>
+								
+								
+                        <tr>
+                            <td>Bairro:</td> 
+                            <td>@Model.Bairro</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Cidade:</td> 
+                            <td>@Model.Cidade</td>
+                        </tr>
+								
+                        <tr>
+                            <td>UF:</td> 
+                            <td>@Model.Estado</td>
+                        </tr>
+								
+                        <tr>
+                            <td>CEP:</td> 
+                            <td>@Model.CEP</td>
+                        </tr>
+						
+                        <tr>
+                            <td>Região:</td> 
+                            <td>@Model.Regiao.ToString()</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Telefone residencial:</td> 
+                            <td>@Model.TelefoneResidencial</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Telefone recado:</td> 
+                            <td>@Model.TelefoneRecado</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Telefone celular:</td> 
+                            <td>@Model.TelefoneCelular</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Telefone comercial:</td> 
+                            <td>@Model.TelefoneComercial</td>
+                        </tr>
+								
+                        <tr>
+                            <td>E-mail:</td> 
+                            <td>@Model.Email</td>
+                        </tr>
+								
+                    </tbody>
+                </table>
+                <!-- DADOS PESSOAIS - END -->
+						
+                <!-- DOCUMENTOS -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+									
+                                <h4 class="fl">DOCUMENTOS</h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("Documentos", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+									
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>                    	
+                        <tr>
+                            <td>RG:</td> 
+                            <td>@Model.Rg</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Estado de emissão:</td> 
+                            <td>@Model.UfExpedicaoRg</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Data de emissão:</td> 
+                            <td>@Model.DataExpedicaoRg</td>
+                        </tr>
+								
+                        <tr>
+                            <td>CPF:</td> 
+                            <td>@Model.Cpf</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Carteira de Trabalho:</td> 
+                            <td>@Model.CarteiraTrabNumero</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Série:</td> 
+                            <td>@Model.CarteiraTrabSerie</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Estado:</td> 
+                            <td>@Model.CarteiraTrabUf</td>
+                        </tr>
+								
+                        <tr>
+                            <td>PIS/PASEP:</td> 
+                            <td>@Model.PisNumero</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Data de emissão:</td> 
+                            <td>@Model.PisDataEmissao</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Nº Cart. Nac. Habilitação:</td> 
+                            <td>@Model.HabilitacaoNumero</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Categoria da CNH:</td> 
+                            <td>@Model.HabilitacaoCategoria</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Possui veículo? </td> 
+                            <td>
+                                @{
+                                    var possuiVeiculo = "Não";
+                                    if (Model.PossuiVeiculo)
+                                    {
+                                        possuiVeiculo = "Sim " + ((@Model.TipoVeiculo == TipoVeiculo.Nenhum) ? "" : " - " + @Model.TipoVeiculo);
+
+
+                                    }
+                                }
+                                @possuiVeiculo
+                            </td>
+                        </tr>
+								
+                    </tbody>
+                </table>
+                <!-- DOCUMENTOS - END -->
+						
+                <!-- INFORMAÇÕES GERAIS -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+									
+                                <h4 class="fl">INFORMAÇÕES GERAIS </h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("InformacoesGerais", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+									
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>                    	
+                        <tr>
+                            <td>Sexo:</td> 
+                            <td>@Model.Sexo</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Tem filhos?</td> 
+                            <td>@{
+                                var possuiFilhos = "Não";
+                                if (Model.PossuiFilhos)
+                                {
+
+                                    possuiFilhos = "Sim - " + Model.QtdeFilhos + ((Model.QtdeFilhos == 1) ? " filho" : " filhos");
+
+                                }
+                                }
+
+                                @possuiFilhos
+                            </td>
+                        </tr>
+								
+                        <tr>
+                            <td>Estado Civil:</td> 
+                            <td>@Model.EstadoCivil</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Natural de (Cidade):</td> 
+                            <td>@Model.NaturalidadeCidade</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Natural de (UF):</td> 
+                            <td>@Model.NaturalidadeUf</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Nacionalidade:</td> 
+                            <td>@Model.Nacionalidade</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Como ficou sabendo da Vaga:</td> 
+                            <td>@Model.ComoFicouSabendoDaVaga</td>
+                        </tr>
+
+                        <tr>
+                            <td>Cargo pretendido:</td> 
+                            <td>@Model.CargoPretendido</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Último salário:</td> 
+                            <td>@Model.UltimoSalario</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Pretensão salarial:</td> 
+                            <td>@Model.PretensaoSalarial</td>
+                        </tr>								
+                    </tbody>
+                </table>
+                <!-- INFORMAÇÕES GERAIS - END -->
+						
+						
+                <!-- CARACTERÍSTICAS -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+									
+                                <h4 class="fl">CARACTERÍSTICAS</h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("Caracteristicas", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+									
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>                    	
+                        <tr>
+                            <td>Manequim:</td> 
+                            <td>@Model.Manequim</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Altura:</td> 
+                            <td>@Model.Altura</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Peso:</td> 
+                            <td>@Model.Peso</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Calçado:</td> 
+                            <td>@Model.Calcado</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Cor dos olhos:</td> 
+                            <td>@Model.CorDosOlhos</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Cor dos cabelos:</td> 
+                            <td>@Model.CorDoCabelo</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Cor da pele:</td> 
+                            <td>@Model.CorDaPele.ToString()</td>
+                        </tr>	
+                    </tbody>
+                </table>
+                <!-- CARACTERÍSTICAS - END-->
+						
+                <!-- DADOS BANCÁRIOS -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+									
+                                <h4 class="fl">DADOS BANCÁRIOS </h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("DadosBancarios", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+									
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>                    	
+                        <tr>
+                            <td>Titular da Conta:</td> 
+                            <td>@Model.TitularContaBancaria</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Nome do banco:</td> 
+                            <td>@if (Model.Banco != null)
+                                {
+                                @Model.Banco.Nome
+                                }
+                            </td>
+                        </tr>
+								
+                        <tr>
+                            <td>Tipo de Conta:</td> 
+                            <td>
+                                @{
+                                    var tipoConta = (Model.TipoConta == TipoConta.ContaCorrente) ? "Conta Corrente" : "Conta Poupança";
+                                }
+                                @tipoConta
+                            </td>
+                        </tr>
+								
+                        <tr>
+                            <td>Agência:</td> 
+                            <td>@Model.Agencia</td>
+                        </tr>
+								
+                        <tr>
+                            <td>Conta Corrente:</td> 
+                            <td>@Model.ContaCorrente</td>
+                        </tr>
+								
+                    </tbody>
+                </table>
+                <!-- DADOS BANCÁRIOS - END-->
+                <div class="clear"></div>
+					
+            </div>
+            <!-- MEUS DADOS - END -->
+			
+            <!-- FORMAÇÃO -->
+            <div class="content content_close">	
+			
+                <div class="seta"></div>
+				
+                <h3>Formação</h3>			
+				
+							
+                <!-- ESCOLARIDADE -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+							
+                                <h4 class="fl">ESCOLARIDADE </h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("Escolaridade", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+							
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>                    	
+                        <tr>
+                            <td>
+                                @if (@Model.Escolaridade == 0)
+                                {
+                                    var escolaridade = "Nada Cadastrado";
+                                    @escolaridade
+                                }
+                                else
+                                {
+                                    Escolaridade esc = Model.Escolaridade;
+                                    var escolaridade = "";
+                                    switch (esc)
+                                    {
+                                        case Escolaridade.EnsinoFundamentalIncompleto:
+                                            escolaridade = "Ensino Fundamental Incompleto";
+                                            break;
+                                        case Escolaridade.EnsinoFundamentalCompleto:
+                                            escolaridade = "Ensino Fundamental Completo";
+                                            break;
+                                        case Escolaridade.EnsinoMedioIncompleto:
+                                            escolaridade = "Ensino Fundamental Incompleto";
+                                            break;
+                                        case Escolaridade.EnsinoMedioCompleto:
+                                            escolaridade = "Ensino Médio Completo";
+                                            break;
+                                        case Escolaridade.EnsinoSuperiorIncompleto:
+                                            escolaridade = "Ensino Superior Incompleto";
+                                            break;
+                                        case Escolaridade.EnsinoSuperiorCompleto:
+                                            escolaridade = "Ensino Superior Completo";
+                                            break;
+                                        case Escolaridade.PosGraduaçãoIncompleta:
+                                            escolaridade = "Pós Graduação Incompleta";
+                                            break;
+                                        case Escolaridade.PosGraduaçãoCompleta:
+                                            escolaridade = "Pós Graduação Completa";
+                                            break;
+                                        case Escolaridade.CursoTecnico:
+                                            escolaridade = "Curso Técnico";
+                                            break;
+                                    }
+                                    @escolaridade
+                                }
+                            </td> 
+
+                            <td>
+                                @if (@Model.Escolaridade == Escolaridade.EnsinoSuperiorIncompleto)
+                                {
+                                    @Model.NomeDoCursoSupIncompleto
+                                }
+                                else if (@Model.Escolaridade == Escolaridade.EnsinoSuperiorCompleto)
+                                {
+                                    @Model.NomeDoCursoSup
+                                    if (Model.AnoConclusao != null && Model.AnoConclusao != 0)
+                                    {
+                                        var ano = " - Concluído em: " + Model.AnoConclusao;
+
+                                        @ano
+                                    }
+                                }
+                                else if (@Model.Escolaridade == Escolaridade.CursoTecnico)
+                                {
+                                    @Model.NomeDoCursoTecnico
+                                }
+                            </td>
+                            
+                        </tr>
+						
+                    </tbody>
+                </table>
+                <!-- ESCOLARIDADE - END-->
+				
+                <!-- INFORMÁTICA -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+							
+                                <h4 class="fl">INFORMÁTICA</h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("Informatica", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+							
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.ConhecimentoWord)
+                        {
+                            <tr>
+                                <td>Word:</td> 
+                                <td>@Model.WordNivelConhecimento</td>
+                            </tr>
+                        }                   	
+
+                        @if (Model.ConhecimentoExcel)
+                        {
+                            <tr>
+                                <td>Excel:</td> 
+                                <td>@Model.ExcelNivelConhecimento</td>
+                            </tr>
+                        }   
+						
+                        @if (Model.ConhecimentoPowerPoint)
+                        {
+                            <tr>
+                                <td>Power Point:</td> 
+                                <td>@Model.PowerPointNivelConhecimento</td>
+                            </tr>
+                        }   
+                        
+                        @if (Model.ConhecimentoAccess)
+                        {
+                            <tr>
+                                <td>Access:</td> 
+                                <td>@Model.AccessNivelConhecimento</td>
+                            </tr>
+                        }   
+
+                        @if (Model.ConhecimentoInternet)
+                        {
+                            <tr>
+                                <td>Internet:</td> 
+                                <td>@Model.InternetNivelConhecimento</td>
+                            </tr>
+                        }   
+
+                        @if (Model.ConhecimentoOutlook)
+                        {
+                            <tr>
+                                <td>Outlook:</td> 
+                                <td>@Model.OutlookNivelConhecimento</td>
+                            </tr>
+                        }   
+
+
+                        @if (!string.IsNullOrEmpty(Model.OutrosConhecimentos))
+                        {
+                            <tr>
+                                <td>Outros Conhecimentos:</td> 
+                                <td>@Model.OutrosConhecimentos</td>
+                            </tr>
+                        }  
+                    </tbody>
+                </table>
+                <!-- INFORMÁTICA - END-->
+				
+                <!-- IDIOMAS -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+							
+                                <h4 class="fl">IDIOMAS </h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("Idiomas", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+							
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.PossuiIngles)
+                        {
+                            <tr>
+                                <td>Inglês:</td> 
+                                <td>@Model.InglesNivelConhecimento</td>
+                            </tr>
+                        }
+                        
+                        @if (!string.IsNullOrEmpty(Model.Idioma2Nome))
+                        {
+                            <tr>
+                                <td>@Model.Idioma2Nome</td> 
+                                <td>@Model.Idioma2NivelConhecimento</td>
+                            </tr>
+                        }
+                        
+                        @if (!string.IsNullOrEmpty(Model.Idioma3Nome))
+                        {
+                            <tr>
+                                <td>@Model.Idioma3Nome</td> 
+                                <td>@Model.Idioma3NivelConhecimento</td>
+                            </tr>
+                        }
+												
+                    </tbody>
+                </table>
+                <!-- IDIOMAS - END-->
+				
+            </div>
+            <!-- FORMAÇÃO - END -->
+			
+            <!-- EXPERIENCIA PROFISSIONAL -->
+            <div class="content content_close">	
+			
+                <div class="seta"></div>
+				
+                <h3>Experiência profissional</h3>
+				
+                <!-- FUNÇÕES -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+							
+                                <h4 class="fl">FUNÇÕES</h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("Funcoes", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+							
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>                    	
+                        <tr>
+                            <td>Funções Exercidas:</td> 
+                            <td>
+							    <div class="lista_itens_index">
+                                    <ul>
+                                        @foreach (var funcao in Model.Funcoes)
+                                        {
+                                            <li>@funcao.Nome</li>    
+                                        }
+                                    </ul>
+								</div>  
+                            </td>
+                        </tr>
+						
+                    </tbody>
+                </table>
+                <!-- FUNÇÕES - END-->
+				
+                <!-- SEGMENTOS -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+							
+                                <h4 class="fl">SEGMENTOS </h4>
+								
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("Segmentos", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+					
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>                    	
+                        <tr>
+                            <td>Segmentos Atuados:</td> 
+                            <td>
+							    <div class="lista_itens_index">
+                                    <ul>
+                                        @foreach (var segmento in Model.Segmentos)
+                                        {
+                                            <li>@segmento.Nome</li>    
+                                        }
+                                    </ul>
+								</div>   
+                            </td>
+                        </tr>
+						
+                    </tbody>
+                </table>
+                <!-- SEGMENTOS - END-->
+				
+                <!-- EXPERIÊNCIAS PROFISSIONAIS -->
+                <table cellpadding="0" cellspacing="0" class="tabela_curriculo" width="100%">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="75%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <td colspan="2">
+                                <h4 class="fl">EXPERIÊNCIAS PROFISSIONAIS</h4>
+										
+                                <div class="btn_acao fr" id="btn_responder_tp">
+                                    <a href="@Url.Action("ExperienciaProfissional", "Cadastro", new { idCandidato = Model.Id })">
+                                        <img src="@Url.Content("~/Content/images/icons/small/black/edit.png")" class="mgright5" alt="">							
+                                        <input type="submit"  value="Editar" /> 	
+                                    </a>
+                                </div>
+							
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>                    	
+                        @foreach (var exp in Model.ExperienciasProfissionais)
+                        {
+                            <tr style="background-color:#f9f8f8;">
+                                <td colspan="2" style="color:#5c5c5c !important;">@exp.Empresa</td>
+                            </tr>
+						
+                            <tr>
+                                <td>Produto:</td> 
+                                <td>
+                                    @exp.Produto
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Período:</td> 
+                                <td>@exp.Periodo1  @exp.Periodo2</td>
+                            </tr>						
+                            <tr>
+                                <td>Tipo de Ação:</td> 
+                                <td>@exp.TipoAcao</td>
+                            </tr>
+                        }
+						
+                    </tbody>
+                </table>
+                <!-- EXPERIÊNCIAS PROFISSIONAIS - END-->
+				
+            </div>
+            <!-- EXPERIENCIA PROFISSIONAL - END -->
+								
+            <div class="content content_close">	
+			
+                <div class="seta"></div>
+				
+                <h3>Histórico do candidato</h3>
+				
+                <!-- TABELA -->
+                <table cellpadding="0" cellspacing="0" border="1px" style ="border:1px solid #EEE;" class="dyntable" >
+                    <thead>
+                        <tr>
+                            <th class="center head0">Data da Avaliação</th>
+                            <th class="center head1">Vaga</th>
+                            <th class="center head0">Cliente</th>
+                            <th class="center head1">Situação</th>
+                            <th class="center head0">Status</th>
+                            <th class="center head1">Avaliação</th>
+                        </tr>
+                    </thead>
+                    <colgroup>
+                        <col class="con0" />
+                        <col class="center con1" />
+                        <col class="center con0" />
+                        <col class="center con1" />
+                        <col class="center con0" />
+                        <col class="center con1" />
+                    </colgroup>
+                    <tbody>
+                            @foreach (var avaliacao in Model.HistoricoDeAvaliacao)
+                            {
+                                <tr>
+                                    <td class="con0">@avaliacao.DataAvaliacao</td>
+                                    <td class="center con1">@avaliacao.TituloVaga</td>
+                                    <td class="center con0">@avaliacao.Cliente</td>
+                                    <td class="center con1">@avaliacao.Situacao.Nome</td>
+                                    <td class="center con0">@avaliacao.Status</td>
+                                    <td class="center con1"><a href="@Url.Action("AvaliacaoDetalhada", new { avaliacaoId = @avaliacao.IdAvaliacao })" class="ajax">Ver avaliação</a></td>
+                                </tr>
+                            }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="center head0">Data da Avaliação</th>
+                            <th class="center head1">Vaga</th>
+                            <th class="center head0">Cliente</th>
+                            <th class="center head1">Situação</th>
+                            <th class="center head0">Status</th>
+                            <th class="center head1">Avaliação</th>
+                        </tr>
+                    </tfoot>
+                </table>				
+                <!-- TABELA  - END -->
+			
+            </div>
+            
+            @if (Model.RecrutamentoAtual != null)
+            {
+                <p style="margin-left:500px; display:none;" id="botaoselecionar" ><a  href="#selecao" class="inline iconlink4 fl"><img src="@Url.Content("/Content/images/cafe/icons/small/white/check.png")" class="mgright5" alt=""> <span>Situação do Candidato</span></a></p>
+                <p style="margin-left:500px;" id="botaodesligarvaga"><a href="#desligarvaga" class="iconlink4 fl inline"><img src="@Url.Content("/Content/images/cafe/icons/small/white/close.png")" class="mgright5" alt=""> <span>Desligar da vaga</span></a></p>    
+                
+            }
+            else
+            {
+                <p style="margin-left:500px;"id="botaoselecionar" ><a  href="#selecao" class="inline iconlink4 fl"><img src="@Url.Content("/Content/images/cafe/icons/small/white/check.png")" class="mgright5" alt=""> <span>Situação do Candidato</span></a></p>
+                <p style="margin-left:500px; display:none;" id="botaodesligarvaga"><a href="#desligarvaga" class="iconlink4 fl inline"><img src="@Url.Content("/Content/images/cafe/icons/small/white/close.png")" class="mgright5" alt=""> <span>Desligar da vaga</span></a></p>    
+            }
+            
+			<div class="clear"></div>
+			<br />
+			
+        </div><!-- Cont Paper - END -->
+		
+		
+        <div class="clear"></div>			
+        <br />
+		
+    </div>     
+ 
+    <div class="clear"></div>	 
+</div>
+
+    <!-- COLORBOX AGENDAMENTO -->
+    @Html.Partial("PartialAgendamentoEntrevista")
+	<!-- COLORBOX - END -->
+
+	<!-- COLORBOX SELEÇÃO -->
+	@Html.Partial("PartialSelecionarCandidato")
+	<!-- COLORBOX - END -->
+	
+	<!-- COLORBOX Situação -->
+	@Html.Partial("PartialAlterarSituacaoCandidato")
+	<!-- COLORBOX - END -->
+	
+	<!-- COLORBOX DESLIGAR VAGA-->
+	@Html.Partial("PartialDesligarCandidatoDaVaga")
+<!-- COLORBOX - END -->
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        var entrevistaMarcada = '@(Model.EntrevistaAgendada)';
+        
+        if (entrevistaMarcada != null && entrevistaMarcada != "") {
+            jQuery('#cmdAgendarEntrevista').css('display', 'none');
+        }
+    })
+</script>

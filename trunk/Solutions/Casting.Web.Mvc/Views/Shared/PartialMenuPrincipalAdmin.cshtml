@@ -1,0 +1,23 @@
+﻿<div class="tabmenu">
+    <ul>			
+        <li class="current">
+			<a a href="@Url.Action("Index","Home")" class="dashboard"><span>Home</span></a>            
+        </li>
+		<li><a href="@Url.Action("BuscarCandidato","Administracao")" class="elements"><span>Buscas</span></a>
+            <ul class="subnav">
+                <li><a href="@Url.Action("BuscarCandidato","Administracao")"><span>Buscar Currículo</span></a></li>
+				<li><a href="@Url.Action("BuscarVaga","Administracao")"><span>Buscar Vagas</span></a></li>
+				<li><a href="@Url.Action("BuscaAvancada","Administracao")"><span>Busca Avançada</span></a></li>
+                	
+            </ul>
+        </li>
+        <li><a href="#" class="reports"><span>Cadastrar</span></a>
+			<ul class="subnav">
+			<li><a href="@Url.Action("DadosPessoais","Cadastro")"><span>Currículo</span></a></li>	
+				<li><a href="@Url.Action("CadastrarUsuario","Administracao")"><span>Usuário do sistema</span></a></li>
+                <li><a href="@Url.Action("CadastrarVaga","Administracao")"><span>Vagas</span></a></li>
+                <li><a href="@Url.Action("CadastrarCliente","Administracao")"><span>Cliente</span></a></li>
+            </ul>
+		</li>			
+    </ul>
+</div>

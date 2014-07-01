@@ -1,0 +1,8 @@
+﻿@{
+    ViewBag.Title = "Página Não Encontrada";
+    Layout = "~/Views/Shared/Error.cshtml";
+}
+
+<h2>Desculpe, mas a página digitada não foi encontrada </h2>
+<h2>ou não está disponível no momento.</h2>
+<h2>Verifique o endereço digitado ou tente novamente mais tarde.</h2>

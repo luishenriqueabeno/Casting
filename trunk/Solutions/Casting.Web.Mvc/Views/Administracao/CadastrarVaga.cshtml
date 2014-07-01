@@ -1,0 +1,107 @@
+﻿@model Casting.Web.Mvc.Controllers.ViewModels.VagaViewModel
+
+@{
+    ViewBag.Title = "Cadastrar Vaga";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+    
+    <div class="breadcrumbs">
+        <a href="@Url.Action("Index","Home")">Home</a>
+        <span>Cadastro de</span>
+        <span>Vagas</span>
+    </div><!-- breadcrumbs -->
+
+    <div class="left">
+        @using (Html.BeginForm("CadastrarVaga", "Administracao", null, FormMethod.Post, new { @class = "formPost" }))
+        {
+            <div class="form_default">
+                <fieldset>
+
+                    <legend>Cadastro de vagas</legend> 
+                    @Html.HiddenFor(x => x.Id)
+                    @Html.HiddenFor(x => x.TotalVagasPreenchidas)
+                    <div class="colunaum">
+                        <p>
+                            <label for="idade">Nome da vaga <em>*</em></label>
+                            @Html.TextBoxFor(x => x.TituloVaga, new {@class = "mf"})
+                        </p>                   
+                    </div> 
+                    <div class="clear"></div>
+				
+                    <div class="colunaum">
+
+                        <p class="first">
+                            <label>Nome do cliente <em>*</em></label>
+                            <select name="Cliente" id="Cliente" class="mf">
+                                <option value="">Selecione</option>
+                                @foreach (var cliente in Model.Clientes)
+                                {
+                                    if (cliente == Model.Cliente)
+                                    {
+                                        <option  value="@cliente.Id" selected="selected">@cliente.Nome</option>
+                                    }
+                                    else
+                                    {
+                                        <option  value="@cliente.Id">@cliente.Nome</option>    
+                                    }
+
+                                }
+                            </select>
+                        </p>
+															
+                    </div>
+
+                    <div class="colunaum">
+                        <p>
+                            <label for="idade">Total de vagas disponíveis <em>*</em></label>
+                            @Html.TextBoxFor(x => x.TotalVagasDisponivel, new { @class = "pf", onkeypress = "return SomenteNumero(event)", maxlength = 4 })
+                        </p>                   
+                    </div> 
+                    <div class="clear"></div>
+                    
+                    <div style="width: 553px;">  
+                        <p>
+                            <label for="idade">Descrição da vaga</label>
+                            @Html.TextAreaFor(x => x.DescricaoVaga, new { style = "resize:none;", @class = "por_cent_pq", rows = "10", cols = "" })
+                        </p>
+
+                        <div style="float: right;" >
+                            <label></label>
+                            <a href="#" id="submitForm" class="iconlink4 fl">
+                                <img src="@Url.Content("~/Content/images/cafe/icons/small/white/check.png")" class="mgright5" alt="">
+                                <span>Cadastrar</span>
+                            </a>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <!--form-->
+        }
+	
+        <div class="clear" style="margin-bottom:10px;"></div>
+
+    </div><!-- left -->            
+  
+    <div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#submitForm').click(function () {
+            if (jQuery('#TituloVaga').val() == "" || jQuery('#Cliente').val() == "" || jQuery('#TotalVagasDisponivel').val() == "") {
+                alert("Por Favor, preencha todos os campos obrigatórios!");
+                return false;
+            }
+            
+            if (jQuery('#TotalVagasDisponivel').val() < jQuery('#TotalVagasPreenchidas').val()) {
+                alert("Essa vaga possui " + jQuery('#TotalVagasPreenchidas').val() + " candidatos recrutados.\nO total de vagas preenchidas não pode ser maior que o número de vagas disponíveis.\nInsira mais vagas ou verifique os candidatos vinculados a ela.");
+                return false;
+            }
+            
+            jQuery('.formPost').submit();
+        });
+    })
+</script> 

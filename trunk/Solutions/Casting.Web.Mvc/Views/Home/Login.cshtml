@@ -1,0 +1,291 @@
+﻿
+@model Casting.Web.Mvc.Controllers.ViewModels.UsuarioViewModel
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Trade Force</title>
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/general.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/style.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/menu.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/colors.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/forms.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/tables.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/botoes_icones.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/plugins/jquery.ui.css")" />	
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/plugins/colorbox.css")" />	
+        <!--[if IE 9]>
+            <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/ie9.css")"/>
+        <![endif]-->
+
+        <!--[if IE 8]>
+            <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/ie8.css")"/>
+        <![endif]-->
+
+        <!--[if IE 7]>
+            <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/ie7.css")"/>
+        <![endif]-->
+        <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-1.7.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-ui-1.8.21.custom.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.maskedinput.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/custom/general.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/custom/clearbox.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/custom/envio_senha.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/colorbox/jquery.colorbox.js")"></script>
+        <script>
+            jQuery(document).ready(function () {
+                //Examples of how to assign the ColorBox event to elements
+                jQuery(".group1").colorbox({ rel: 'group1' });
+                jQuery(".group2").colorbox({ rel: 'group2', transition: "fade" });
+                jQuery(".group3").colorbox({ rel: 'group3', transition: "none", width: "75%", height: "75%" });
+                jQuery(".group4").colorbox({ rel: 'group4', slideshow: true });
+                jQuery(".ajax").colorbox();
+                jQuery(".inline").colorbox({ inline: true, width: "505px" });
+                jQuery(".callbacks").colorbox({
+                    onOpen: function () { alert('onOpen: colorbox is about to open'); },
+                    onLoad: function () { alert('onLoad: colorbox has started to load the targeted content'); },
+                    onComplete: function () { alert('onComplete: colorbox has displayed the loaded content'); },
+                    onCleanup: function () { alert('onCleanup: colorbox has begun the close process'); },
+                    onClosed: function () { alert('onClosed: colorbox has completely closed'); }
+                });
+
+                var userInvalido = "@ViewData["UsuarioInvalido"]";
+                var validaCadastro = "@ViewData["ValidaCadastro"]";
+                
+                if(userInvalido == "Invalido") {
+                    jQuery('#lognotify').slideDown('fast');	    
+                }
+                
+                if(validaCadastro != "") {
+                    if (validaCadastro == "CPFExistente") {
+                        jQuery('#validacaoNotify').html("Já existe um usuario cadastrado com este CPF!");    
+                    } else {
+                        jQuery('#validacaoNotify').html("Não foi possível logar no sistema!");
+                    }
+                    
+                    jQuery('#validacaoNotify').slideDown('fast');	    
+                }
+                
+                jQuery(document).ready(function () {
+                    jQuery(".campo_cpf").mask("999.999.999-99");
+                    jQuery(".campo_cep").mask("99999-999");
+                    jQuery(".campo_data").mask("99/99/9999");
+                    jQuery(".campo_hora").mask("99:99");
+                    jQuery(".campo_telefone").mask("(99) 9999-9999");
+                    jQuery(".campo_pis").mask("999.99999.99-99");
+                });
+                
+                //Example of preserving a JavaScript event for inline calls.
+                jQuery("#click").click(function () {
+                    jQuery('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                    return false;
+                });
+            });
+        </script>
+    </head>
+
+<body class="bodylogin">
+
+<div class="loginlogo">
+	<img src="@Url.Content("~/Content/images/logo.png")" alt="Logo" />
+</div><!--loginlogo-->
+
+<div class="notification notifyError loginNotify" id="lognotify">Usuário ou Senha incorreto(s).</div>
+
+<div class="notification notifyError loginNotify" id="validacaoNotify">.</div>
+    <form id="loginform" action="#" method="post">
+<div class="loginbox">
+	<div class="loginbox_inner">
+    	<div class="loginbox_content">
+            <input type="text" name="cpf" id="cpf" class="username campo_cpf" />
+            <input type="password" name="password" id="password" class="password" />
+			<!-- input type="submit" name="entrar" class="submit button_vermelho" / -->
+            <input  type="submit" name="submit" value="Entrar"/>
+        </div><!--loginbox_content-->
+    </div><!--loginbox_inner-->
+</div><!--loginbox-->
+
+<div class="loginoption">
+	
+	
+	<a href="#esqueci_senha"  class="inline cant" style="padding-top:4px">Esqueceu sua senha?</a>
+	
+	<!-- COLORBOX -->
+	<div style='display:none'>
+		<div id='esqueci_senha' style='background:#F4F4F4;'>
+		<div class="modal_clearbox">
+	
+			<!-- CONTEUDO -->
+			<div class="cont">
+			
+				<!-- IMAGENS -->
+				<div class="capa">
+					<img src="@Url.Content("~/Content/images/icons/capas/senha.png")" alt="" id="img1">
+					<img src="@Url.Content("~/Content/images/icons/capas/check.png")" alt="" id="img2" style="display:none;">
+				</div>
+				<!-- IMAGENS -->
+				
+				<!-- TEXTOS -->
+				<div class="texto">
+					<div id="text1">
+						<p>Digite seu e-mail abaixo para receber sua senha.</p> <br />
+						
+						<!-- ERRO -->
+						<div class="erro_email" id="error" style="display:none;">
+								<div class="box">
+									<p>E-mail não cadastrado!</p>
+								</div>
+								
+								<div class="bottom"></div>
+						</div>
+						<!-- ERRO - END -->
+				
+						<p>	
+							<label for="email" style="padding-right:5px;">E-mail:</label>
+							<input type="text" name="name"  class="ssf" id="email" />
+							<a href="#" class="iconlink4" style="margin-left:10px" id="enviar_senha"><img src="@Url.Content("~/Content/images/cafe/icons/small/white/mail.png")" class="mgright5" alt=""> <span>Enviar</span></a>		
+						</p>
+					</div>
+					<div id="text2" style="display:none; margin-top:5px; margin-left:30px;">
+						<p>Sua senha foi enviada com <strong>sucesso</strong>!</p> <br />
+						<p>Verifique seu e-mail.</p>						
+					</div>					
+				</div>
+				<!-- TEXTOS - END -->
+				
+				<div class="clear"></div>
+			</div>
+			<!-- CONTEUDO - END -->
+		</div>
+		</div>
+	</div>
+	<!-- COLORBOX - END -->
+	
+    @*<input type="checkbox" name="remember" /> Me mantenha conectado.*@
+</div><!--loginoption-->
+</form>
+
+<div class="wrapnovocadastro">
+	<p class="fl">Ainda não é cadastrado?  </p>
+	<a href="#novo_cadastro" class="inline cant iconlink3 fr" style="padding: 5px 15px;"><img src="@Url.Content("~/Content/images/icons/small/black/formulario.png")" class="mgright5" alt="">Cadastre-se</a>
+	<div class="clear" style="margin:0; padding: 0; height:10px;"></div>
+	
+		
+	<!-- COLORBOX -->
+	<div style='display:none'>
+		<div id='novo_cadastro' style='background:#F4F4F4;'>
+		<div class="modal_clearbox">
+	
+			<!-- CONTEUDO -->
+			<div class="cont">
+			
+				<!-- IMAGENS -->
+				<div class="capa">
+					<img src="@Url.Content("~/Content/images/icons/capas/cadastro_user.png")" alt="" id="img1cadastro">
+					<img src="@Url.Content("~/Content/images/icons/capas/check.png")" alt="" id="img2cadastro" style="display:none;">
+				</div>
+				<!-- IMAGENS -->
+				
+				<!-- TEXTOS -->
+				<div class="texto" style="margin: 14px 15px 0 0;">
+                    <div class="text1a">
+                        <p>Preencha os dados abaixo para fazer o seu cadastro.</p> <br />
+						
+@*                        <!-- ERRO -->
+                        <div class="erro_email" id="error" style="display:none;">
+                            <div class="box">
+                                <p>Favor preencher todos os campos Obrigatórios!</p>
+                            </div>
+								
+                            <div class="bottom"></div>
+                        </div>*@
+                        <!-- ERRO -->
+                        <div class="erro_cadastro_validacao" id="senhaErrada" style="display:none;">
+                            <div class="box">
+                                <p>A senha e a confirmação não conferem!</p>
+                            </div>
+                        </div>
+                        <div class="erro_cadastro_validacao" id="campoNaoPreenchido" style="display:none;">
+                            <div class="box">
+                                <p>Prencha todos os campos do cadastro!</p>
+                            </div>
+                        </div>
+                        <div class="erro_cadastro_validacao" id="senhaMenor" style="display:none;">
+                            <div class="box">
+                                <p>A senha deve ter no mínimo seis dígitos!</p>
+                            </div>
+                        </div>
+                        <!-- ERRO - END -->
+				        @using (Html.BeginForm("GravaUsuario", "Home", null, FormMethod.Post, new { @class = "formUsuarioPost" }))
+                        {
+                        <p>	
+                            <label for="nome" style="padding-right:5px;">Nome:</label>
+                            @Html.TextBoxFor(x => x.Nome, new { @class = "ssf2", @id = "userName" })
+							
+                        </p>
+						
+                        <p>	
+                            <label for="emailcadastro" style="padding-right:5px;">E-mail:</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "ssf2", @id = "emailCadastro" })
+								
+                        </p>
+						
+                        <p>	
+                            <label for="cpf" style="padding-right:5px;">CPF:</label>
+                            @Html.TextBoxFor(x => x.Cpf, new { @class = "ssf2 campo_cpf", @id = "cpf" })
+									
+                        </p>
+						
+@*                        <p>	
+                            <label for="usuario" style="padding-right:5px;"0>Nome de usuário:</label>
+                            @Html.TextBoxFor(x => x.NomeDeUsuario, new { @class = "ssf2", @id = "usuario" })
+								
+                        </p>*@
+						
+                        <p>	
+                            <label for="senha" style="padding-right:5px;">Senha:</label>
+                            @Html.PasswordFor(x => x.Senha, new { @class = "ssf2", @id = "senha" })
+								
+                        </p>
+						
+                        <p>	
+                            <label for="confsenha" style="padding-right:5px;">Confirmar senha:</label>
+                            <input type="password" name="name"  class="ssf2" id="confsenha" />
+                            <a href="#" class="iconlink4" style="margin-top:15px; margin-bottom:15px; float:right;" id="enviar_cadastro">
+                                <img src="@Url.Content("~/Content/images/cafe/icons/small/white/mail.png")" class="mgright5" alt=""> <span>Enviar</span>
+                            </a>		
+                        </p>
+                        }
+                    </div>
+
+                    <div class="wrapconfirma">
+                        <div class="text2a" style="display:none; height: 51px; margin-top: 10px; float:left;">
+                            <p>Cadastro feito com <strong>sucesso</strong>!</p>
+                            <p>Verifique seu e-mail para confirmá-lo.</p>
+                        </div>			
+                        <div class="imgcheck" style="float: right; margin-right: 10px; margin-top: 16px; display:none;">
+                            <img src="@Url.Content("~/Content/images/icons/capas/checksmall.png")">
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+				</div>
+				<!-- TEXTOS - END -->
+				
+				<div class="clear"></div>
+			</div>
+			<!-- CONTEUDO - END -->
+		</div>
+		</div>
+	</div>
+	<!-- COLORBOX - END -->
+</div>
+<div class="rodape_candidato">
+	<p> Powered by <a href="http://www.tradeforce.com.br" target="blank">Tradeforce</a></p>
+</div>
+
+</body>
+</html>

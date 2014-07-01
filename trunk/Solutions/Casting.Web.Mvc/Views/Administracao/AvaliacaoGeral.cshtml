@@ -1,0 +1,217 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.AvaliacaoViewModel
+
+@{
+    ViewBag.Title = "Avaliacao Geral";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+    <div class="breadcrumbs">
+        <a href="@Url.Action("Index","Home")">Home</a>
+        <a href="@Url.Action("BuscarCandidato","Administracao")">Buscar currículo</a>
+        <a href="@Url.Action("DetalhesCandidato", "Administracao", new { id = @Model.IdCandidato})">Marcos Nascimento Silva Rodrigues</a>
+        <span>Avaliação</span>
+    </div><!-- breadcrumbs -->
+
+    <div class="left">		
+		
+        @using (Html.BeginForm("AvaliacaoGeral", "Administracao", null, FormMethod.Post, new { @class = "formPost" }))
+        {
+            <div class="form_default">
+                <fieldset>
+
+                    <legend>Avaliação Geral</legend>    
+					
+                    <legend>Perfil Comportamental</legend>  
+                    @Html.HiddenFor(x => x.IdAvaliacao)
+                    <div class="clear"></div>
+                    <p class="first">
+                        <div class="lista_itens_avaliacao">
+                            <ul>
+                                @foreach (var perfilComp in Model.PerfilComportalmentals)
+                                {
+                                    <li>
+                                        <input type="checkbox" name="PerfilComportamental" value="@perfilComp.Id"/> @perfilComp.Nome
+                                    </li>
+                                }
+								
+                            </ul>
+                        </div>
+                    </p>	
+							
+							
+                    <div class="clear"></div>
+							
+                    <label for="outro">Outro</label>
+                    <input type="text" name="OutroPerfilComportalmental"  class="fl lf"/>
+							
+                    <div class="clear"></div>
+							
+                    <legend>Conhecimentos de Merchandising</legend>
+						
+                    <div class="clear"></div>
+                    <p class="first">
+                        <div class="lista_itens_avaliacao">
+                            <ul>
+                                @foreach (var merch in Model.ConhecimentoMerchandisings)
+                                {
+                                    <li>
+                                        <input type="checkbox" name="ConhecimentoMerchandisings" value="@merch.Id"/> @merch.Nome
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </p>	
+	
+                    <div class="clear"></div>
+							
+                    <p class="first">
+                        <label class="flfuncoes">
+                            <input type="radio" name="AvaliacaoConhecimentoMerchandising" value="@AvaliacaoConhecimentoMerchandising.BomConhecimento"/> Bons conhecimentos
+                        </label>
+								
+                        <label class="flfuncoes">
+                            <input type="radio" name="AvaliacaoConhecimentoMerchandising" value="@AvaliacaoConhecimentoMerchandising.ConhecimentoMediano"/> Conhecimentos medianos
+                        </label>
+								
+                        <label class="flfuncoes">
+                            <input type="radio" name="AvaliacaoConhecimentoMerchandising" value="@AvaliacaoConhecimentoMerchandising.PoucoConhecimento"/> Pouco conhecimento
+                        </label>
+								
+                        <label class="flfuncoes">
+                            <input type="radio" name="AvaliacaoConhecimentoMerchandising" value="@AvaliacaoConhecimentoMerchandising.SemConhecimento" checked="checked" /> Sem conhecimento
+                        </label>
+                    </p>
+
+                    <div class="clear"></div>
+							
+                    <legend>Perfil - Padrão</legend>
+						
+                    <div class="clear"></div>
+                    <p class="first">
+                    <div class="containeropcoes">
+                        <div class="colunaopcoes" style="margin-left: 0; width: 638px">
+                            <label class="flfuncoes" style="width: 37px;" >
+                                <input type="radio" name="PerfilPadrao" value="@PerfilPadrao.A"/> A
+                            </label>
+								
+                            <label class="flfuncoes"style="width: 37px;">
+                                <input type="radio" name="PerfilPadrao" value="@PerfilPadrao.BMais"/> B+
+                            </label>
+								
+                            <label class="flfuncoes"style="width: 37px;">
+                                <input type="radio" name="PerfilPadrao" value="@PerfilPadrao.B"/> B
+                            </label>
+								
+                            <label class="flfuncoes"style="width: 37px;">
+                                <input type="radio"  name="PerfilPadrao" value="@PerfilPadrao.BMenos"/> B-
+                            </label>
+								
+                            <label class="flfuncoes"style="width: 37px;" >
+                                <input type="radio" name="PerfilPadrao" value="@PerfilPadrao.C" checked="checked"/> C
+                            </label>
+								
+                            <label class="flfuncoes"style="width: 37px;">
+                                <input type="radio"  name="PerfilPadrao" value="@PerfilPadrao.D"/> D
+                            </label>
+								
+                            <label class="flfuncoes"style="width: 37px;" >
+                                <input type="radio" name="PerfilPadrao" value="@PerfilPadrao.E"/> E
+                            </label>
+                        </div>
+							
+							
+                        <div class="clear"></div>
+							
+                        <div style="margin-bottom: 20px;">			
+                            <legend>Análise Final</legend>
+                            <textarea class="blocotexto" name="AnaliseFinal"></textarea>
+                        </div>
+						
+                        <legend>Perfil Profissional</legend>
+							
+                        <div class="clear"></div>
+                           
+                        <p class="first">
+                            <div class="lista_itens_avaliacao">
+                                <ul>
+                                    @foreach (var perfilProf in Model.PerfilProfissionals)
+                                    {
+                                        <li>
+                                            <input type="checkbox" name="PerfilProfissional" value="@perfilProf.Id"/> @perfilProf.Nome
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </p>
+							
+                        <div class="clear"></div>
+							
+                    </div>				
+					
+                    <!-- BOTÕES -->
+                    <p style="padding-left: 357px; margin-top: 10px;">
+                        <a href="" class="iconlink3 mg_rt fl"><img src="@Url.Content("/Content/images/cafe/icons/small/black/left.png")" class="mgright5" alt=""> <span>Voltar</span></a> 
+                        <a href="#" id="concluirAvaliacao" class="inline iconlink4 fl"><img src="@Url.Content("/Content/images/cafe/icons/small/white/check.png")" class="mgright5" alt=""> <span>Concluir</span></a>
+                        <div class="clear"></div>
+                    </p>
+                    <!-- BOTÕES - END -->
+                    
+                    <div class="clear"></div>
+
+                </fieldset>
+            </div>
+            <!--form-->
+        }  		       	
+		
+        <div class="clear"></div>			
+        <br />
+					
+    </div><!-- left -->            
+  
+	
+    <br clear="all" />
+    
+    <!-- COLORBOX -->
+    <div style='display:none'>
+        <div id='voltarhome' style='background:#F4F4F4;'>
+            <div class="modal_clearbox">
+	
+                <!-- CONTEUDO -->
+                <div class="cont">
+			
+                    <!-- IMAGENS -->
+                    <div class="capa">
+                        <img src="@Url.Content("/Content/images/icons/capas/check.png")"alt="" id="img2">
+                    </div>
+                    <!-- IMAGENS -->
+				
+                    <!-- TEXTOS -->
+                    <div class="texto">
+                        <div id="text2" style="margin-top:5px; margin-left:30px;">
+                            <p>Avaliação cadastrada com <strong>sucesso</strong>!</p> <br />
+                            <p>Redirecionando para a página inicial.</p>					
+                        </div>					
+                    </div>
+                    <!-- TEXTOS - END -->
+				
+                    <div class="clear"></div>
+                </div>
+                <!-- CONTEUDO - END -->
+            </div>
+        </div>
+    </div>
+    <!-- COLORBOX - END -->
+	
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        jQuery('#concluirAvaliacao').click(function () {
+
+            jQuery('.formPost').submit();
+
+        });
+    })
+</script> 

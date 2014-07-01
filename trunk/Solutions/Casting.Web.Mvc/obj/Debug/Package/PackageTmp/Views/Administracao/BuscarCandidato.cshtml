@@ -1,0 +1,214 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.PesquisaAdminViewModel
+
+@{
+    ViewBag.Title = "Buscar Candidato";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="maincontent">
+    <div class="breadcrumbs">
+        <a href="@Url.Action("Index","Home")">Home</a>
+        <span>Buscar Currículo</span>
+    </div><!-- breadcrumbs -->
+
+    <div class="left" style="overflow:visible;">
+        <form action="" method="post">
+            <div class="form_default">
+                <fieldset>
+                    <input type="hidden" name="pesquisar" id="pesquisar" value=""/>
+                    <legend>Busca de Currículo</legend> 
+                    <div class="aviso">
+                        <h2 class="fl">
+                            <img src="@Url.Content("~/Content/images/icons/small/warning.png")" alt="" style="vertical-align:middle;">Dica:</h2>
+                        <span>Alguns campos permitem que você selecione mais de uma opção. Para isso, mantenha a tecla <strong>CTRL</strong> de seu teclado pressionada.</span>
+                    </div>
+
+                    <div class="colunaum">					
+                        <p>
+                            <label for="idade">Nome</label>
+                            <span style="font-size: 10px; color: grey; margin-left: 30px;">(Digite o nome completo do candidato ou uma parte dele)</span>
+                            <input type="text" id="nome" name="nome" class="mf"/>
+                        </p>
+					
+                        <p>
+                            <label for="sexo">Sexo</label>
+                            <select id="sexo" name="sexo" class="mf">
+                                <option value="0">Selecione</option>
+                                <option value="1">Masculino</option>
+                                <option value="2">Feminino</option>               		
+                            </select>	
+                        </p>
+                        
+                        <p>
+                            <label for="Peso">Experiências Profissionais</label>
+                            <span style="font-size: 10px; color: grey; margin-left: 30px;">(Digite as palavras-chave separadas por ponto e vírgula ( ; ))</span>
+                            <input type="text" id="experiencias" name="experiencias" class="mf"/>
+                        </p>
+                                            					
+                        <p>
+                            <label for="Peso">Período Mínimo de Experiência</label>
+                            <span class="fl">
+                                <select name="periodo1" id="periodo1" class="pf">
+                                    <option value="">Selecione</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </span>
+                            <span class="fl">
+                                <select name="periodo2" id="periodo2" class="pf">
+                                    <option value="">Selecione</option>
+                                    <option value="meses">meses</option>
+                                    <option value="anos">anos</option>
+                                </select>
+                            </span>
+                        </p>
+                    </div>
+
+                    <div class="colunaum">
+                        <p>
+                            <label for="regiao">Região</label>
+                            <select name="regiao" id="regiao" class="mf">
+                                <option value="0">Selecione</option>   
+                                <option value="1">@Regiao.Norte.ToString()</option>    
+                                <option value="2">@Regiao.Sul.ToString()</option>
+                                <option value="3">@Regiao.Leste.ToString()</option>
+                                <option value="4">@Regiao.Oeste.ToString()</option>
+                                <option value="5">@Regiao.Centro.ToString()</option>
+                                <option value="6">@Regiao.ABCD.ToString()</option>
+                            </select>
+                        </p>
+
+                        <p>
+                            <label for="funcoes">Experiência / Funções</label>
+                            <select id="funcoes" name="funcoes"  class="mf" size="5" multiple="multiple">
+                                @foreach (var funcao in Model.Funcaos)
+                                {
+                                    <option value="@funcao.Id">@funcao.Nome</option>
+                                }
+                            </select>	
+                        </p>
+									
+                        <p>
+                            <label for="idade">Segmentos</label>
+                            <select id="segmentos" name="segmentos" class="mf" size="5" multiple="multiple">
+                                @foreach (var segmento in Model.Segmentos)
+                                {
+                                    <option value="@segmento.Id">@segmento.Nome</option>
+                                }
+                            </select>	
+                        </p>
+
+                        <div>
+                            <label></label>
+                            <p>
+                                <a href="#" id="submitForm" class="iconlink4 fl" style="float: right;" onclick="return RefreshGrid()">
+                                    <img src="@Url.Content("~/Content/images/cafe/icons/small/white/search.png")" class="mgright5" alt=""> <span>Pesquisar</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>  
+                </fieldset>
+            </div>
+        </form>
+	
+        <div class="clear" style="margin-bottom:10px;"></div>
+
+        <!-- LEGENDA - END -->
+		<div id="containerListaCandidatos" style="display: none;">
+            @Html.Partial("PartialListaDeCandidatosAdmin")    
+        </div>
+
+    </div><!-- left -->            
+  
+    <div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#example').dataTable({
+            "sPaginationType": "full_numbers",
+            "bProcessing": true,
+            "bServerSide": true,
+            "bFilter": false,
+            "sAjaxSource": "/Administracao/PesquisaCandidatos",
+            "aoColumns": [
+                { "mDataProp": "Foto", "bSortable": false, "sClass": "con0" },
+                { "mDataProp": "Nome", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "Idade", "bSortable": false, "sClass": "center con0" },
+                { "mDataProp": "Escolaridade", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "Altura", "bSortable": false, "sClass": "center con0" },
+                { "mDataProp": "Peso", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "CorDosOlhos", "bSortable": false, "sClass": "center con0" },
+                { "mDataProp": "Situacao", "bSortable": false, "sClass": "center"}],
+            "oLanguage": {
+                "sLengthMenu": "Mostrar _MENU_ registros por página",
+                "sSearch": "Procurar",
+                "sZeroRecords": "Nenhuma informação encontrada",
+                "sInfo": "Mostrando do _START_ ao _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando 0 ao 0 de 0 registros",
+                "sInfoFiltered": "(filtrado de _MAX_ registros)",
+                "sProcessing": "Carregando",
+                "oPaginate": {
+                    "sFirst": "primeiro",
+                    "sPrevious": "anterior",
+                    "sNext": "próximo",
+                    "sLast": "último"
+                }
+            },
+            "fnServerData": function (sSource, aoData, fnCallback) {
+
+                aoData.push({ "name": "pesquisar", "value": jQuery('#pesquisar').val() });
+                aoData.push({ "name": "nome", "value": jQuery('#nome').val() });
+                aoData.push({ "name": "sexo", "value": jQuery('#sexo option:selected').val() });
+                aoData.push({ "name": "experiencias", "value": jQuery('#experiencias').val() });
+                aoData.push({ "name": "periodo1", "value": jQuery('#periodo1').val() });
+                aoData.push({ "name": "periodo2", "value": jQuery('#periodo2').val() });
+                aoData.push({ "name": "regiao", "value": jQuery('#regiao option:selected').val() });
+                aoData.push({ "name": "funcoes", "value": jQuery('#funcoes').val() });
+                aoData.push({ "name": "segmentos", "value": jQuery('#segmentos').val() });
+
+
+                jQuery.getJSON(sSource, aoData, function (data) {
+                    fnCallback(data);
+                });
+            },
+            "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+
+                if (aData.Nome != null) {
+                    var imagem = jQuery(nRow).find('td').eq(0);
+
+                    
+                    var imagemCandidato = aData.Foto == "" ? "/Content/images/avatar.png" : "/Content/uploads/fotosCandidatos/" + aData.Foto;
+
+                    imagem.html('<span class="fotopequena"><img src="' + imagemCandidato + '" class="foto_pequena_pesquisa img_border fl"/><div class="fotoblocohover"><img src="' + imagemCandidato + '" class="foto_grande_pesquisa"/></div></span>');
+                    imagem.addClass('center con1');
+
+                    var editar = jQuery(nRow).find('td').eq(1);
+                    editar.html('<a href="/Administracao/DetalhesCandidato?id=' + aData.IdCandidato + '">' + aData.Nome + '</a>');
+                }
+
+                loadingScreen("off");
+                return nRow;
+            }
+        });
+
+    });
+
+    function RefreshGrid() {
+        loadingScreen("on");
+        jQuery("#pesquisar").val("1");
+        jQuery("#containerListaCandidatos").show();
+        jQuery('#example').dataTable().fnDraw();
+        
+    }
+</script>

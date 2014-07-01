@@ -1,0 +1,589 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.CandidatoViewModel
+@{
+    ViewBag.Title = "Caracteristicas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="../../Content/js/plugins/uploadify-v3.1/uploadify.css" rel="stylesheet" type="text/css" />
+<script src="../../Content/js/plugins/uploadify-v3.1/swfobject.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="../../Content/js/plugins/uploadify-v3.1/jquery.uploadify-3.1.js" type="text/javascript"></script>
+<div class="maincontent">
+    <div class="left">
+        <div class="etapas">
+            <ul class="meus_dados">
+                <li class="etapa1 ok"></li>
+                <li class="etapa2 ok"></li>
+                <li class="etapa3 ok"></li>
+                <li class="etapa4 on"></li>
+                <li class="etapa5"></li>
+            </ul>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        @using (Html.BeginForm("GravaCaracteristicas", "Cadastro", null, FormMethod.Post, new { @class = "formPost", enctype = "multipart/form-data", id = "form" }))
+        {
+            <div class="form_default">
+                <fieldset>
+                    @Html.HiddenFor(x => x.Id)
+                    @Html.HiddenFor(x => x.TipoDeOperacao)
+                    <legend>Características</legend>
+                    <p class="first">
+                        <span class="fl">
+                            <label>
+                                Manequim:
+                            </label>
+                            @Html.DropDownListFor(x => x.Manequim, new[]
+                                                             {
+                                                                 new SelectListItem()
+                                                                     {
+                                                                         Text = "36",
+                                                                         Value = "36"
+                                                                     },
+                                                                 new SelectListItem()
+                                                                     {
+                                                                         Text = "38",
+                                                                         Value = "38"
+                                                                     },
+                                                                 new SelectListItem()
+                                                                     {
+                                                                         Text = "40",
+                                                                         Value = "40"
+                                                                     },
+                                                                 new SelectListItem()
+                                                                     {
+                                                                         Text = "42",
+                                                                         Value = "42"
+                                                                     },
+                                                                 new SelectListItem()
+                                                                     {
+                                                                         Text = "44",
+                                                                         Value = "44"
+                                                                     },
+                                                                 new SelectListItem()
+                                                                     {
+                                                                         Text = "46",
+                                                                         Value = "46"
+                                                                     },
+                                                             }, Model.Manequim.ToString(), new { @class = "pf" })
+                        </span><span class="fl">
+                            <label>
+                                Altura:
+                            </label>
+                            @Html.TextBoxFor(x => x.Altura, new { @class = "ppf", maxlength = 4 })
+                        </span>
+                        <div class="clear">
+                        </div>
+                    </p>
+                    <p class="first">
+                        <span class="fl">
+                            <label>
+                                Peso:
+                            </label>
+                            @Html.TextBoxFor(x => x.Peso, new { @class = "ppf", maxlength = 4 })
+                        </span><span class="fl" style="margin-left: 12px;">
+                            <label>
+                                Calçado:
+                            </label>
+                            @Html.TextBoxFor(x => x.Calcado, new { @class = "ppf", maxlength = 3, onkeypress = "return SomenteNumero(event)" })
+                        </span>
+                        <div class="clear">
+                        </div>
+                    </p>
+                    <p>
+                        <span class="fl">
+                            <label>
+                                Cor dos olhos:
+                            </label>
+                            <select name="CorDosOlhos" class="pf">
+                                <option selected="selected" value="0">Selecione</option>
+                                @if (@Model.CorDosOlhos == CorDosOlhos.Castanho)
+                                {
+                                    <option selected="selected" value="@CorDosOlhos.Castanho">@CorDosOlhos.Castanho.ToString()</option>    
+                                }
+                                else
+                                {
+                                    <option value="@CorDosOlhos.Castanho">@CorDosOlhos.Castanho.ToString()</option>    
+                                }
+                                @if (@Model.CorDosOlhos == CorDosOlhos.Azul)
+                                {
+                                    <option selected="selected" value="@CorDosOlhos.Azul">@CorDosOlhos.Azul.ToString()</option> 
+                                }
+                                else
+                                {
+                                    <option value="@CorDosOlhos.Azul" >@CorDosOlhos.Azul.ToString()</option>
+                                }
+                                @if (@Model.CorDosOlhos == CorDosOlhos.Verde)
+                                {
+                                    <option selected="selected" value="@CorDosOlhos.Verde">@CorDosOlhos.Verde.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDosOlhos.Verde">@CorDosOlhos.Verde.ToString()</option>
+                                }
+                                @if (@Model.CorDosOlhos == CorDosOlhos.Mel)
+                                {
+                                    <option selected="selected" value="@CorDosOlhos.Mel">@CorDosOlhos.Mel.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDosOlhos.Mel">@CorDosOlhos.Mel.ToString()</option>
+                                }
+                                @if (@Model.CorDosOlhos == CorDosOlhos.Preto)
+                                {
+                                    <option selected="selected" value="@CorDosOlhos.Preto">@CorDosOlhos.Preto.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDosOlhos.Preto">@CorDosOlhos.Preto.ToString()</option>
+                                }
+                            </select>
+                        </span><span class="fl">
+                            <label>
+                                Cor dos cabelos:
+                            </label>
+                            <select name="CorDoCabelo" class="pf">
+                                <option selected="selected" value="0">Selecione</option>
+                                @if (@Model.CorDoCabelo == CorDoCabelo.Loiro)
+                                {
+                                    <option selected="selected" value="@CorDoCabelo.Loiro">@CorDoCabelo.Loiro.ToString()</option>    
+                                }
+                                else
+                                {
+                                    <option value="@CorDoCabelo.Loiro">@CorDoCabelo.Loiro.ToString()</option>    
+                                }
+                                @if (@Model.CorDoCabelo == CorDoCabelo.Ruivo)
+                                {
+                                    <option selected="selected" value="@CorDoCabelo.Ruivo">@CorDoCabelo.Ruivo.ToString()</option> 
+                                }
+                                else
+                                {
+                                    <option value="@CorDoCabelo.Ruivo" >@CorDoCabelo.Ruivo.ToString()</option>
+                                }
+                                @if (@Model.CorDoCabelo == CorDoCabelo.Grisalho)
+                                {
+                                    <option selected="selected" value="@CorDoCabelo.Grisalho">@CorDoCabelo.Grisalho.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDoCabelo.Grisalho">@CorDoCabelo.Grisalho.ToString()</option>
+                                }
+                                @if (@Model.CorDoCabelo == CorDoCabelo.Preto)
+                                {
+                                    <option selected="selected" value="@CorDoCabelo.Preto">@CorDoCabelo.Preto.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDoCabelo.Preto">@CorDoCabelo.Preto.ToString()</option>
+                                }
+                                @if (@Model.CorDoCabelo == CorDoCabelo.Castanho)
+                                {
+                                    <option selected="selected" value="@CorDoCabelo.Castanho">@CorDoCabelo.Castanho.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDoCabelo.Castanho">@CorDoCabelo.Castanho.ToString()</option>
+                                }
+                                @if (@Model.CorDoCabelo == CorDoCabelo.Luzes)
+                                {
+                                    <option selected="selected" value="@CorDoCabelo.Luzes">@CorDoCabelo.Luzes.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDoCabelo.Luzes">@CorDoCabelo.Luzes.ToString()</option>
+                                }
+                            </select>
+                        </span><span class="fl">
+                            <label>
+                                Cor da pele:
+                            </label>
+                            <select name="CorDaPele" class="pf">
+                                <option selected="selected" value="0">Selecione</option>
+                                @if (@Model.CorDaPele == CorDaPele.Amarela)
+                                {
+                                    <option selected="selected" value="@CorDaPele.Amarela">@CorDaPele.Amarela.ToString()</option>    
+                                }
+                                else
+                                {
+                                    <option value="@CorDaPele.Amarela">@CorDaPele.Amarela.ToString()</option>    
+                                }
+                                @if (@Model.CorDaPele == CorDaPele.Branca)
+                                {
+                                    <option selected="selected" value="@CorDaPele.Branca">@CorDaPele.Branca.ToString()</option> 
+                                }
+                                else
+                                {
+                                    <option value="@CorDaPele.Branca" >@CorDaPele.Branca.ToString()</option>
+                                }
+                                @if (@Model.CorDaPele == CorDaPele.Morena)
+                                {
+                                    <option selected="selected" value="@CorDaPele.Morena">@CorDaPele.Morena.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDaPele.Morena">@CorDaPele.Morena.ToString()</option>
+                                }
+                                @if (@Model.CorDaPele == CorDaPele.Mulata)
+                                {
+                                    <option selected="selected" value="@CorDaPele.Mulata">@CorDaPele.Mulata.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDaPele.Mulata">@CorDaPele.Mulata.ToString()</option>
+                                }
+                                @if (@Model.CorDaPele == CorDaPele.Negra)
+                                {
+                                    <option selected="selected" value="@CorDaPele.Negra">@CorDaPele.Negra.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDaPele.Negra">@CorDaPele.Negra.ToString()</option>
+                                }
+                                @if (@Model.CorDaPele == CorDaPele.Pardo)
+                                {
+                                    <option selected="selected" value="@CorDaPele.Pardo">@CorDaPele.Pardo.ToString()</option>
+                                }
+                                else
+                                {
+                                    <option value="@CorDaPele.Pardo">@CorDaPele.Pardo.ToString()</option>
+                                }
+                            </select>
+                        </span>
+                        <div class="clear">
+                        </div>
+                    </p>
+                    <div class="clear">
+                    </div>
+                    <legend>Fotos</legend>
+                    <div class="colunadois">
+                        <p class="first">
+                            <label>
+                                Rosto: <em>*</em></label>
+                            <input type="file" name="FileFotoRosto" id="FileFotoRosto" class="mf" />
+                            <div class="cadastrofotos">
+                                <div class="fl">
+                                    @{
+                                string imagemRosto = string.IsNullOrEmpty(Model.FotoRosto) ? "" : Url.Content("/Content/uploads/fotosCandidatos/" + Model.FotoRosto);
+                                    }
+                                    <img src="@imagemRosto" class="img_border fl" width="128" height="128" id="imgRosto" >
+                                    @Html.HiddenFor(x => x.FotoRosto)
+                                </div>
+                                <div class="fl" style="margin-top: 12px;">
+                                    <p >
+                                        <a id="deleteImgRosto" class="iconlink3" style="margin-left: 10px;" >
+                                            <img src="@Url.Content("~/Content/images/cafe/icons/small/black/close.png")" class="mgright5" alt="">
+                                            <span>Excluir</span></a></p>
+                                </div>
+                            </div>
+                        </p>
+                        <div class="clear">
+                        </div>
+                        <p>
+                            <label>
+                                Corpo frente:</label>
+                            <input type="file" name="FileFotoCorpoFrente" id="FileFotoCorpoFrente" class="mf" />
+                            <div class="cadastrofotos">
+                                <div class="fl">
+                                    @{
+                                string imagemCorpoFrente = string.IsNullOrEmpty(Model.FotoCorpoFrente) ? "" : Url.Content("/Content/uploads/fotosCandidatos/" + Model.FotoCorpoFrente);
+                                    }
+                                    <img src="@imagemCorpoFrente" class="img_border fl" width="128" height="128" id="imgFotoCorpoFrente" >
+                                    @Html.HiddenFor(x => x.FotoCorpoFrente)
+                                </div>
+                                <div class="fl" style="margin-top: 12px;">
+                                    <p>
+                                        <a id="deleteImgCorpoFrente" class="iconlink3" style="margin-left: 10px;">
+                                            <img src="@Url.Content("~/Content/images/cafe/icons/small/black/close.png")" class="mgright5" alt="">
+                                            <span>Excluir</span></a></p>
+                                </div>
+                            </div>
+                        </p>
+                        <div class="clear">
+                        </div>
+                        <p>
+                            <label>
+                                Corpo lado:</label>
+                            <input type="file" name="FileFotoCorpoLado" id="FileFotoCorpoLado" class="mf" />
+                            <div class="cadastrofotos">
+                                <div class="fl">
+                                    @{
+                                string imagemCorpoLado = string.IsNullOrEmpty(Model.FotoCorpoLado) ? "" : Url.Content("/Content/uploads/fotosCandidatos/" + Model.FotoCorpoLado);
+                                    }
+                                    <img src="@imagemCorpoLado" class="img_border fl" width="128" height="128" id="imgFotoCorpoLado" />
+                                    @Html.HiddenFor(x => x.FotoCorpoLado)
+                                </div>
+                                <div class="fl" style="margin-top: 12px;">
+                                    <p>
+                                        <a id="deleteImgCorpoLado" class="iconlink3" style="margin-left: 10px;">
+                                            <img src="@Url.Content("~/Content/images/cafe/icons/small/black/close.png")" class="mgright5" alt="">
+                                            <span>Excluir</span></a></p>
+                                </div>
+                            </div>
+                        </p>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="colunadois">
+                        <p>
+                            <label>
+                                Cabelo:</label>
+                            <input type="file" name="FileFotoCabelo" id="FileFotoCabelo" class="mf" />
+                            <div class="cadastrofotos">
+                                @{
+                                string imagemCabelo = string.IsNullOrEmpty(Model.FotoCabelo) ? "" : Url.Content("/Content/uploads/fotosCandidatos/" + Model.FotoCabelo);
+                                }
+                                <img src="@imagemCabelo" class="img_border fl" width="128" height="128" id="imgFotoCabelo" >
+                                @Html.HiddenFor(x => x.FotoCabelo)
+                                <div class="fl" style="margin-top: 12px;">
+                                    <p>
+                                        <a id="deleteImgCabelo" class="iconlink3" style="margin-left: 10px;">
+                                            <img src="@Url.Content("~/Content/images/cafe/icons/small/black/close.png")" class="mgright5" alt="">
+                                            <span>Excluir</span></a></p>
+                                </div>
+                            </div>
+                        </p>
+                        <div class="clear">
+                        </div>
+                        <p>
+                            <label>
+                                Olhos:</label>
+                            <input type="file" name="FileFotoOlhos" id="FileFotoOlhos" class="mf" />
+                            <div class="cadastrofotos">
+                                <div class="fl">
+                                    @{
+                                string imagemOlhos = string.IsNullOrEmpty(Model.FotoOlhos) ? "" : Url.Content("/Content/uploads/fotosCandidatos/" + Model.FotoOlhos);
+                                    }
+                                    <img  class="img_border fl" width="128" height="128" src="@imagemOlhos" id="imgFotoOlhos">
+                                    @Html.HiddenFor(x => x.FileFotoOlhos)
+                                </div>
+                                <div class="fl" style="margin-top: 12px;">
+                                    <p>
+                                        <a id="deleteImgOlhos" class="iconlink3 " style="margin-left: 10px;">
+                                            <img src="@Url.Content("~/Content/images/cafe/icons/small/black/close.png")" class="mgright5" alt="">
+                                            <span>Excluir</span></a></p>
+                                </div>
+                            </div>
+                        </p>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <!-- BOTÕES -->
+                    <p style="padding-left: 357px; margin-top: 10px;">
+                        <a href="@Url.Action("InformacoesGerais", "Cadastro")" class="iconlink3 mg_rt fl">
+                            <img src="@Url.Content("~/Content/images/cafe/icons/small/black/left.png")" class="mgright5" alt="">
+                            <span>Voltar</span></a> <a href="#" class="iconlink4 fl" id="submitForm">
+                                <img src="@Url.Content("~/Content/images/cafe/icons/small/white/right.png")" class="mgright5" alt="">
+                                <span>Próxima Etapa</span></a>
+                        <div class="clear">
+                        </div>
+                    </p>
+                    <!-- BOTÕES - END -->
+                    <div class="clear">
+                    </div>
+                </fieldset>
+            </div>
+            <!--form-->
+        }
+        <div class="clear">
+        </div>
+        <br />
+    </div>
+    <!-- left -->
+    <br clear="all" />
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        jQuery('#deleteImgRosto').click(function () {
+                    jQuery.ajax({
+                type: "post",
+                url: '/Cadastro/DeleteFotoRosto',
+                data: { id: jQuery('#Id').val() },
+                success: function (data) {
+                    
+                    jQuery('#imgRosto').attr('src', '/Content/images/users/default_homem.jpg');
+                    return false;
+                }
+            });
+        });
+
+        jQuery('#deleteImgCorpoFrente').click(function () {
+            jQuery.ajax({
+                type: "post",
+                url: '/Cadastro/DeleteFotoCorpoFrente',
+                data: { id: jQuery('#Id').val() },
+                success: function (data) {
+                   
+                    jQuery('#imgFotoCorpoFrente').attr('src', '/Content/images/users/default_homem.jpg');
+                    return false;
+                }
+            });
+        });
+        jQuery('#deleteImgCorpoLado').click(function () {
+            jQuery.ajax({
+                type: "post",
+                url: '/Cadastro/DeleteFotoCorpoLado',
+                data: { id: jQuery('#Id').val() },
+                success: function (data) {
+                   
+                    jQuery('#imgFotoCorpoLado').attr('src', '/Content/images/users/default_homem.jpg');
+                    return false;
+                }
+            });
+        });
+        jQuery('#deleteImgCabelo').click(function () {
+            jQuery.ajax({
+                type: "post",
+                url: '/Cadastro/DeleteFotoCabelo',
+                data: { id: jQuery('#Id').val() },
+                success: function (data) {
+                    
+                    jQuery('#imgFotoCabelo').attr('src', '/Content/images/users/default_homem.jpg');
+                    return false;
+                }
+            });
+        });
+        jQuery('#deleteImgOlhos').click(function () {
+            jQuery.ajax({
+                type: "post",
+                url: '/Cadastro/DeleteFotoOlhos',
+                data: { id: jQuery('#Id').val() },
+                success: function (data) {
+                    
+                    jQuery('#imgFotoOlhos').attr('src', '/Content/images/users/default_homem.jpg');
+                    return false;
+                }
+            });
+        });
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        jQuery('#FileFotoRosto').uploadify({
+            'swf': '@Url.Content("/Content/js/plugins/uploadify-v3.1/uploadify.swf")',
+            'buttonText': 'Selecione Imagem',
+            'uploader': '/Cadastro/GravaCaracteristicasFotoRosto',
+            'fileTypeDesc': 'Image Files',
+            'folder': '/Content/uploads/fotosCandidatos',
+            'fileTypeExts': '*.gif; *.jpg; *.png',
+            'formData': { 'id': jQuery('#Id').val() },
+            'auto': true,
+            'multi': false,
+            'onUploadSuccess': function (file, data, response) {
+                var result = JSON.parse(data);
+                jQuery('#imgRosto').attr('src', result.caminho);
+
+            }
+
+        });
+        jQuery('#FileFotoCorpoFrente').uploadify({
+            'swf': '@Url.Content("/Content/js/plugins/uploadify-v3.1/uploadify.swf")',
+            'buttonText': 'Selecione Imagem',
+            'uploader': '/Cadastro/GravaCaracteristicasFotoCorpoFrente',
+            'script': '/Cadastro/GravaCaracteristicasFotoCorpoFrente',
+            'fileTypeDesc': 'Image Files',
+            'folder': '/Content/uploads/fotosCandidatos',
+            'fileTypeExts': '*.gif; *.jpg; *.png',
+            'formData': { 'id': jQuery('#Id').val() },
+            'auto': true,
+            'multi': false,
+            'onUploadSuccess': function (file, data, response) {
+                var result = JSON.parse(data);
+                jQuery('#imgFotoCorpoFrente').attr('src', result.caminho);
+
+            }
+
+        });
+
+        jQuery('#FileFotoCorpoLado').uploadify({
+            'swf': '@Url.Content("/Content/js/plugins/uploadify-v3.1/uploadify.swf")',
+            'buttonText': 'Selecione Imagem',
+            'uploader': '/Cadastro/GravaCaracteristicasFotoCorpoLado',
+            'script': '/Cadastro/GravaCaracteristicasFotoCorpoLado',
+            'fileTypeDesc': 'Image Files',
+            'folder': '/Content/uploads/fotosCandidatos',
+            'fileTypeExts': '*.gif; *.jpg; *.png',
+            'formData': { 'id': jQuery('#Id').val() },
+            'auto': true,
+            'multi': false,
+            'onUploadSuccess': function (file, data, response) {
+                var result = JSON.parse(data);
+                jQuery('#imgFotoCorpoLado').attr('src', result.caminho);
+
+            }
+
+        });
+
+        jQuery('#FileFotoCabelo').uploadify({
+            'swf': '@Url.Content("/Content/js/plugins/uploadify-v3.1/uploadify.swf")',
+            'buttonText': 'Selecione Imagem',
+            'uploader': '/Cadastro/GravaCaracteristicasFotoCabelo',
+            'script': '/Cadastro/GravaCaracteristicasFotoCabelo',
+            'fileTypeDesc': 'Image Files',
+            'folder': '/Content/uploads/fotosCandidatos',
+            'fileTypeExts': '*.gif; *.jpg; *.png',
+            'formData': { 'id': jQuery('#Id').val() },
+            'auto': true,
+            'multi': false,
+            'onUploadSuccess': function (file, data, response) {
+                var result = JSON.parse(data);
+                jQuery('#imgFotoCabelo').attr('src', result.caminho);
+
+            }
+
+        });
+        jQuery('#FileFotoOlhos').uploadify({
+            'swf': '@Url.Content("/Content/js/plugins/uploadify-v3.1/uploadify.swf")',
+            'buttonText': 'Selecione Imagem',
+            'uploader': '/Cadastro/GravaCaracteristicasFotoOlhos',
+            'script': '/Cadastro/GravaCaracteristicasFotoOlhos',
+            'fileTypeDesc': 'Image Files',
+            'folder': '/Content/uploads/fotosCandidatos',
+            'fileTypeExts': '*.gif; *.jpg; *.png',
+            'formData': { 'id': jQuery('#Id').val() },
+            'auto': true,
+            'multi': false,
+            'onUploadSuccess': function (file, data, response) {
+                var result = JSON.parse(data);
+                jQuery('#imgFotoOlhos').attr('src', result.caminho);
+
+            }
+
+        });
+
+        jQuery('#submitForm').click(function () {
+            if (jQuery('#FotoRosto').val() == "") {
+                alert("Por favor, insira uma foto do rosto!");
+                return false;
+            }
+
+            jQuery('.formPost').submit();
+        });
+
+        jQuery('.submitFotos').click(function () {
+            jQuery('#TipoDeOperacao').attr('value', 'uploadDeFotos');
+            jQuery('.formPost').submit();
+        });
+
+
+        jQuery("#slider").slider({
+            value: 100,
+            min: 0,
+            max: 500,
+            step: 50,
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.value);
+            }
+        });
+
+    });
+</script>

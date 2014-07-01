@@ -1,0 +1,30 @@
+﻿<div class="tabmenu">
+    <ul>			
+        <li class="current">
+			<a href="@Url.Action("Index", "Home")" class="dashboard"><span>Home</span></a>            
+        </li>
+		<li><a href="@Url.Action("DadosPessoais", "Cadastro")" class="elements"><span>Meus dados</span></a>
+            <ul class="subnav">
+                <li><a href="@Url.Action("DadosPessoais", "Cadastro")"><span>Dados pessoais</span></a></li>
+				<li><a href="@Url.Action("Documentos", "Cadastro")"><span>Documentos</span></a></li>
+				<li><a href="@Url.Action("InformacoesGerais", "Cadastro")"><span>Informações Gerais</span></a></li>
+				<li><a href="@Url.Action("Caracteristicas", "Cadastro")"><span>Caraterísticas</span></a></li>
+				<li><a href="@Url.Action("DadosBancarios", "Cadastro")"><span>Dados bancários</span></a></li>
+            </ul>
+        </li>
+        <li><a href="@Url.Action("Escolaridade", "Cadastro")" class="reports"><span>Formação</span></a>
+			<ul class="subnav">
+                <li><a href="@Url.Action("Escolaridade", "Cadastro")"><span>Escolaridade</span></a></li>
+				<li><a href="@Url.Action("Informatica", "Cadastro")"><span>Informática</span></a></li>
+                <li><a href="@Url.Action("Idiomas", "Cadastro")"><span>Idiomas</span></a></li>
+            </ul>
+		</li>			
+			<li><a href="@Url.Action("Funcoes", "Cadastro")" class="exp_prof"><span>Exp. profissional</span></a>
+			<ul class="subnav">
+                <li><a href="@Url.Action("Funcoes", "Cadastro")"><span>Funções</span></a></li>
+				<li><a href="@Url.Action("Segmentos", "Cadastro")"><span>Segmentos</span></a></li>
+                <li><a href="@Url.Action("ExperienciaProfissional", "Cadastro")"><span>Experiências Profissionais</span></a></li>
+            </ul>
+		</li>
+    </ul>
+</div>

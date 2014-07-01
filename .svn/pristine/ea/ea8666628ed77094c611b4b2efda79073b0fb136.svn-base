@@ -1,0 +1,134 @@
+﻿@using Casting.Domain
+@model Casting.Web.Mvc.Controllers.ViewModels.PesquisaVagaViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>title</title>
+        
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/general.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/style.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/menu.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/colors.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/forms.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/tables.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/botoes_icones.css")" />
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/plugins/jquery.ui.css")" />	
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/plugins/jquery.ui.datepicker.css")" />	
+        <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/plugins/colorbox.css")" />	
+
+        <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-1.7.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-ui-1.8.21.custom.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.dataTables.min.js")"></script>
+
+    </head>
+    <body>
+        <div class="maincontent">
+    
+            <div class="breadcrumbs">
+                <a href="@Url.Action("Index","Home")">Home</a>
+                <span>Buscar Vagas</span>
+            </div><!-- breadcrumbs -->
+
+            <div class="left" style="overflow:visible;">
+                <form action="" method="post">
+                    <div class="form_default">
+                        <fieldset>
+
+                            <legend>Busca de Vagas</legend> 
+
+                            <div class="colunaum">
+				
+                                <p>
+                                    <label for="corpele">Empresa</label>
+                                    <select name="empresa" id="empresa" class="mf">
+                                        <option value="0">Selecione</option>
+                                        @foreach (var cliente in (IEnumerable<Cliente>)ViewData["Clientes"])
+                                        {
+                                            <option value="@cliente.Id">@cliente.Nome</option>
+                                        }
+                                    </select>	
+                                </p>
+					
+                                <p>
+                                    <label for="nomeVaga">Título da vaga</label>
+                                    <input type="text" id="tituloVaga" name="tituloVaga" class="mf"/>
+                                </p>
+         
+                                <div>
+                                    <label></label>
+                                    <p>
+                                        <a href="#" id="submitForm" class="iconlink4 fl" style="float: right;" onclick="return RefreshGrid()">
+                                            <img src="@Url.Content("~/Content/images/cafe/icons/small/white/search.png")" class="mgright5" alt=""> <span>Pesquisar</span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>  
+                        </fieldset>
+                    </div>
+                    <!--form-->
+                </form>
+	
+                <div class="clear" style="margin-bottom:10px;"></div>
+        
+                @Html.Partial("PartialListaDeVagas")    
+        
+                <div class="clear"></div>
+	
+                </div><!-- left -->            
+  
+            <div class="clear"></div>
+        </div>
+    </body>
+</html>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+      jQuery('#example').dataTable({
+                "sPaginationType": "full_numbers",
+                "bProcessing": false,
+                "bServerSide": true,
+                "sAjaxSource": "@Url.Action("PesquisarVagas","Administracao")",
+                "aoColumns": [
+                { "mDataProp": "TituloVaga", "bSortable": false, "sClass": "con0" },
+                { "mDataProp": "Cliente", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "TotalVagas", "bSortable": false, "sClass": "center con0" },
+                { "mDataProp": "TotalVagasNaoPreenchidas", "bSortable": false, "sClass": "con1"},
+                { "mDataProp": "Id", "bSortable": false, "sClass": "con0" },
+                { "mDataProp": "Id", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "Id", "bSortable": false, "sClass": "center con0" }],
+                "fnServerData": function (sSource, aoData, fnCallback) {
+                    aoData.push({ "name": "filtro_empresa", "value": jQuery('#empresa option:selected').val() });
+                    aoData.push({ "name": "filtro_titulo_vaga", "value": jQuery('#tituloVaga').val() });
+
+                    jQuery.getJSON(sSource, aoData, function (data) {
+                        fnCallback(data);
+                    });
+                },
+                "oLanguage": {
+                    "sLengthMenu": "Mostrar _MENU_ registros por página",
+                    "sSearch": "Procurar",
+                    "sZeroRecords": "Nenhuma informação encontrada",
+                    "sInfo": "Mostrando do _START_ ao _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 ao 0 de 0 registros",
+                    "sInfoFiltered": "(filtrado de _MAX_ registros)",
+                    "sProcessing": "Carregando",
+                    "oPaginate": {
+                        "sFirst": "primeiro",
+                        "sPrevious": "anterior",
+                        "sNext": "próximo",
+                        "sLast": "último"
+                    }
+                }
+            });
+
+    });
+    
+    function RefreshGrid() {
+        jQuery('#example').dataTable().fnDraw();
+    }
+</script>

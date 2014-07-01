@@ -1,0 +1,172 @@
+﻿@using System.Collections
+@using Casting.Domain
+
+@model Casting.Web.Mvc.Controllers.ViewModels.PesquisaVagaViewModel
+
+@{
+    ViewBag.Title = "Buscar Vaga";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+    
+    <div class="breadcrumbs">
+        <a href="@Url.Action("Index","Home")">Home</a>
+        <span>Buscar Vagas</span>
+    </div><!-- breadcrumbs -->
+
+    <div class="left" style="overflow:visible;">
+        <form action="" method="post">
+            <div class="form_default">
+                <fieldset>
+                    <legend>Busca de Vagas</legend> 
+
+                    <div class="colunaum">				
+                        <p>
+                            <label for="corpele">Empresa</label>
+                            <select name="empresa" id="empresa" class="mf">
+                                <option value="0">Selecione</option>
+                                @foreach (var cliente in Model.Clientes)
+                                {
+                                    <option value="@cliente.Id">@cliente.Nome</option>
+                                }
+                            </select>	
+                        </p>
+					
+                        <p>
+                            <label for="nomeVaga">Título da vaga</label>
+                            <input type="text" id="tituloVaga" name="tituloVaga" class="mf"/>
+                        </p>
+         
+                        <div>
+                            <label></label>
+                            <p>
+                                <a href="#" id="submitForm" class="iconlink4 fl" style="float: right;" onclick="return RefreshGrid()">
+                                    <img src="@Url.Content("~/Content/images/cafe/icons/small/white/search.png")" class="mgright5" alt=""> <span>Pesquisar</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>  
+                </fieldset>
+            </div>
+            <!--form-->
+        </form>
+	
+        <div class="clear" style="margin-bottom:10px;"></div>
+        
+        @Html.Partial("PartialListaDeVagas")    
+        
+        <div  id="PessoasContratadasDaVaga" >
+            @if (Model.PessoasNaVaga != null)
+            {
+                @Html.Partial("PartialListaDePessoasDaVaga")
+            }
+        </div>
+
+        <div  id="EntrevistasDaVaga" >
+            @if (Model.Entrevistas != null)
+            {
+                @Html.Partial("PartialListaDeEntrevistasDaVaga")
+            }
+        </div>
+        <div class="clear"></div>
+	
+        </div><!-- left -->            
+  
+    <div class="clear"></div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        
+        jQuery('#example').dataTable({
+                "sPaginationType": "full_numbers",
+                "bProcessing": true,
+                "bServerSide": true,
+                "bFilter": false,
+                "sAjaxSource": "@Url.Action("PesquisarVagas","Administracao")",
+                "aoColumns": [
+                { "mDataProp": "TituloVaga", "bSortable": false, "sClass": "con0" },
+                { "mDataProp": "Cliente", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "TotalVagas", "bSortable": false, "sClass": "center con0" },
+                { "mDataProp": "TotalVagasNaoPreenchidas", "bSortable": false, "sClass": "center con1"},
+                { "mDataProp": "Id", "bSortable": false, "sClass": "center con0" },
+                { "mDataProp": "Id", "bSortable": false, "sClass": "center con1" },
+                { "mDataProp": "Id", "bSortable": false, "sClass": "center con0" }],
+                "fnServerData": function (sSource, aoData, fnCallback) {
+                    aoData.push({ "name": "filtro_empresa", "value": jQuery('#empresa option:selected').val() });
+                    aoData.push({ "name": "filtro_titulo_vaga", "value": jQuery('#tituloVaga').val() });
+
+                    jQuery.getJSON(sSource, aoData, function (data) {
+                        fnCallback(data);
+                    });
+                },
+                "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+
+                    if(aData.Id != null)
+                    {
+
+                        var verPessoas = jQuery(nRow).find('td').eq(4);
+                        verPessoas.html('<a href="#" class="ver_pessoas" onclick="exibirPessoasDaVaga(' + aData.Id + ')">Ver pessoas</a>');
+                        verPessoas.addClass('center con1');
+
+                        var verVagas = jQuery(nRow).find('td').eq(5);
+                        verVagas.html('<a href="#" class="ver_entrevistas" onclick="exibirEntrevistasDaVaga(' + aData.Id + ')">Ver pessoas</a>');
+                        verVagas.addClass('center con1');
+
+                        var editar = jQuery(nRow).find('td').eq(6);
+                        editar.html('<a href="/Administracao/CadastrarVaga?idVaga=' + aData.Id + '">Editar</a>');
+                        editar.addClass('center con1');
+                    }
+                    loadingScreen("off");
+                    
+                    return nRow;
+                },
+                "oLanguage": {
+                    "sLengthMenu": "Mostrar _MENU_ registros por página",
+                    "sSearch": "Procurar",
+                    "sZeroRecords": "Nenhuma informação encontrada",
+                    "sInfo": "Mostrando do _START_ ao _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 ao 0 de 0 registros",
+                    "sInfoFiltered": "(filtrado de _MAX_ registros)",
+                    "sProcessing": "Carregando",
+                    "oPaginate": {
+                        "sFirst": "primeiro",
+                        "sPrevious": "anterior",
+                        "sNext": "próximo",
+                        "sLast": "último"
+                    }
+                }
+            });
+    });
+
+    function RefreshGrid() {
+        loadingScreen("on");
+        jQuery('#example').dataTable().fnDraw();
+    }
+    
+    function exibirPessoasDaVaga(vagaId) {
+
+        jQuery.ajax({
+            url: '@Url.Action("PesquisaPessoasContratadasParaVaga")',
+            data: { "vagaId": vagaId },
+            success: function (data) {
+                jQuery("#PessoasContratadasDaVaga").html(data);
+                jQuery(".lista_vagas").hide();
+                jQuery(".lista_pessoas").show();
+            }
+        });
+    }
+
+    function exibirEntrevistasDaVaga(vagaId) {
+
+        jQuery.ajax({
+            url: '@Url.Action("PesquisaEntrevistasMarcadasPagaVaga")',
+            data: { "vagaId": vagaId },
+            success: function (data) {
+                jQuery("#EntrevistasDaVaga").html(data);
+                jQuery(".lista_vagas").hide();
+                jQuery(".lista_entrevistas").show();
+            }
+        });
+    }
+</script>

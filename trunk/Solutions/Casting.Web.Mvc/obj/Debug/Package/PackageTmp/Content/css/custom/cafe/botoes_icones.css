@@ -1,0 +1,65 @@
+/**BUTTONS & ICONS**/
+.button_white { border: 1px solid #ccc; background: #eee url(../../../images/buttons/button_white.png) repeat-x top left; text-shadow: 1px 1px #f7f7f7; color: #333; }
+.button_white:active { -moz-box-shadow: inset 2px 2px 2px #ccc; -webkit-box-shadow: inset 2px 2px 2px #ccc; box-shadow: inset 2px 2px 2px #ccc; }
+
+.button_blue { border: 1px solid #39537f; background: #eee url(../../../images/buttons/button_blue.png) repeat-x top left; text-shadow: 1px 1px #39537f; color: #fff; }
+.button_blue:active { -moz-box-shadow: inset 2px 2px 2px #12274c; -webkit-box-shadow: inset 2px 2px 2px #12274c; box-shadow: inset 2px 2px 2px #12274c; }
+
+.button_vermelho { border: 1px solid #39537f; background: #eee url(../../images/buttons/button_vermelho.png) repeat-x top left; text-shadow: 1px 1px #39537f; color: #fff;}
+.button_vermelho:active { -moz-box-shadow: inset 2px 2px 2px #12274c; -webkit-box-shadow: inset 2px 2px 2px #12274c; box-shadow: inset 2px 2px 2px #12274c; }
+
+.button_black { border: 1px solid #333; background: #333 url(../../../images/buttons/button_black.png) repeat-x top left; text-shadow: 1px 1px #333; color: #fff; }
+.button_black:active { -moz-box-shadow: inset 2px 2px 2px #12274c; -webkit-box-shadow: inset 2px 2px 2px #12274c; box-shadow: inset 2px 2px 2px #12274c; }
+
+.button_red { border: 1px solid #b22407; background: #333 url(../../../images/buttons/button_red.png) repeat-x top left; text-shadow: 1px 1px #b22407; color: #fff; }
+.button_red:active { -moz-box-shadow: inset 2px 2px 2px #b22407; -webkit-box-shadow: inset 2px 2px 2px #b22407; box-shadow: inset 2px 2px 2px #b22407; }
+
+.button_yellow { border: 1px solid #c67601; background: #333 url(../../../images/buttons/button_yellow.png) repeat-x top left; text-shadow: 1px 1px #c67601;color: #fff; }
+.button_yellow:active { -moz-box-shadow: inset 2px 2px 2px #c67601; -webkit-box-shadow: inset 2px 2px 2px #c67601; box-shadow: inset 2px 2px 2px #c67601; }
+
+.button_green { border: 1px solid #507e0c; background: #333 url(../../../images/buttons/button_green.png) repeat-x top left; text-shadow: 1px 1px #507e0c;color: #fff; }
+.button_green:active { -moz-box-shadow: inset 2px 2px 2px #507e0c; -webkit-box-shadow: inset 2px 2px 2px #507e0c; box-shadow: inset 2px 2px 2px #507e0c; }
+
+.button_brown { border: 1px solid #574128; background: #333 url(../../../images/buttons/button_brown.png) repeat-x top left; text-shadow: 1px 1px #574128; color: #fff; }
+.button_brown:active { -moz-box-shadow: inset 2px 2px 2px #574128; -webkit-box-shadow: inset 2px 2px 2px #574128; box-shadow: inset 2px 2px 2px #574128; }
+
+.button_lblue { border: 1px solid #7197bd; background: #333 url(../../../images/buttons/button_lblue.png) repeat-x top left; text-shadow: 1px 1px #fff; color: #2161a0; }
+.button_lblue:active { -moz-box-shadow: inset 2px 2px 2px #7197bd; -webkit-box-shadow: inset 2px 2px 2px #7197bd; box-shadow: inset 2px 2px 2px #7197bd; }
+
+.iconlink { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; color: #fff; text-shadow: 1px 1px #304978; margin-bottom: 5px; cursor: pointer;  }
+.iconlink { -moz-box-shadow: 1px 1px 0 #f7f7f7; -webkit-box-shadow: 1px 1px 0 #f7f7f7; box-shadow: 1px 1px 0 #f7f7f7; }
+.iconlink { display: inline-block; padding: 5px 7px; border: 1px solid #304978; background: url(../../../images/cafe/buttonbg3.png) repeat-x top left; }
+.iconlink:hover { background-position: 0 -36px; text-decoration: none; }
+.iconlink:active { -moz-box-shadow: inset 1px 1px 2px #304978; -webkit-box-shadow: inset 1px 1px 2px #304978; box-shadow: inset 1px 1px 2px #304978; }
+.iconlink img { vertical-align: middle; display: inline-block; }
+.iconlink  button, input[type=submit]  { border: none; background: none; border: 0 !important; padding:0px !important; color: black; cursor: pointer; }
+
+
+.iconlink2 { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; color: #333; margin-bottom: 5px;  cursor: pointer; }
+.iconlink2 { -moz-box-shadow: 1px 1px 0 #f7f7f7; -webkit-box-shadow: 1px 1px 0 #f7f7f7; box-shadow: 1px 1px 0 #f7f7f7; }
+.iconlink2 { display: inline-block; padding: 5px 7px; border: 1px solid #ccc; background: url(../../../images/cafe/bgbutton4.png) repeat-x top left; }
+.iconlink2:active { -moz-box-shadow: inset 1px 1px 2px #ccc; -webkit-box-shadow: inset 1px 1px 2px #ccc; box-shadow: inset 1px 1px 2px #ccc; }
+.iconlink2:hover { background-position: 0 -37px; text-decoration: none; }
+.iconlink2 img { vertical-align: middle; display: inline-block;  }
+.iconlink2 button, input[type=submit]  { border: none; background: none; border: 0 !important; padding:0px !important; color: black; cursor: pointer; }
+
+
+.iconlink3 { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; color: #333; cursor: pointer;  }
+.iconlink3 { -moz-box-shadow: 1px 1px 0 #f7f7f7; -webkit-box-shadow: 1px 1px 0 #f7f7f7; box-shadow: 1px 1px 0 #f7f7f7; }
+.iconlink3 { display: inline-block; padding: 5px 7px; border: 1px solid #ccc; background: url(../../../images/cafe/bgbutton4.png) repeat-x top left; }
+.iconlink3:active { -moz-box-shadow: inset 1px 1px 2px #ccc; -webkit-box-shadow: inset 1px 1px 2px #ccc; box-shadow: inset 1px 1px 2px #ccc; }
+.iconlink3:hover { background-position: 0 -37px; text-decoration: none; }
+.iconlink3 img { vertical-align: middle; display: inline-block; }
+.iconlink3 button, input[type=submit] { border: none; background: none; border: 0 !important; padding:0px !important; color: black; cursor: pointer; }
+
+.iconlink4 { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; color: #fff; cursor: pointer;  }
+.iconlink4 { -moz-box-shadow: 1px 1px 0 #f7f7f7; -webkit-box-shadow: 1px 1px 0 #f7f7f7; box-shadow: 1px 1px 0 #f7f7f7; }
+.iconlink4 { display: inline-block; font-weight:normal; padding: 5px 7px; border: 1px solid #333; background: url(../../../images/cafe/bgbutton6.png) repeat-x top left;  text-shadow: 1px 1px #333; font-size:12px;}
+.iconlink4:active { -moz-box-shadow: inset 1px 1px 2px #ccc; -webkit-box-shadow: inset 1px 1px 2px #ccc; box-shadow: inset 1px 1px 2px #ccc; }
+.iconlink4:hover { background-position: 0 -37px; text-decoration: none; }
+.iconlink4 img { vertical-align: middle; display: inline-block; }
+.iconlink4 button, input[type=submit] { border: none; background: transparent; border: 0 !important; padding:0px !important; color: white !important; cursor: pointer; }
+
+.cont_msg .btn_acao input[type=submit] { border: none; background: none; border: 0 !important; padding:0px !important; color: black !important; cursor: pointer; }
+.cont_curriculo .btn_acao input[type=submit] { border: none; background: none; border: 0 !important; padding:0px !important; color: black !important; cursor: pointer; }
+.cont_curriculo .btn_acao a { text-decoration:none; }

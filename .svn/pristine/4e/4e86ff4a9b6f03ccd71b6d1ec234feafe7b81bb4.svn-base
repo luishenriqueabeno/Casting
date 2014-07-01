@@ -1,0 +1,123 @@
+﻿@model Casting.Web.Mvc.Controllers.ViewModels.ClienteViewModel
+
+@{
+    ViewBag.Title = "Cadastrar Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+    
+    <div class="breadcrumbs">
+        <a href="@Url.Action("Index","Home")">Home</a>
+        <span>Cadastro de</span>
+        <span>Clientes</span>
+    </div><!-- breadcrumbs -->
+
+    <div class="left">
+        @using (Html.BeginForm("CadastrarCliente", "Administracao", null, FormMethod.Post, new { @class = "formPost" }))
+        {
+            <div class="form_default">
+                <fieldset>
+                    <legend>Cadastro de Clientes</legend> 
+
+                    <div class="colunaum">
+                    
+                        <p class="first">
+                            <label>Nome <em>*</em></label>
+                            @Html.TextBoxFor(x => x.Nome, new { @class = "mf"})
+                        </p>
+					
+                        <p>
+                            <label for="rg">RG / CNPJ</label>
+                            @Html.TextBoxFor(x => x.Rg, new { @class = "mf"})
+                        </p>
+                        
+                        <p>
+                            <label for="Peso">Telefone</label>
+                            @Html.TextBoxFor(x => x.Telefone, new { @class = "mf campo_telefone", value= "" })
+                        </p>
+                        
+                        <p>
+                            <label for="Peso">Email</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "mf"})
+                        </p>
+                        
+                    </div>
+
+                    <div class="colunaum">
+                        <p>
+                            <label for="ContatoResponsavel">Contato responsável</label>
+                            @Html.TextBoxFor(x => x.ContatoResponsavel, new { @class = "mf"})
+                        </p>
+                        
+                        <p>
+                            <label for="cpf">CPF <em>*</em></label>
+                            @Html.TextBoxFor(x => x.Cpf, new { @class = "mf campo_cpf" })
+                        </p>
+                        
+                        <p>
+                            <label for="estadocivil">Senha <em>*</em></label>
+                            @Html.PasswordFor(x => x.Senha, new { @class = "mf" })
+                        </p>
+														
+                        <p>
+                            <label for="Peso">Confirmar Senha <em>*</em></label>
+                            <input type="password" name="confirmarSenha" id="confirmarSenha" class="mf"/>
+                        </p>
+                    
+                        <div  style="float: right;">
+                            <label></label>
+                            <a href="#" id="submitForm" class="iconlink4 fl">
+                                <img src="@Url.Content("~/Content/images/cafe/icons/small/white/check.png")" class="mgright5" alt="">
+                                <span>Cadastrar</span>
+                            </a>
+                            <div class="clear"></div>
+                        </div>
+                    </div>  
+                </fieldset>
+            </div>
+            <!--form-->
+        }
+	
+        <div class="clear" style="margin-bottom:10px;"></div>
+
+    </div><!-- left -->            
+  
+    <div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+//        jQuery("#tipoPessoa").buttonset();
+//       
+//        jQuery("#btnPessoaFisica").click(function () {
+//            jQuery("#pessoaFisica").show();
+//            jQuery("#pessoaJuridica").hide();
+//            jQuery("#btnPessoaFisica").css("color", "#999");
+//            jQuery("#btnPessoaJuridica").css("color", "#333");
+//        });
+
+//        jQuery("#btnPessoaJuridica").click(function () {
+//            jQuery("#pessoaJuridica").show();
+//            jQuery("#pessoaFisica").hide();
+//            jQuery("#btnPessoaFisica").css("color", "#333");
+//            jQuery("#btnPessoaJuridica").css("color", "#999");
+//        });
+
+        jQuery('#submitForm').click(function () {
+            if (jQuery('#Nome').val() == "" || jQuery('#confirmarSenha').val() == "" || jQuery('#Senha').val() == "" || (jQuery('#Cpf').val() == "" && jQuery('#Cnpj').val() == "")) {
+                alert("Por Favor, preencha todos os campos obrigatórios!");
+                return false;
+            }
+
+            if (jQuery('#confirmarSenha').val() != jQuery('#Senha').val()) {
+                alert("A senha e a confirmação não conferem!");
+                return false;
+            }
+
+            jQuery('.formPost').submit();
+
+        });
+    })
+</script>

@@ -1,0 +1,292 @@
+﻿@using Casting.Domain.enums
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Trade Force</title>
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/general.css")" />
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/style.css")" />
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/menu.css")" />
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/colors.css")" />
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/forms.css")" />
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/tables.css")" />
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/custom/cafe/botoes_icones.css")" />
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/plugins/jquery.ui.css")" />	
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/plugins/jquery.ui.datepicker.css")" />	
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/plugins/colorbox.css")" />	
+<!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/ie9.css")"/>
+<![endif]-->
+
+<!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/ie8.css")"/>
+<![endif]-->
+
+<!--[if IE 7]>
+    <link rel="stylesheet" media="screen" href="@Url.Content("~/Content/css/ie7.css")"/>
+<![endif]-->
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-1.7.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-ui-1.8.21.custom.min.js")"></script>
+@*    <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-ui.core.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-ui.widget.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery-ui.button.js")"></script>*@
+    <script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.dataTables.min.js")"></script>
+
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.validate.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.colorbox-min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/colorpicker.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.jgrowl.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.alerts.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.flot.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/custom/elements.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.flot.pie.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/excanvas.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/custom/curriculo.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/modernizr-2.0.6-development-only.js")" ></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.mask.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/custom/general.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.jsonp-2.3.0.min.js")"></script>
+
+<script type="text/javascript" src="@Url.Content("~/Content/js/custom/calendar.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/fullcalendar.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/jquery.printElement.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/custom/casting.js")"></script>
+<script type="text/javascript" src="http://jquery-ui.googlecode.com/svn/trunk/ui/i18n/jquery.ui.datepicker-pt-BR.js"></script>
+
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/FusionCharts.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/FusionCharts.HC.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/js/plugins/FusionCharts.HC.Charts.js")"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#dataTableCasting').dataTable({
+            "sPaginationType": "full_numbers"
+        });
+
+    });
+
+    jQuery(document).ready(function () {
+        jQuery(".campo_cpf").mask("000.000.000-00");
+        jQuery(".campo_cep").mask("00000-000");
+        jQuery(".campo_data").mask("00/00/0000");
+        jQuery(".campo_mesano").mask("00/0000");
+        jQuery(".campo_hora").mask("00:00");
+        //jQuery(".campo_telefone").mask("(99) 9999-9999");
+        jQuery(".campo_pis").mask("000.00000.00-00");
+
+        jQuery('.campo_telefone').mask('(00) 0000-0000',
+            { onKeyPress: function(phone, event, currentField, options) {
+                if ( /(\(11\) 9?(9|8|7)).+/i .test(phone)) {
+                    jQuery(currentField).mask('(00) 00000-0000', options);
+                } else {
+                    jQuery(currentField).mask('(00) 0000-0000', options);
+                }
+            }
+            });
+
+    });
+
+    function SomenteNumero(e) {
+        var tecla = (window.event) ? event.keyCode : e.which;
+        if ((tecla > 47 && tecla < 58)) return true;
+        else {
+            if (tecla == 8 || tecla == 0) return true;
+            else return false;
+        }
+    }
+</script>
+<script>
+    jQuery(document).ready(function () {
+        //Examples of how to assign the ColorBox event to elements
+        jQuery(".group1").colorbox({ rel: 'group1' });
+        jQuery(".group2").colorbox({ rel: 'group2', transition: "fade" });
+        jQuery(".group3").colorbox({ rel: 'group3', transition: "none", width: "75%", height: "75%" });
+        jQuery(".group4").colorbox({ rel: 'group4', slideshow: true });
+        jQuery(".ajax").colorbox();
+        jQuery(".colorBoxAvaliacaoDetalhe").colorbox({ inline: true, width: "505px", href: "#avaliacaoDetalhada" });
+        jQuery(".inline").colorbox({ inline: true, width: "505px" });
+        jQuery(".callbacks").colorbox({
+            onOpen: function () { alert('onOpen: colorbox is about to open'); },
+            onLoad: function () { alert('onLoad: colorbox has started to load the targeted content'); },
+            onComplete: function () { alert('onComplete: colorbox has displayed the loaded content'); },
+            onCleanup: function () { alert('onCleanup: colorbox has begun the close process'); },
+            onClosed: function () { alert('onClosed: colorbox has completely closed'); }
+        });
+
+        jQuery(".date").datepicker({
+            dateFormat: 'dd/mm/yy',
+            dayNames: [
+                    'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'
+                ],
+            dayNamesMin: [
+                    'D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'
+                ],
+            dayNamesShort: [
+                    'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'
+                ],
+            monthNames: [
+                    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
+                    'Outubro', 'Novembro', 'Dezembro'
+                ],
+            monthNamesShort: [
+                    'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set',
+                    'Out', 'Nov', 'Dez'
+                ],
+            nextText: 'Próximo',
+            prevText: 'Anterior'
+        });
+
+        jQuery(".datepicker").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1900:2100',
+            showOn: "both",
+            buttonImageOnly: true,
+            buttonImage: "/Content/images/icons/cal.png"
+        });
+        //Example of preserving a JavaScript event for inline calls.
+        jQuery("#click").click(function () {
+            jQuery('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+            return false;
+        });
+    });
+
+    function loadingScreen(action) {
+        if (action == "on") {
+            jQuery("#loading-message").fadeIn();
+            jQuery("#loading-overlay").fadeIn();
+            jQuery("body").css("overflow", "hidden");
+        } else {
+            jQuery("#loading-overlay").fadeOut();
+            jQuery("#loading-message").fadeOut();
+            jQuery("body").css("overflow", "auto");
+        }
+    }
+	</script>
+</head>
+
+<body class="bodygrey">
+    <div id="loading-overlay"></div>
+    <div id="loading-message">
+        <img src="@Url.Content("~/Content/images/ajax-loader.gif")" alt="loading.." />&nbsp;&nbsp;Por favor, aguarde um momento...
+    </div>
+
+    <div class="headerspace"></div>
+
+    <!-- HEADER -->
+    <div class="header">
+	
+        <!-- BUSCA -->
+        @*<form id="search" action="" method="post">
+    	<input type="text" name="keyword" /> <button class="searchbutton"></button>
+    </form>
+	<!-- BUSCA - END -->
+    
+	<!-- TOPHEADER -->
+    <div class="topheader">
+		<!-- NOTIFICAÇÕES -->
+        <ul class="notebutton">
+            
+            <li class="note">
+            	<a href="#">
+                	<span class="wrap">
+                    	<span class="thicon eventosicon"></span>
+                        <span class="count">5</span>
+                    </span>
+                </a>
+            </li>
+			<li class="note">
+            	<a href="#">
+                	<span class="wrap">
+                    	<span class="thicon msgicon"></span>
+                        <span class="count">1</span>
+                    </span>
+                </a>
+            </li>
+			
+        </ul>
+		<!-- NOTIFICAÇÕES - END -->
+    </div>*@
+        <!-- TOPHEADER - END -->
+
+        <!-- LOGO -->
+        <a href="@Url.Action("Index", "Home")" class="logo"><img src="@Url.Content("~/Content/images/logo.png")" alt="Logo" /></a>
+        <!-- LOGO - END -->
+	
+        @{
+            var usuario = (Casting.Domain.Usuario)ViewData["usuario"];
+            if (usuario.Perfil == Perfil.Candidato)
+            {
+                @Html.Partial("PartialMenuPrincipalCandidato")
+            }
+            else if (usuario.Perfil == Perfil.Digitador)
+            {
+                @Html.Partial("PartialMenuPrincipalDigitador")
+            }
+            else
+            {
+                @Html.Partial("PartialMenuPrincipalAdmin")
+            }
+        }
+        <!-- TABMENU - END -->
+    
+        <!-- BOX PERFIL -->
+        <div class="accountinfo">
+            <img src="@Url.Content("~/Content/images/users/pq/default_homem.jpg")" alt="Avatar" class="img_border" />
+            <!-- INFO -->
+            <div class="info">
+                @*<h3>@Model.usuario.Nome</h3>*@
+                <h3>@usuario.Nome</h3>
+                @*<small>@Model.usuario.Perfil.ToString()</small>*@
+                <ul class="stars" style="display:none;">
+                    <li class="on"></li>
+                    <li class="on"></li>
+                    <li class="on"></li>
+                    <li class="off"></li>
+                    <li class="off no_mg"></li>
+                </ul>
+                <div class="clear"></div>
+                <p>
+                    <a href="#aviso_foto"  class="inline foto fl">Alterar foto</a> 
+                    <a href="@Url.Action("Logout", "Home")"  class="logout fr">Logout</a>
+                </p>
+            </div>
+            <!-- INFO - END -->
+        </div>
+        <!-- BOX PERFIL - END -->
+    </div>
+    <!-- HEADER - END -->
+
+    <!-- COLUNA ESQUERDA -->
+    @{
+        if (usuario.Perfil == Perfil.Candidato)
+        {
+            @Html.Partial("PartialMenuLateralCandidato")
+        }
+        else if (usuario.Perfil == Perfil.Digitador)
+        {
+            @Html.Partial("PartialMenuLateralDigitador")
+        }
+        else
+        {
+            @Html.Partial("PartialMenuLateralAdmin")
+        }
+    }
+    <!-- COLUNA ESQUERDA - END -->
+
+    <!-- CONTEUDO PRINCIPAL -->
+    @RenderBody()
+    <!-- CONTEUDO PRINCIPAL - END -->
+	
+    <br clear="all" />
+    <div class="footer footer_float">
+        <div class="footerinner">
+            &copy; 2012. Trade Force. Todos os direitos reservados.
+        </div><!-- footerinner -->
+    </div><!-- footer -->
+
+</body>
+</html>

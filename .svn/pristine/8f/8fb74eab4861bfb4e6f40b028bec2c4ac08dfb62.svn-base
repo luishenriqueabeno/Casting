@@ -1,0 +1,48 @@
+﻿<div class="lista_vagas"> <!--Vagas-->
+	<table cellpadding="0" cellspacing="0" border="0" class="dyntable" id="example">
+        <thead>
+            <tr>
+				<th class="center head1" style="width: 275px;">Vaga</th>
+                <th class="center head0" style="width: 130px;">Empresa</th>
+                <th class="center head1">Total de Vagas</th>
+                <th class="center head0">Vagas em aberto</th>
+                <th class="center head1">Pessoas Contratadas</th>
+                <th class="center head0">Entrevistas Agendadas</th>
+				<th class="center head1">Editar</th>
+            </tr>
+        </thead>
+        <colgroup>
+			<col class="center con1" />
+            <col class="center con0" />
+            <col class="center con1" />
+            <col class="center con0" />
+            <col class="center con1" />
+            <col class="center con0" />
+            <col class="center con1" />
+        </colgroup>
+			
+			
+        <tbody>
+                <tr>
+                    <td class="center con1"></td>
+                    <td class="center con0"></td>
+                    <td class="center con1"></td>
+                    <td class="center con0"></td>
+                    <td class="center con1"></td>
+                    <td class="center con0"></td>
+                    <td class="center con1"></td>
+                </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+				<th class="center head1">Vaga</th>
+                <th class="center head0">Empresa</th>
+                <th class="center head1">Total de Vagas</th>
+                <th class="center head0">Vagas em aberto</th>
+                <th class="center head1">Pessoas Contratadas</th>
+                <th class="center head0">Entrevistas Agendadas</th>
+				<th class="center head1">Editar</th>
+            </tr>
+        </tfoot>
+    </table>			
+</div>

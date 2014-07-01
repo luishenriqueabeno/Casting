@@ -1,0 +1,324 @@
+﻿@model Casting.Web.Mvc.Controllers.ViewModels.AvaliacaoViewModel
+
+@{
+    ViewBag.Title = "AvaliacaoAparencia";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+    <div class="breadcrumbs">
+        <a href="@Url.Action("Index","Home")">Home</a>
+        <a href="@Url.Action("BuscarCandidato","Administracao")">Buscar currículo</a>
+        <a href="@Url.Action("DetalhesCandidato", "Administracao", new { id = @Model.IdCandidato})">
+        @Model.NomeCandidato
+        </a>
+        <span>Avaliação</span>
+    </div><!-- breadcrumbs -->
+
+    <div class="left">
+		
+        @using (Html.BeginForm("AvaliacaoAparencia", "Administracao", null, FormMethod.Post, new { @class = "formPost" }))
+        {
+            <div class="form_default">
+                
+                <fieldset>
+                    <legend>Informações Da Entrevista</legend>    
+                
+                    <p class="first">
+                        <span class="fl">
+                            <label>Nome do Cliente <em>*</em></label>
+                            <select name="Cliente" id="Cliente" class="mf">
+                                <option value="0">Selecione</option>
+                                @foreach (var cliente in Model.Clientes)
+                                {
+                                    <option  value="@cliente.Id">@cliente.Nome</option>
+                                }
+                            </select>
+                        </span>    
+                        <span class="fl">                    
+                            <label for="idade">Título da Vaga <em>*</em></label>
+                            <select id="IdVaga" name="IdVaga" class="mf" disabled="disabled" ></select>
+                        </span>
+                    </p>
+                    <div class="clear"></div>
+                    <p class="first">
+                        <span class="fl">                    
+                            <label for="idade">Data da Entrevista <em>*</em></label>
+                            <input type="text" id="dataEntrevista" name="DataEntrevista" class="pf campo_data date">
+                        </span>
+                        <span class="fl">                    
+                            <label for="idade">Horário da Entrevista <em>*</em></label>
+                            <input type="text" id="horaEntrevista" name="HoraEntrevista" class="pppf campo_hora">
+                        </span>
+                    </p>   
+                    <div class="clear"></div>
+                </fieldset>
+                          
+                <fieldset>
+                    
+                    <legend>Aparência</legend>    
+					
+                    <legend>Cabelo</legend>  
+                    @Html.HiddenFor(x => x.IdCandidato)
+                    <p class="first">
+                        <span class="fl">
+                            <label>Comprimento: </label>
+                            <select name="CabeloComprimento" class="sf">
+                                <option>Selecione</option>
+                                @foreach (var comprCabelo in Model.CabeloComprimentos)
+                                {
+                                    <option value="@comprCabelo.Id">@comprCabelo.Nome</option>
+                                }
+                            </select>
+                        </span>
+                        <span class="fl">
+                            <label>Tipo:  </label>
+                            <select name="CabeloTipo" class="sf">
+                                <option>Selecione</option>
+                                @foreach (var tipoCabelo in Model.CabeloTipos)
+                                {
+                                    <option value="@tipoCabelo.Id">@tipoCabelo.Nome</option>
+                                }
+                            </select>
+                        </span>
+                        <span class="fl">
+                            <label>Cor:  </label>
+                            <select name="CabeloCor" class="sf">
+                                <option>Selecione</option>
+                                @foreach (var corCabelo in Model.CabeloCores)
+                                {
+                                    <option value="@corCabelo.Id">@corCabelo.Nome</option>
+                                }
+                            </select>
+                        </span>
+                        <div class="clear"></div>
+                    </p>
+					
+                    <legend>Corpo</legend>  
+                    <p class="first">
+                        <span class="fl">
+                            <label>Tipo físico: </label>
+                            <select name="TipoFisico" class="sf">
+                                <option>Selecione</option>
+                                @foreach (var tipoFisico in Model.TipoFisicos)
+                                {
+                                    <option value="@tipoFisico.Id">@tipoFisico.Nome</option>
+                                }
+                            </select>
+                        </span>
+                        <div class="clear"></div>
+                    </p>
+					
+                    <legend>Dentes</legend> 
+                    <p>
+                        <span class="fl">
+                            <label>Sorriso: </label>
+                            <select name="AvaliacaoDentesSorriso" class="sf">
+                                <option>Selecione</option>
+                                @foreach (var sorriso in Model.AvaliacaoDentesSorrisos)
+                                {
+                                    <option value="@sorriso.Id">@sorriso.Nome</option>
+                                }  
+                            </select>
+                        </span>
+                        <span class="fl">
+                            <label>Cor:  </label>
+                            <select name="AvaliacaoDentesCor" class="sf">
+                                <option>Selecione</option>
+                                @foreach (var corDentes in Model.AvaliacaoDentesCores)
+                                {
+                                    <option value="@corDentes.Id">@corDentes.Nome</option>
+                                }  
+                            </select>
+                        </span>						
+                        <span class="fl">
+                            <label>Aparelho nos dentes: </label>
+                            <label><input type="radio" id="possuiAparelho" name="PossuiAparelho" value="true"> Sim</label>
+                            <label><input type="radio" id="naoPossuiAparelho" name="PossuiAparelho" value="false"> Não</label>                            
+                        </span>
+                        <span class="retirada fl" style="display: none;">
+                            <label>Previsão de retirada: </label>
+                            <input type="text" name="RetiradaAparelho" class="ppf campo_data date">
+                        </span>	
+						
+                        <div class="clear"></div>
+                    </p>
+					
+                    <legend>Pele</legend>  
+                    <p class="first">
+                        <span class="fl">
+                            <label>Tipo: </label>
+                            @foreach (var tipoPele in Model.TiposDePele)
+                            {
+                                <label><input type="radio" name="TipoDePele" value="@tipoPele.Id"> @tipoPele.Nome</label>
+                            }  
+                        </span>
+                        
+                        <span class="fl">
+                            <label>Peculiaridades: </label>				  
+                            <label>@Html.CheckBoxFor(x => x.PossuiCicatriz, new {@checked = Model.PossuiCicatriz}) Cicatriz </label><input type="text" id="localcicatriz" name="LocalCicatriz" placeholder="Local" class="ppf" style="display: none;">
+                                                                                                                                    <label>@Html.CheckBoxFor(x => x.PossuiPiercing, new {@checked = Model.PossuiPiercing}) Piercing </label><input type="text" id="piercingarea" name="LocalPiercing" placeholder="Local" class="sf" style="display: none; margin-bottom: 10px;">
+                                                                                                                                                                                                                                            <label>@Html.CheckBoxFor(x => x.PossuiTatuagem, new {@checked = Model.PossuiTatuagem}) Tatuagem </label><input type="text" id="tatuagemarea" name="LocalTatuagem" placeholder="Local" class="sf" style="display: none;">
+                                                                                                                                                                                                                                                                                                                                                    <div class="clear"></div>
+                        </span>			
+                        <div class="clear"></div>
+                    </p>
+					
+                    <!-- BOTÕES -->
+                    <p style="padding-left: 698px; margin-top: 10px;">
+                        <a href="@Url.Action("DetalhesCandidato", "Administracao", new {id = @Model.IdCandidato})" class="iconlink3 mg_rt fl"><img src="@Url.Content("/Content/images/cafe/icons/small/black/left.png")" class="mgright5" alt=""> <span>Voltar</span></a> 
+                        <a id="proximaEtapa" href="#" class="iconlink4 fl"><img src="@Url.Content("/Content/images/cafe/icons/small/white/right.png")" class="mgright5" alt=""> <span>Próxima Etapa</span></a>
+                        <div class="clear"></div>
+                    </p>
+                    <!-- BOTÕES - END -->
+                    
+                    <div class="clear"></div>
+
+                </fieldset>
+            </div>
+            <!--form-->
+        }   		       	
+		
+        <div class="clear"></div>			
+        <br />
+					
+    </div><!-- left -->            
+  
+	
+    <br clear="all" />
+    
+</div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        jQuery("#Cliente").change(function () {
+            var idCliente = jQuery(this).val();
+            jQuery.ajax({
+                url: '@Url.Action("SelecionaVagasporCliente")',
+                data: { "idCliente": idCliente },
+                success: function (data) {
+                    jQuery("#IdVaga")
+                    .find('option')
+                    .remove()
+                    .end();
+
+                    if (data == "") {
+                        jQuery("#IdVaga").attr('disabled', 'disabled');
+                    } else {
+                        jQuery("#IdVaga").removeAttr("disabled");
+                        jQuery("#IdVaga").append("<option value='0'> -- Selecione -- </option>");
+                    }
+
+                    jQuery.each(data, function (i, item) {
+                        jQuery("#IdVaga").append("<option value='" + item.Id + "'>" + item.Titulo + " </option>");
+                    });
+                }
+            });
+        });
+
+        jQuery('#proximaEtapa').click(function () {
+
+            if (jQuery('#IdVaga').val() == "0" || jQuery('#Cliente').val() == "0" || jQuery('#dataEntrevista').val() == "" || jQuery('#horaEntrevista').val() == "") {
+                alert("Por Favor, preencha todos os campos obrigatórios!");
+                return false;
+            }
+
+            if (!verificaData(jQuery('#dataEntrevista').val())) {
+                alert("Por Favor, insira uma data válida para a entrevista!");
+                return false;
+            }
+            
+            if (!verificaHora(jQuery('#horaEntrevista').val())) {
+                alert("Por Favor, insira um horário válido para a entrevista!");
+                return false;
+            }
+
+            jQuery('.formPost').submit();
+
+        });
+
+        function verificaHora(cHora) {
+            var hora = cHora.substr(0, 2);
+            var minutos = cHora.substr(3, 2);
+
+            if (hora > 23 || minutos > 59) {
+                return false;
+            }
+            return true;
+        }
+
+        function verificaData(cData) {
+            var data = cData;
+            var tam = data.length;
+            if (tam != 10) {
+                return false;
+            }
+            var dia = data.substr(0, 2);
+            var mes = data.substr(3, 2);
+            var ano = data.substr(6, 4);
+            if (ano < 1900) {
+                return false;
+            }
+            if (ano > 2100) {
+                return false;
+            }
+
+            switch (mes) {
+                case '01':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '02':
+                    if (dia <= 29)
+                        return (true);
+                    break;
+                case '03':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '04':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '05':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '06':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '07':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '08':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '09':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '10':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '11':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '12':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+            }
+            {
+                return false;
+            }
+            return true;
+        }
+    })
+</script> 

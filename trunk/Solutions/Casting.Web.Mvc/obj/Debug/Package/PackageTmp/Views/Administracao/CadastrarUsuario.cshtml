@@ -1,0 +1,112 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.UsuarioViewModel
+
+@{
+    ViewBag.Title = "Cadastrar Usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+    
+    <div class="breadcrumbs">
+        <a href="@Url.Action("Index","Home")">Home</a>
+        <span>Cadastro de</span>
+        <span>Usuário do sistema</span>
+    </div><!-- breadcrumbs -->
+
+    <div class="left">
+        @using (Html.BeginForm("CadastrarUsuario", "Administracao", null, FormMethod.Post, new { @class = "formPost" }))
+        {
+            <div class="form_default">
+                <fieldset>
+
+                    <legend>Cadastro de usuário do sistema</legend> 
+
+                    <div class="colunaum">
+
+                        <p class="first">
+                            <label>Nome <em>*</em></label>
+                            @Html.TextBoxFor(x => x.Nome, new {@class = "mf"})
+                        </p>
+					
+                        <p>
+                            <label for="idade">CPF <em>*</em></label>
+                            @Html.TextBoxFor(x => x.Cpf, new { @class = "mf campo_cpf" })
+                        </p>
+					
+                        <p>
+                            <label for="sexo">Telefone</label>
+                            @Html.TextBoxFor(x => x.Telefone, new { @class = "mf campo_telefone" })
+                        </p>
+                    					
+                        <p>
+                            <label for="estadocivil">Senha <em>*</em></label>
+                            @Html.PasswordFor(x => x.Senha, new {@class = "mf"})
+                        
+                        </p>
+										
+                    </div>
+
+                    <div class="colunaum">
+                        <p>
+                            <label for="idade">E-mail</label>
+                            @Html.TextBoxFor(x => x.Email, new { @class = "mf" })
+                        </p>
+
+                        <p>
+                            <label for="Peso">RG</label>
+                            @Html.TextBoxFor(x => x.Rg, new { @class = "mf" })
+                        </p>
+					
+                        <p>
+                            <label for="Peso">Cargo</label>
+                            <select name="Perfil">
+                                <option value="@Perfil.Digitador">@Perfil.Digitador</option>   
+                                <option value="@Perfil.Administrador">@Perfil.Administrador</option>   
+                            </select>
+                        </p>
+														
+                        <p>
+                            <label for="Peso">Confirmar Senha <em>*</em></label>
+                            <input type="password" name="confirmarSenha" id="confirmarSenha" class="mf"/>
+                        </p>
+                    
+                        <div style="float: right;" >
+                            <label></label>
+                            <a href="#" id="submitForm" class="iconlink4 fl">
+                                <img src="@Url.Content("~/Content/images/cafe/icons/small/white/check.png")" class="mgright5" alt="">
+                                <span>Cadastrar</span>
+                            </a>
+                            <div class="clear"></div>
+                        </div>
+                    </div>  
+                </fieldset>
+            </div>
+        }
+	
+        <div class="clear" style="margin-bottom:10px;"></div>
+
+    </div><!-- left -->            
+  
+    <div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+
+        jQuery('#submitForm').click(function () {
+            if (jQuery('#Nome').val() == "" || jQuery('#confirmarSenha').val() == "" || jQuery('#Senha').val() == "" || jQuery('#Cpf').val() == "") {
+                alert("Por Favor, preencha todos os campos obrigatórios!");
+                return false;
+            }
+
+            if (jQuery('#confirmarSenha').val() != jQuery('#Senha').val()) {
+                alert("A senha e a confirmação não conferem!");
+                return false;
+            }
+
+            jQuery('.formPost').submit();
+
+        });
+    })
+</script> 

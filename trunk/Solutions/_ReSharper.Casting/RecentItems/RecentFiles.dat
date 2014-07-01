@@ -1,0 +1,66 @@
+﻿<RecentFiles>
+  <RecentFiles>
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:ICandidatos.cs" caret="291" fromTop="9" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Candidatos.cs" caret="3207" fromTop="19" />
+    <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:ExperienciaProfissional.cs" caret="0" fromTop="0" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:ISegmentos.cs" caret="240" fromTop="8" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:IExperienciaProfissionals.cs" caret="0" fromTop="0" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Funcaos.cs" caret="479" fromTop="19" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Avaliacoes.cs" caret="3243" fromTop="10" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:IAvaliacoes.cs" caret="825" fromTop="18" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Content/d:js/d:custom/f:casting.js" caret="2027" fromTop="11" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Cadastro/f:ExperienciaProfissional.cshtml" caret="11418" fromTop="9" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:Relatorio.cshtml" caret="141" fromTop="7" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Home/f:Index.cshtml" caret="344" fromTop="14" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialDesligarCandidatoDaVaga.cshtml" caret="1103" fromTop="28" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAlterarSituacaoCandidato.cshtml" caret="2503" fromTop="44" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAvaliacaoCandidato.cshtml" caret="2892" fromTop="31" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:AvaliacaoGeral.cshtml" caret="0" fromTop="0" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="4969" fromTop="20" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:AdministracaoController.cs" caret="18444" fromTop="20" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:CandidatoViewModel.cs" caret="5662" fromTop="29" />
+    <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:Avaliacao.cs" caret="1384" fromTop="21" />
+    <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:SituacaoCandidato.cs" caret="102" fromTop="4" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:CadastroController.cs" caret="9132" fromTop="57" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:Queries/f:Vagas.cs" caret="1192" fromTop="14" />
+    <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/d:enums/f:StatusCandidato.cs" caret="66" fromTop="2" />
+    <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:Recrutamento.cs" caret="670" fromTop="17" />
+    <File id="8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6/f:Candidato.cs" caret="1397" fromTop="0" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:AvaliacaoViewModel.cs" caret="0" fromTop="0" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:DetalhesCandidato.cshtml" caret="4339" fromTop="18" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="1157" fromTop="4" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:AvaliacaoAparencia.cshtml" caret="2160" fromTop="21" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="4334" fromTop="13" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="4334" fromTop="20" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="4963" fromTop="10" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="4963" fromTop="22" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="4963" fromTop="10" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="4963" fromTop="19" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="5044" fromTop="0" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="6056" fromTop="6" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="6856" fromTop="27" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="2626" fromTop="12" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="3134" fromTop="19" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="3587" fromTop="13" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialSelecionarCandidato.cshtml" caret="3857" fromTop="17" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="4334" fromTop="17" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="4334" fromTop="6" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/d:ViewModels/f:CandidatoViewModel.cs" caret="5674" fromTop="29" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="4334" fromTop="12" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Controllers/f:AdministracaoController.cs" caret="18444" fromTop="20" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="4342" fromTop="31" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="8761" fromTop="31" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="1011" fromTop="14" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="1661" fromTop="19" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="4460" fromTop="12" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="4765" fromTop="15" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="5067" fromTop="23" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="5336" fromTop="28" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="2646" fromTop="17" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:PartialAgendamentoEntrevista.cshtml" caret="2223" fromTop="22" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:DetalhesCandidato.cshtml" caret="4226" fromTop="16" />
+    <File id="39613BA0-1206-4A4B-A16A-C1F2A22D1267/d:Views/d:Administracao/f:DetalhesCandidato.cshtml" caret="4339" fromTop="18" />
+  </RecentEdits>
+</RecentFiles>

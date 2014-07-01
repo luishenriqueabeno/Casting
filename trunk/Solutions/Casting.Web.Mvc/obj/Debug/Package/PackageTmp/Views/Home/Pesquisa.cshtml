@@ -1,0 +1,262 @@
+﻿@{
+    ViewBag.Title = "Pesquisa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+
+    <div class="left">
+    	
+				
+		 <form action="" method="post">        
+        	<div class="form_default">
+                <fieldset>
+				<legend>Buscar Currículo</legend> 
+				
+				<!-- COLUNA 1 -->
+				<div class="colunaum">
+                    
+					<p class="first">
+                    	<label for="idade">Nome</label>
+                         <input type="text" name="name" class="mf"/>
+                    </p>
+					
+					<p>
+                    	<label for="idade">E-mail</label>
+                         <input type="text" name="name" class="mf"/>
+                    </p>  
+					
+				</div>
+				<!-- COLUNA 1 - END -->
+				
+				<!-- COLUNA 2 -->
+				<div class="colunaum">
+					<p>
+                    	<label for="idade">CPF</label>
+                         <input type="text" name="name" class="mf"/>
+                    </p>
+                    <p>
+                        <label for="Peso">Telefone Celular</label>
+                        <input type="text" name="name" class="mf"/>
+                    </p>
+					<div  class="clear"></div>
+					
+					<div class="iconlink4" style="float:right;" style="margin-top:15px;">
+						<img src="@Url.Content("~/Content/images/cafe/icons/small/white/search.png")" class="mgright5" alt="">
+						<input type="submit"  value="Pesquisar" /> 
+					</div>
+
+					<div class="clear"></div>
+                    
+                 </div>  
+				 <!-- COLUNA 2 - END -->
+				 
+                </fieldset>
+            </div><!--form-->      
+        </form>   
+		
+	
+			<div class="clear" style="margin-bottom:10px;"></div>
+		
+		<!-- LEGENDA - END -->
+		
+		
+		<!-- TABELA -->
+		<table cellpadding="0" cellspacing="0" border="0" class="dyntable" id="example">
+            <thead>
+                <tr>
+                    <th class="head0">Nome</th>
+                    <th class="center head1">Idade</th>
+                    <th class="center head0">Escolaridade</th>
+                    <th class="center head1">Altura</th>
+                    <th class="center head0">Peso</th>
+					<th class="center head1">Cor dos Olhos</th>
+					<th class="center head0">Situação</th>
+                </tr>
+            </thead>
+            <colgroup>
+                <col class="con0" />
+                <col class="center con1" />
+                <col class="center con0" />
+                <col class="center con1" />
+            	<col class="center con0" />
+				<col class="center con1" />
+            	<col class="center con0" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Alan Barbosa de Jesus</a></td>
+                    <td class="center con1"> 23</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,74m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Azul</td>
+                    <td class="center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Aldemir Pereira dos Santos Junior</a></td>
+                    <td class="center con1"> 23</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,63m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Azul</td>
+                    <td class="center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Ana Paula Ferreira Lordêlo</a></td>
+                    <td class="center con1"> 23</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center center con1">1,78m</td>
+					<td class="center center con0">75</td>
+                    <td class="center center con1">Verde</td>
+                    <td class="center center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Ana Paula Santos do Sacramento</a></td>
+                    <td class="center con1"> 25</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center center con1">1,77m</td>
+					<td class="center center con0">75</td>
+                    <td class="center center con1">Azul</td>
+                    <td class="center center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Andreza Santana Santos</a></td>
+                    <td class="center con1"> 26</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center center con1">1,74m</td>
+					<td class="center center con0">75</td>
+                    <td class="center center con1">Verde</td>
+                    <td class="center center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Anibal Esteves Neto</a></td>
+                    <td class="center con1"> 27</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,84m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Azul</td>
+                    <td class="center con0">Doença</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Antonio Jorge Miranda de Souza</a></td>
+                    <td class="center con1"> 28</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,72m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Azul</td>
+                    <td class="center con0">Trabalho Fixo</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Barbara Lorraine Maciel</a></td>
+                    <td class="center con1"> 23</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,79m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Verde</td>
+                    <td class="center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Brenda Rodrigues Simões</a></td>
+                    <td class="center con1"> 25</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center center con1">1,72m</td>
+					<td class="center center con0">75</td>
+                    <td class="center center con1">Verde</td>
+                    <td class="center center con0">Contatos Desatualizados</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Bruna Louise Silva Andrade</a></td>
+                    <td class="center con1"> 28</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,68m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Azul</td>
+                    <td class="center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Caio Costa Gomes dos Santos</a></td>
+                    <td class="center con1"> 18</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,79m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Azul</td>
+                    <td class="center con0">Funcionário fixo da Café</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Carina Castro Cerqueira</a></td>
+                    <td class="center con1"> 28</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,84m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Verde</td>
+                    <td class="center con0">Gravidez</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Carolina Silva de Carvalho</a></td>
+                    <td class="center con1"> 18</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center center con1">1,97m</td>
+					<td class="center center con0">75</td>
+                    <td class="center center con1">Verde</td>
+                    <td class="center center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Catharina Maria Tourinho Fernandez</a></td>
+                    <td class="center con1"> 23</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,84m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Azul</td>
+                    <td class="center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Suzana Maria do Nascimento</a></td>
+                    <td class="center con1"> 23</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,54m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Azul</td>
+                    <td class="center con0">Gravidez</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Tanmiris Almeida de Oliveira</a></td>
+                    <td class="center con1"> 25</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,84m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Verde</td>
+                    <td class="center con0">Disponível</td>
+                </tr>
+				<tr>
+                    <td class="con0"><a href="adm_curriculo_de_candidato.html">Tatiele Santos dos Reis</a></td>
+                    <td class="center con1"> 27</td>
+                    <td class="center con0">Superior Completo</td>
+                    <td class="center con1">1,64m</td>
+					<td class="center con0">75</td>
+                    <td class="center con1">Azul</td>
+                    <td class="center con0">Disponível</td>
+                </tr>				
+            </tbody>
+            <tfoot>
+                <tr>
+               <th class="head0">Nome</th>
+                    <th class="center head1">Idade</th>
+                    <th class="center head0">Escolaridade</th>
+                    <th class="center head1">Altura</th>
+                    <th class="center head0">Peso</th>
+					<th class="center head1">Cor dos Olhos</th>
+					<th class="center head0">Situação</th>
+                </tr>
+            </tfoot>
+        </table>				
+		<!-- TABELA  - END -->
+		
+		
+		
+		<div class="clear"></div>
+		
+	</div>     
+ 
+<div class="clear"></div>	 
+</div>

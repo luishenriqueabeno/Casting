@@ -1,0 +1,20 @@
+﻿@using Casting.Domain.enums
+@using Microsoft.Web.Mvc
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @if (Model.usuario.Perfil == Perfil.Candidato)
+    {
+        @Html.Partial("PartialCandidatoIndex")
+
+    }
+    else if (Model.usuario.Perfil == Perfil.Administrador)
+    {
+        @Html.Partial("PartialAdminIndex")
+    }
+    else
+    {
+        @Html.Partial("PartialDigitadorIndex")
+    }

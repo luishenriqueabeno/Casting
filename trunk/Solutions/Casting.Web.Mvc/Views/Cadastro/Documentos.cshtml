@@ -1,0 +1,293 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.CandidatoViewModel
+@{
+    ViewBag.Title = "Documentos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+
+    <div class="left">
+		
+        <div class="etapas">
+            <ul class="meus_dados">
+                <li class="etapa1 ok"></li>
+                <li class="etapa2 on"></li>
+                <li class="etapa3"></li>
+                <li class="etapa4"></li>
+                <li class="etapa5"></li>
+            </ul>
+            <div class="clear"></div>
+        </div>   
+            
+        <div class="clear"></div>
+		
+        @using (Html.BeginForm("GravaDocumentos", "Cadastro", null, FormMethod.Post, new { @class = "formPost" }))
+        {
+            <div class="form_default">
+                <fieldset>
+                @Html.HiddenFor(x => x.Id)
+                    <legend>Documentos</legend>    
+					
+                    <p  class="first">
+                        <label for="campanha">RG:</label>
+                        @Html.TextBoxFor(x => x.Rg, new { @class = "sf" })
+                    </p>
+					                   					
+                    <p>
+                        <span class="fl">
+                            <label>Estado emissão:</label>
+                            @Html.TextBoxFor(x => x.UfExpedicaoRg, new { maxlength = 2, @class = "pppf" })
+                        </span>
+						
+                        <span class="fl">
+                            <label>Data de emissão:</label>
+                            @Html.TextBoxFor(x => x.DataExpedicaoRg, new { @class = "pf campo_data date", @id = "dataExpedicaoRg" })
+                        </span>						
+                        <div class="clear"></div>
+                    </p>
+					
+                    <p>
+                        <label for="campanha">CPF: <em>*</em></label>
+                        @if(!string.IsNullOrEmpty(Model.Cpf))
+                        {
+                            @Html.TextBoxFor(x => x.Cpf, new { @class = "sf campo_cpf completed", @disabled = "true", @id = "cpfDesab" })
+                            @Html.HiddenFor(x => x.Cpf)
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(x => x.Cpf, new { @class = "sf campo_cpf" })
+                        }
+                        
+                    </p>
+										
+                    <p>
+                        <span class="fl">
+                            <label>Carteira de Trabalho: <em>*</em> </label>
+                            @Html.TextBoxFor(x => x.CarteiraTrabNumero, new { @class = "sf" })
+                        </span>
+                        <span class="fl">
+                            <label>Série: <em>*</em> </label>
+                            @Html.TextBoxFor(x => x.CarteiraTrabSerie, new { @class = "ssf" })
+                        </span>
+                        <span class="fl">
+                            <label>Estado: <em>*</em> </label>
+                            @Html.TextBoxFor(x => x.CarteiraTrabUf, new { maxlength = 2, @class = "pppf" })
+                        </span>
+                        <div class="clear"></div>
+                    </p>
+					
+                    <p>
+                        <span class="fl">
+                            <label>PIS/PASEP:</label>
+                            @Html.TextBoxFor(x => x.PisNumero, new { @class = "sf campo_pis" })
+                        </span>
+						
+                        <span class="fl">
+                            <label>Data de emissão:</label>
+                            @Html.TextBoxFor(x => x.PisDataEmissao, new { @class = "pf campo_data date", @id = "pisDataEmissao" })
+                        </span>									
+                        <div class="clear"></div>
+                    </p>
+					
+                    <p>
+                        <span class="fl">
+                            <label>Nº Cart. Nac. Habilitação: </label>
+                            @Html.TextBoxFor(x => x.HabilitacaoNumero, new { @class = "sf" })
+                        </span>
+						
+                        <span class="fl">
+                            <label>Categoria da CNH: <span class="obs">(Ex:A,B,C ou AB) </span></label>
+                            @Html.TextBoxFor(x => x.HabilitacaoCategoria, new { maxlength = 2, @class = "ppf" })
+                        </span>										
+                        <div class="clear"></div>
+                    </p>
+					
+					
+				
+                    <p>                    	
+                        <label>Possui veículo?  <em>*</em> </label>
+                    </p>
+					
+                       @{
+                        var displayAux = "";
+                        var possuiVeiculo = "";
+                        var naoPossuiVeiculo = "";
+                        if (!@Model.PossuiVeiculo)
+                        {
+                            displayAux = "display:none;";
+                            possuiVeiculo = "";
+                            naoPossuiVeiculo = "checked=''";
+                        }
+                        else
+                        {
+                            possuiVeiculo = "checked=''";
+                            naoPossuiVeiculo = "";
+                        }
+                       }
+
+                    <p> 
+                        <span class="fl">
+                            <label>
+                                <input type="radio" @possuiVeiculo value="True" id="tem_carro" name="PossuiVeiculo"/> Sim
+                            </label>
+                        </span>
+                        <span class="fl">
+                            <label><input type="radio" @naoPossuiVeiculo value="False" id="nao_tem_carro" name="PossuiVeiculo"/> Não</label>
+                        </span>
+                        <div class="clear"></div>
+                    </p>
+                    
+                        <div id="tipo_carro" style = "@displayAux">
+
+                        <p>                    	
+                            <label>Tipo: <em>*</em> </label>
+                        </p>
+						
+                        <select name="TipoVeiculo" id="TipoVeiculo" class="sf">
+                            <option selected="selected" value="0">Selecione</option> 
+                            @if (@Model.TipoVeiculo == TipoVeiculo.Carro)
+                            {
+                                <option selected="selected" value="@TipoVeiculo.Carro">Carro</option> 
+                            }
+                            else
+                            {
+                                <option value="@TipoVeiculo.Carro">Carro</option>
+                            }
+                            @if (@Model.TipoVeiculo == TipoVeiculo.Moto)
+                            {
+                                <option selected="selected" value="@TipoVeiculo.Moto">Moto</option>
+                            }
+                            else
+                            {
+                                <option value="@TipoVeiculo.Moto">Moto</option>
+                            }
+                            @if (@Model.TipoVeiculo == TipoVeiculo.Van)
+                            {
+                                <option selected="selected" value="@TipoVeiculo.Van">Van</option>
+                            }
+                            else
+                            {
+                                <option value="@TipoVeiculo.Van">Van</option>
+                            }
+                        </select>
+                    </div>
+					
+                    <div class="clear"></div>
+					
+					
+                    <!-- BOTÕES -->
+                    <p style="padding-left: 447px; margin-top: 10px;">
+                        <a href="@Url.Action("DadosPessoais", "Cadastro")" class="iconlink3 mg_rt fl"><img src="@Url.Content("~/Content/images/cafe/icons/small/black/left.png")" class="mgright5" alt=""> <span>Voltar</span></a> 
+                        <a href="#" id="submitForm" class="iconlink4 fl"><img src="@Url.Content("~/Content/images/cafe/icons/small/white/right.png")" class="mgright5" alt=""> <span>Próxima Etapa</span></a>
+						
+                    </p>
+                    <!-- BOTÕES - END -->
+                    
+                    <div class="clear"></div>
+
+                </fieldset>
+            </div>
+            <!--form-->
+        }	       	
+		
+				
+        <br />
+					
+    </div><!-- left -->            
+  
+	
+    <br clear="all" />
+    
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#submitForm').click(function () {
+
+            if (jQuery('#Cpf').val() == "" || jQuery('#CarteiraTrabNumero').val() == "" || jQuery('#CarteiraTrabSerie').val() == "" || jQuery('#CarteiraTrabUf').val() == "") {
+                alert("Por Favor, preencha todos os campos obrigatórios!");
+            }else if (verificaData(jQuery('#dataExpedicaoRg').val()) || jQuery('#dataExpedicaoRg').val() == null || jQuery('#dataExpedicaoRg').val() == "") {
+                if (verificaData(jQuery('#pisDataEmissao').val()) || jQuery('#pisDataEmissao').val() == null || jQuery('#pisDataEmissao').val() == "") {
+                    jQuery('.formPost').submit();
+                } else {
+                    alert("Por Favor, insira uma data válida para a emissão do PIS!");
+                }
+            } else {
+                    alert("Por Favor, insira uma data válida para a expedição do Rg!");
+            }
+        });
+
+        function verificaData(cData) {
+            var data = cData;
+            var tam = data.length;
+            if (tam != 10) {
+                return false;
+            }
+            var dia = data.substr(0, 2);
+            var mes = data.substr(3, 2);
+            var ano = data.substr(6, 4);
+            if (ano < 1900) {
+                return false;
+            }
+            if (ano > 2100) {
+                return false;
+            }
+
+            switch (mes) {
+                case '01':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '02':
+                    if (dia <= 29)
+                        return (true);
+                    break;
+                case '03':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '04':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '05':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '06':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '07':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '08':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '09':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '10':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+                case '11':
+                    if (dia <= 30)
+                        return (true);
+                    break;
+                case '12':
+                    if (dia <= 31)
+                        return (true);
+                    break;
+            }
+            {
+                return false;
+            }
+            return true;
+        }
+    });
+</script>

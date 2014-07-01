@@ -1,0 +1,67 @@
+﻿@using Casting.Domain.enums
+@model Casting.Web.Mvc.Controllers.ViewModels.CandidatoViewModel
+
+@{
+    ViewBag.Title = "Relatorio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="maincontent">
+
+    <div class="left">
+    	
+        <!-- h1 class="pageTitle" style="margin-top:15px;">Meu currículo</h1> 
+    	
+		
+            <!-- Cont Paper -->
+        <div class="cont_curriculo">
+		
+            <div class="topo">
+                <div class="fl">
+                    <h1>RELATÓRIO DE CANDIDATO</h1>
+                </div>
+				
+                <div class="fr mg_rt">
+                    <ul>
+						
+                        <li>
+                            <div class="btn_acao" id="btn_pdf_tp">
+                                <a href="@Url.Action("PrintRelatorioToPdf","Administracao", new {idCandidato = @Model.Id})">
+                                <img src="@Url.Content("/Content/images/icons/small/black/document.png")" class="mgright5" alt="" />							
+                                <input type="submit"  value="Gerar PDF" /> 				
+                                </a>
+                            </div>
+                        </li>
+						
+                        <li style="margin-left:-11px;">
+                            <div class="btn_acao" id="btn_print_tp">
+                                <img src="@Url.Content("/Content/images/icons/small/black/print.png")" class="mgright5" alt="" />
+                                <input type="submit"  value="Imprimir" id="imprimir" />			
+                            </div>
+                        </li>
+                    </ul>
+                </div>		
+				
+                <div class="clear"></div>
+            </div>
+            @Html.Partial("PartialRelatorioConteudoImpressao")
+            <div class="clear"></div>
+            <br />
+			
+        </div><!-- Cont Paper - END -->
+		
+		
+        <div class="clear"></div>			
+        <br />
+		
+    </div>     
+ 
+    <div class="clear"></div>	 
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery("#imprimir").click(function() {
+            jQuery('#conteudoImpressao').printElement();
+        });
+    })
+</script>
